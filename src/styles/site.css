@@ -724,7 +724,9 @@
   text-align: center;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 6px;
+  letter-spacing: 10px;
+  /* letter-spacing also follows the last letter; offset it so the line stays centred */
+  padding-left: 10px;
   text-transform: uppercase;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }
@@ -867,7 +869,8 @@
   }
   .hero__eyebrow {
     top: 11vh;
-    letter-spacing: 4px;
+    letter-spacing: 7px;
+    padding-left: 7px;
   }
 }
 
