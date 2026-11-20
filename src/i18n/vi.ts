@@ -11,8 +11,6 @@ export const vi = {
   'lang.vi': 'Tiếng Việt',
   'lang.en': 'English',
   'home.explore': 'KHÁM PHÁ DỰ ÁN',
-  'home.pause': 'Tạm dừng trình chiếu ảnh',
-  'home.play': 'Tiếp tục trình chiếu ảnh',
   'home.slides': 'Ảnh công trình',
   'home.slideOf': 'Ảnh {n} trên {total}',
   'projects.title': 'Dự án',

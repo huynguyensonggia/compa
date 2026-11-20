@@ -772,7 +772,6 @@
   color: var(--text-primary);
 }
 .hero__cta:focus-visible,
-.hero__pause:focus-visible,
 .lang-switch--dark a:focus-visible {
   outline-color: #fff;
 }
@@ -788,22 +787,6 @@
 }
 .hero__social > * {
   pointer-events: auto;
-}
-.hero__pause {
-  position: absolute;
-  right: 16px;
-  bottom: 18px;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--tap);
-  height: var(--tap);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-}
-.hero__pause:hover {
-  background: rgba(0, 0, 0, 0.25);
 }
 
 /* ---------- 404 ---------- */

@@ -13,8 +13,6 @@ export const en: Record<MessageKey, string> = {
   'lang.vi': 'Tiếng Việt',
   'lang.en': 'English',
   'home.explore': 'EXPLORE PROJECTS',
-  'home.pause': 'Pause slideshow',
-  'home.play': 'Play slideshow',
   'home.slides': 'Project photographs',
   'home.slideOf': 'Image {n} of {total}',
   'projects.title': 'Projects',
