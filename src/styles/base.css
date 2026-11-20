@@ -11,7 +11,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--surface);
+  /* Warm white: COMPA page background (prompt §3) */
+  background: var(--surface-warm);
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: var(--fs-body);

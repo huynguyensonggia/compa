@@ -1081,3 +1081,72 @@
     letter-spacing: 2.5px;
   }
 }
+
+/* ---------- COMPA brand header: charcoal band, logo blends in, sand accents ---------- */
+.site-header {
+  background: var(--brand-charcoal);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--brand-sand);
+}
+.site-header .brand-logo:not(.brand-logo--temporary) {
+  width: var(--logo-band-w);
+  height: var(--logo-band-h);
+}
+.site-header .brand-logo:not(.brand-logo--temporary) img {
+  object-fit: cover;
+  object-position: 50% 48%;
+}
+.site-header .site-nav {
+  margin-top: 14px;
+}
+.site-header .site-nav__link {
+  color: var(--on-charcoal);
+}
+.site-header .site-nav__link:hover,
+.site-header .site-nav__link.is-active,
+.site-header .site-nav__button[aria-expanded='true'] {
+  color: var(--on-charcoal-strong);
+}
+.site-header .site-nav__link.is-active::after {
+  background: var(--brand-sand);
+  height: 2px;
+}
+.site-header :focus-visible {
+  outline-color: var(--brand-sand);
+}
+.site-header .skip-link:focus {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+.site-footer {
+  border-top: 1px solid var(--brand-sand);
+}
+.pricing__demo {
+  background: var(--surface);
+}
+@media (max-width: 639px) {
+  .site-header {
+    padding-bottom: 8px;
+  }
+  .site-header .site-nav {
+    margin-top: 8px;
+  }
+}
+.site-header .lang-switch ul {
+  border-color: rgba(206, 192, 157, 0.55);
+}
+.site-header .lang-switch a {
+  color: var(--on-charcoal);
+}
+.site-header .lang-switch .lang-switch__globe {
+  color: var(--on-charcoal);
+}
+.site-header .lang-switch a:hover {
+  color: var(--on-charcoal-strong);
+  background: rgba(0, 0, 0, 0.15);
+}
+.site-header .lang-switch a.is-active {
+  background: var(--on-charcoal-strong);
+  color: var(--brand-charcoal);
+  box-shadow: inset 0 -2px 0 var(--brand-sand);
+}

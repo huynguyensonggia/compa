@@ -57,7 +57,7 @@ export function SiteHeader() {
         {t('skip')}
       </a>
       <div className="site-header__lang">
-        <LanguageSwitcher />
+        <LanguageSwitcher tone="dark" />
       </div>
       <Link to={paths.home(lang)} className="site-header__logo">
         <BrandLogo variant="header" />

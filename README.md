@@ -94,6 +94,8 @@ Qua admin (khuyến nghị) rồi xuất gói. Ảnh mẫu hiện tại có `isD
 
 ## Ghi chú bàn giao
 
+**Nhận diện COMPA trên các trang bên trong**: header là dải xám than (logo gốc hòa vào nền, menu chữ vàng be nhạt, vạch vàng be dưới header), nền trang trắng ấm `#F6F4EF`, footer xám than có vạch vàng be — theo quy tắc màu ở mục 3 của prompt. Màu chữ trên nền xám than dùng `--on-charcoal` / `--on-charcoal-strong` (đạt WCAG AA); vàng be thuần chỉ dùng cho logo và đường kẻ.
+
 **Mạng xã hội**: trang chủ có hàng nút vuông Facebook / Instagram / TikTok (rà chuột: nút đổi sang màu thương hiệu, biểu tượng trượt xuống). Cả 3 nút luôn hiện trên trang chủ; nút chưa có link (Instagram, TikTok) chưa bấm được cho tới khi nhập link trong admin → Thương hiệu & Liên hệ. Footer, trang Liên hệ và JSON-LD chỉ hiện các tài khoản đã có link. Footer, trang Liên hệ và JSON-LD (`sameAs`) dùng cùng nguồn link.
 
 **Còn tạm / xấp xỉ**

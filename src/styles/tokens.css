@@ -16,6 +16,9 @@
   --text-secondary: #686963; /* 5.6:1 on white — AA for small text */
   --border-subtle: #dedcd5;
   --focus-ring: #756747;
+  /* Text on charcoal (menu): AA-safe sand tints; pure sand is for logo/lines only */
+  --on-charcoal: #d9d0b8;
+  --on-charcoal-strong: #e8e2d4;
 
   /* Typography */
   --font-sans: 'Montserrat', Arial, sans-serif;
@@ -36,6 +39,10 @@
   --gallery-gap: 3px;
   --header-top: 60px;
   --logo-header: 144px;
+  /* Logo in the charcoal header: the logo file's own charcoal margin blends into the band,
+     so it is shown as a wide crop of the square (no artwork is cut). */
+  --logo-band-w: 260px;
+  --logo-band-h: 120px;
   --logo-hero: 208px;
   --space-1: 8px;
   --space-2: 16px;
@@ -54,6 +61,8 @@
     --row-gap-grid: 48px;
     --header-top: 40px;
     --logo-header: 128px;
+    --logo-band-w: 230px;
+    --logo-band-h: 106px;
   }
 }
 
@@ -63,6 +72,8 @@
     --row-gap-grid: 40px;
     --header-top: 28px;
     --logo-header: 112px;
+    --logo-band-w: 200px;
+    --logo-band-h: 92px;
     --logo-hero: 168px;
     --space-6: 56px;
   }
