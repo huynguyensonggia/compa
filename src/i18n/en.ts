@@ -62,6 +62,7 @@ export const en: Record<MessageKey, string> = {
   'services.viewAll': 'View all projects',
   'social.label': 'COMPA Architecture Hội An on social media',
   'social.newTab': 'opens in a new tab',
+  'social.pending': 'coming soon',
   'contact.social': 'Social media',
   'footer.rights': 'All rights reserved.',
   'footer.contact': 'Contact',

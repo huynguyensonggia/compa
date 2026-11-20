@@ -998,10 +998,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 25px;
-  background-color: rgb(238, 238, 238);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.055);
+  gap: 16px;
 }
 .social-card__item {
   display: flex;
@@ -1024,6 +1021,9 @@
 .social-card__item--tiktok:hover,
 .social-card__item--tiktok:focus-visible {
   background-color: #fe2c55;
+}
+.social-card__item.is-pending {
+  cursor: default;
 }
 .social-card__item:active {
   transform: scale(0.9);
@@ -1061,8 +1061,7 @@
 }
 @media (max-width: 639px) {
   .social-card {
-    padding: 16px;
-    gap: 14px;
+    gap: 12px;
   }
   .social-card__item {
     width: 46px;

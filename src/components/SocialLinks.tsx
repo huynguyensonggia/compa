@@ -44,32 +44,38 @@ export function configuredSocials(site: SiteContent) {
 
 /**
  * Row of square icon buttons (home hero): dark tiles that switch to the brand colour on hover,
- * with the icon sliding in from the top. Renders only the accounts with a configured URL.
+ * with the icon sliding in from the top. All three are always shown; a button without a URL yet
+ * is rendered as a non-link placeholder (no dead link) until the URL is entered in admin.
  */
 export function SocialDock({ location }: { location: string }) {
   const { site } = useContent();
   const t = useT();
-  const items = configuredSocials(site);
-  if (!items.length) return null;
   return (
     <nav className="social-card" aria-label={t('social.label')}>
-      {items.map((s) => (
-        <a
-          key={s.key}
-          className={`social-card__item social-card__item--${s.key}`}
-          href={s.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => track(s.event, { location })}
-        >
+      {ICONS.map((s) => {
+        const url = site.contact[s.key]?.trim() ?? '';
+        const className = `social-card__item social-card__item--${s.key}`;
+        const svg = (
           <svg className="social-card__svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
             {s.icon}
           </svg>
-          <span className="visually-hidden">
-            {s.label} — {t('social.newTab')}
-          </span>
-        </a>
-      ))}
+        );
+        if (!url) {
+          return (
+            <span key={s.key} className={`${className} is-pending`} role="img" aria-label={`${s.label} — ${t('social.pending')}`} title={t('social.pending')}>
+              {svg}
+            </span>
+          );
+        }
+        return (
+          <a key={s.key} className={className} href={url} target="_blank" rel="noopener noreferrer" onClick={() => track(s.event, { location })}>
+            {svg}
+            <span className="visually-hidden">
+              {s.label} — {t('social.newTab')}
+            </span>
+          </a>
+        );
+      })}
     </nav>
   );
 }

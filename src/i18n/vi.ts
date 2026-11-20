@@ -60,6 +60,7 @@ export const vi = {
   'services.viewAll': 'Xem tất cả dự án',
   'social.label': 'Mạng xã hội của COMPA Architecture Hội An',
   'social.newTab': 'mở trong tab mới',
+  'social.pending': 'đang cập nhật',
   'contact.social': 'Mạng xã hội',
   'footer.rights': 'Bảo lưu mọi quyền.',
   'footer.contact': 'Liên hệ',

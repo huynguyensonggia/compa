@@ -84,8 +84,8 @@ export function BrandAdminPage() {
           hint="Bản tiếng Anh giữ nguyên tên riêng. Không thêm mã bưu chính hay địa chỉ khác."
         />
         {text('Facebook', c.facebook, (v) => set((d) => void (d.contact.facebook = v.trim())), 'Chỉ liên kết đã xác minh. Để trống = không hiện nút.', 'url')}
-        {text('Instagram', c.instagram ?? '', (v) => set((d) => void (d.contact.instagram = v.trim())), 'Ví dụ https://www.instagram.com/ten-tai-khoan — chỉ nhập khi đã xác minh. Để trống = không hiện nút.', 'url')}
-        {text('TikTok', c.tiktok ?? '', (v) => set((d) => void (d.contact.tiktok = v.trim())), 'Ví dụ https://www.tiktok.com/@ten-tai-khoan — chỉ nhập khi đã xác minh. Để trống = không hiện nút.', 'url')}
+        {text('Instagram', c.instagram ?? '', (v) => set((d) => void (d.contact.instagram = v.trim())), 'Ví dụ https://www.instagram.com/ten-tai-khoan — chỉ nhập khi đã xác minh. Để trống: nút trên trang chủ vẫn hiện nhưng chưa bấm được; footer/Liên hệ chưa hiện.', 'url')}
+        {text('TikTok', c.tiktok ?? '', (v) => set((d) => void (d.contact.tiktok = v.trim())), 'Ví dụ https://www.tiktok.com/@ten-tai-khoan — chỉ nhập khi đã xác minh. Để trống: nút trên trang chủ vẫn hiện nhưng chưa bấm được; footer/Liên hệ chưa hiện.', 'url')}
       </section>
 
       <section className="a-card">
