@@ -1,1 +1,1 @@
-Đặt logo gốc của khách tại public/brand/logo.png rồi khai báo "logoFile": "/brand/logo.png" trong content/site.json (xem README.md).
+Logo gốc nằm ở content/images-src/brand/logo-original.jpg. Khi build, scripts/build-images.mjs tạo public/brand/logo.webp (640px), logo.png (512px) và favicon (cắt từ biểu tượng compa trong logo).

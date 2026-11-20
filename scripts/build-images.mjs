@@ -38,10 +38,27 @@ function sweep(dir) {
 }
 sweep(OUT_DIR);
 
-// Favicons: from the client's original logo when provided, otherwise from the temporary wordmark icon.
-const logoPng = path.join(ROOT, 'public', 'brand', 'logo.png');
-const iconSource = fs.existsSync(logoPng) ? logoPng : path.join(ROOT, 'public', 'favicon.svg');
-await sharp(iconSource).resize(32, 32, { fit: 'contain', background: '#525350' }).png().toFile(path.join(ROOT, 'public', 'favicon-32.png'));
-await sharp(iconSource).resize(180, 180, { fit: 'contain', background: '#525350' }).png().toFile(path.join(ROOT, 'public', 'apple-touch-icon.png'));
+// Brand logo: original square file supplied by the client (charcoal background, kept as-is — no recolouring).
+const brandSrc = path.join(ROOT, 'content', 'images-src', 'brand', 'logo-original.jpg');
+const brandOut = path.join(ROOT, 'public', 'brand');
+if (fs.existsSync(brandSrc)) {
+  fs.mkdirSync(brandOut, { recursive: true });
+  // Displayed at 112–208 CSS px → 640 px covers 3× screens.
+  await sharp(brandSrc).resize(640, 640).webp({ quality: 88, effort: 5 }).toFile(path.join(brandOut, 'logo.webp'));
+  // PNG for JSON-LD "logo" and other consumers.
+  await sharp(brandSrc).resize(512, 512).png({ compressionLevel: 9 }).toFile(path.join(brandOut, 'logo.png'));
+  // Favicons: a crop of the original "O + compass" mark (scaled down, not redrawn).
+  // Crop box is in the 2048×2048 source; scaled if the source size differs.
+  const { width = 2048 } = await sharp(brandSrc).metadata();
+  const k = width / 2048;
+  const mark = sharp(brandSrc).extract({ left: Math.round(484 * k), top: Math.round(757 * k), width: Math.round(420 * k), height: Math.round(420 * k) });
+  await mark.clone().resize(32, 32).png().toFile(path.join(ROOT, 'public', 'favicon-32.png'));
+  await mark.clone().resize(180, 180).png().toFile(path.join(ROOT, 'public', 'apple-touch-icon.png'));
+} else {
+  // No logo file: plain charcoal placeholder icon.
+  const svg = Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><rect width="64" height="64" fill="#535351"/></svg>');
+  await sharp(svg).resize(32, 32).png().toFile(path.join(ROOT, 'public', 'favicon-32.png'));
+  await sharp(svg).resize(180, 180).png().toFile(path.join(ROOT, 'public', 'apple-touch-icon.png'));
+}
 
 console.log(`images: ${assets.length} assets ready (${WIDTHS.join('/')}px WebP)`);

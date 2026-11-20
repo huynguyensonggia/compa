@@ -9,8 +9,9 @@
 
 ## 2. Còn thiếu — cần khách cung cấp (không tự điền)
 
-- [ ] **Logo gốc** (vector hoặc PNG nền trong suốt) → favicon, apple-touch-icon, logo JSON-LD, ảnh OG. Hiện đang dùng wordmark tạm.
-- [ ] **Mã màu chính thức** từ file thiết kế (bảng màu hiện tại là xấp xỉ).
+- [x] Logo gốc (raster 2048×2048 nền xám) đã dùng cho header, trang chủ, favicon và JSON-LD.
+- [ ] Logo **vector hoặc PNG nền trong suốt** (để dùng trên nền sáng và in ấn, nếu khách có).
+- [ ] **Mã màu chính thức** từ file thiết kế (hiện lấy mẫu từ ảnh logo: `#535351` / `#CEC09D`).
 - [ ] **Danh sách dự án thật**: tên, địa điểm, năm, hạng mục, mô tả 80–200 từ, ảnh và **quyền sử dụng ảnh**.
 - [ ] **Mô tả dịch vụ thật** cho 4 mảng (kiến trúc, nội thất, cảnh quan, thi công) và **khu vực nhận công trình**. Trang Dịch vụ đang ở trạng thái nháp.
 - [ ] **Sửa địa chỉ trên fanpage** cho đúng chuỗi chuẩn (fanpage đang ghi “Hội An, Thành Phố Đà Nẵng 51000”).

@@ -17,7 +17,7 @@ export function BrandLogo({ variant = 'header' }: Props) {
   if (src) {
     return (
       <span className={`brand-logo brand-logo--${variant}`}>
-        <img src={src} alt={brand.name} width={uploaded?.width ?? 600} height={uploaded?.height ?? 600} />
+        <img src={src} alt={brand.name} width={uploaded?.width ?? 640} height={uploaded?.height ?? 640} decoding="async" />
       </span>
     );
   }

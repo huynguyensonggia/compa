@@ -68,19 +68,19 @@ IndexedDB chỉ nằm trong trình duyệt của người quản trị; bản bu
 | Bảng màu, font, khoảng cách | `src/styles/tokens.css` |
 | Chuỗi giao diện Việt / Anh | `src/i18n/vi.ts`, `src/i18n/en.ts` |
 | Tên miền | biến `SITE_URL` trong `.env` (mẫu ở `.env.example`) |
-| Logo | `src/components/BrandLogo.tsx` (xem bên dưới) |
+| Logo | `content/images-src/brand/logo-original.jpg` (xem bên dưới) |
 
 Các component chính: `BrandLogo`, `SiteHeader`, `LanguageSwitcher`, `ProjectGrid`, `ProjectCard`, `ProjectGallery`, `Lightbox`, `SiteFooter`, `AdminLayout`. Dữ liệu admin đi qua `src/admin/data/repository.ts` để sau này thay bằng API.
 
-### Thay logo gốc
+### Logo
 
-Hiện đang dùng **wordmark “COMPA” tạm** (SVG chữ trên nền xám than) — *không phải logo gốc*, không có biểu tượng compa trong chữ O.
-Khi có file của khách:
-1. Đặt file tại `public/brand/logo.png` (PNG nền trong suốt hoặc ảnh vuông nền xám nguyên bản).
-2. Trong `content/site.json` đặt `"logoFile": "/brand/logo.png"`.
-3. `npm run build` — favicon và apple-touch-icon được tạo lại từ logo; JSON-LD `logo` trỏ về file này.
+Đang dùng **logo gốc của khách**: `content/images-src/brand/logo-original.jpg` (2048×2048, nền xám than; file gốc tên `logo.webp` nhưng dữ liệu là JPEG). Khi build, `scripts/build-images.mjs` tạo:
 
-Hoặc tải logo trong admin (Thương hiệu & Liên hệ) rồi xuất gói nội dung.
+- `public/brand/logo.webp` (640px) — hiển thị ở header và trang chủ, nguyên bản, không đổi màu, không cắt chữ phụ;
+- `public/brand/logo.png` (512px) — dùng cho JSON-LD `logo`;
+- `favicon-32.png`, `apple-touch-icon.png` — cắt từ biểu tượng chữ O + compa trong logo (thu nhỏ, không vẽ lại).
+
+Thay logo: ghi đè `content/images-src/brand/logo-original.jpg` rồi `npm run build`. Đường dẫn hiển thị khai báo ở `brand.logoFile` trong `content/site.json`.
 
 ### Thay ảnh dự án
 
@@ -90,8 +90,8 @@ Qua admin (khuyến nghị) rồi xuất gói. Ảnh mẫu hiện tại có `isD
 
 **Còn tạm / xấp xỉ**
 
-- Logo: wordmark tạm (xem trên). Favicon cũng tạm (chữ “C”).
-- Mã màu trong `tokens.css` là **xấp xỉ** theo logo quan sát trên Facebook, chưa phải mã chính thức.
+- Logo: đã dùng file gốc của khách (ảnh raster nền xám). Chưa có bản vector / PNG nền trong suốt.
+- Mã màu trong `tokens.css` lấy mẫu từ file logo (xám than `#535351`, vàng be `#CEC09D`), chưa đối chiếu với file nhận diện chính thức.
 - Font: Montserrat (OFL, tự host WOFF2, subset Việt + Latin, 300/400/600) thay thế tạm cho proxima-nova.
 - Toàn bộ 12 dự án là minh họa; dự án 01 có đủ 20 ảnh (5 Ngoại thất + 10 Nội thất + 5 Sân vườn) để kiểm tra gallery.
 - Trang Dịch vụ ở trạng thái nháp, cần khách cung cấp mô tả.

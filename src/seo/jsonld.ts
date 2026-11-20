@@ -14,7 +14,7 @@ export function businessJsonLd(site: SiteContent): Record<string, unknown> {
     '@id': businessId(),
     name: site.brand.name,
     url: absUrl('/'),
-    logo: absUrl(site.brand.logoFile || '/apple-touch-icon.png'),
+    logo: absUrl(site.brand.logoFile ? '/brand/logo.png' : '/apple-touch-icon.png'),
     image: absUrl(OG_DEFAULT_PATH),
     description: site.brand.description.vi,
     slogan: site.brand.tagline.vi,

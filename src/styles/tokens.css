@@ -1,12 +1,12 @@
 /*
  * COMPA design tokens.
- * Brand colours are APPROXIMATIONS sampled from the logo seen on the Facebook page,
- * not official values. Update here once the original logo/brand file is supplied.
+ * Brand colours sampled from the supplied logo file (content/images-src/brand/logo-original.jpg, raster).
+ * Confirm against the official vector/brand file when available.
  */
 :root {
   /* Brand */
-  --brand-charcoal: #525350;
-  --brand-sand: #c8bc98;
+  --brand-charcoal: #535351;
+  --brand-sand: #cec09d;
   --brand-sand-soft: #e8e2d4;
 
   /* Surfaces & text */
@@ -35,8 +35,8 @@
   --row-gap-grid: 64px;
   --gallery-gap: 3px;
   --header-top: 60px;
-  --logo-header: 132px;
-  --logo-hero: 176px;
+  --logo-header: 144px;
+  --logo-hero: 208px;
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
@@ -53,7 +53,7 @@
     --gutter-grid: 32px;
     --row-gap-grid: 48px;
     --header-top: 40px;
-    --logo-header: 116px;
+    --logo-header: 128px;
   }
 }
 
@@ -62,8 +62,8 @@
     --container: calc(100vw - 32px);
     --row-gap-grid: 40px;
     --header-top: 28px;
-    --logo-header: 104px;
-    --logo-hero: 148px;
+    --logo-header: 112px;
+    --logo-hero: 168px;
     --space-6: 56px;
   }
 }
