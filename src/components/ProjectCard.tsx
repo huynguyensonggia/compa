@@ -18,12 +18,14 @@ interface CardProps {
   eager?: boolean;
   /** Rendered below the card link (e.g. a separate price link — links cannot be nested). */
   extra?: ReactNode;
+  /** "type" = category card on /du-an/ with a more prominent title. */
+  variant?: "project" | "type";
 }
 
 /** Square image + small spaced caption, shared by type cards and project cards. */
-export function GridCard({ to, title, image, focalPoint, meta, priority, eager, extra }: CardProps) {
+export function GridCard({ to, title, image, focalPoint, meta, priority, eager, extra, variant = "project" }: CardProps) {
   return (
-    <li className="project-card">
+    <li className={`project-card project-card--${variant}`}>
       <Link to={to} className="project-card__link">
         <span className="project-card__media">
           <Picture asset={image} alt="" sizes={CARD_SIZES} priority={priority} eager={eager} focalPoint={focalPoint} />

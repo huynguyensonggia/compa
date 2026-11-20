@@ -43,6 +43,7 @@ export function ProjectsPage() {
             {types.map(({ type, projects: list }, i) => (
               <GridCard
                 key={type.id}
+                variant="type"
                 to={paths.projectType(lang, type.slug[lang])}
                 title={type.title[lang] || type.title.vi}
                 meta={list.length === 1 ? t('types.countOne') : t('types.count', { n: list.length })}

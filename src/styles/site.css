@@ -1055,3 +1055,29 @@
   flex-wrap: wrap;
   gap: 0 20px;
 }
+
+/* Category cards on /du-an/: titles must read clearly at a glance */
+.project-card--type .project-card__title {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #232421;
+}
+.project-card--type .project-card__link:hover .project-card__title {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-sand);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+.project-card--type .project-card__meta {
+  margin-top: 6px;
+  font-size: 12px;
+}
+@media (max-width: 639px) {
+  .project-card--type .project-card__title {
+    font-size: 14px;
+    letter-spacing: 2.5px;
+  }
+}
