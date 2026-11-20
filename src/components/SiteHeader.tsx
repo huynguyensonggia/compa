@@ -18,6 +18,8 @@ export function SiteHeader() {
   const hoverCapable = useRef(false);
 
   const projectsActive = pathname.startsWith(paths.projects(lang));
+  const pricingActive = pathname.startsWith(paths.pricing(lang));
+  const showPricing = site.pricing?.status === 'published';
   const infoLinks = [
     { to: paths.studio(lang), label: t('nav.about') },
     ...(site.services.status === 'published' ? [{ to: paths.services(lang), label: t('nav.services') }] : []),
@@ -72,6 +74,17 @@ export function SiteHeader() {
               {t('nav.projects')}
             </Link>
           </li>
+          {showPricing && (
+            <li>
+              <Link
+                to={paths.pricing(lang)}
+                className={`site-nav__link${pricingActive ? ' is-active' : ''}`}
+                aria-current={pricingActive ? 'page' : undefined}
+              >
+                {t('nav.pricing')}
+              </Link>
+            </li>
+          )}
           <li
             className="site-nav__dropdown"
             ref={wrapRef}

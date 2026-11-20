@@ -62,6 +62,7 @@ export function listRoutes(): RouteEntry[] {
     pair((l) => paths.projectType(l, type.slug[l]), typeLastmod);
     for (const p of list) pair((l) => paths.project(l, type.slug[l], p.slug), p.updatedAt);
   }
+  if (site.pricing?.status === 'published') pair(paths.pricing, site.updatedAt);
   pair(paths.studio, site.updatedAt);
   pair(paths.contact, site.updatedAt);
   if (site.services.status === 'published') {

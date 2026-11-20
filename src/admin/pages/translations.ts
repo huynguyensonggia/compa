@@ -29,6 +29,11 @@ export function listMissingTranslations(r: Records): MissingItem[] {
   check('Liên hệ', 'Lời giới thiệu', s.pages.contact.intro, '/admin/noi-dung');
   check('Thông báo', 'Trang 404', s.pages.notFound, '/admin/noi-dung');
   check('Dịch vụ', 'Giới thiệu', s.services.intro, '/admin/noi-dung');
+  if (s.pricing) {
+    check('Đơn giá', 'Tiêu đề', s.pricing.title, '/admin/noi-dung');
+    check('Đơn giá', 'Giới thiệu', s.pricing.intro, '/admin/noi-dung');
+    check('Đơn giá', 'Ghi chú', s.pricing.note, '/admin/noi-dung');
+  }
   for (const it of s.services.items) {
     check(`Dịch vụ: ${it.title.vi}`, 'Tên', it.title, '/admin/noi-dung');
     check(`Dịch vụ: ${it.title.vi}`, 'Mô tả', it.body, '/admin/noi-dung');
@@ -36,6 +41,10 @@ export function listMissingTranslations(r: Records): MissingItem[] {
   (s.projectTypes ?? []).forEach((t) => {
     check(`Danh mục: ${t.title.vi || t.title.en}`, 'Tên', t.title, '/admin/danh-muc');
     check(`Danh mục: ${t.title.vi || t.title.en}`, 'Mô tả', t.description, '/admin/danh-muc');
+    (t.prices ?? []).forEach((p, i) => {
+      check(`Đơn giá ${t.title.vi}`, `Hạng mục dòng ${i + 1}`, p.label, '/admin/danh-muc');
+      check(`Đơn giá ${t.title.vi}`, `Ghi chú dòng ${i + 1}`, p.note, '/admin/danh-muc');
+    });
   });
   s.hero.slides.forEach((sl, i) => check('Ảnh mở đầu', `Alt ảnh ${i + 1}`, sl.alt, '/admin/anh-mo-dau'));
   for (const p of r.projects) {

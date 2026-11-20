@@ -31,6 +31,7 @@ npm run dev        # http://127.0.0.1:5173/
 | Dự án — danh mục cha (Biệt thự, Khách sạn, Nhà hàng, Coffee…) | `/du-an/` | `/en/projects/` |
 | Dự án thuộc một danh mục | `/du-an/:danh-muc/` (vd. `/du-an/khach-san/`) | `/en/projects/:type/` (vd. `/en/projects/hotels/`) |
 | Chi tiết dự án | `/du-an/:danh-muc/:slug/` | `/en/projects/:type/:slug/` |
+| Đơn giá | `/don-gia/` (mỗi danh mục có neo, vd. `/don-gia/#biet-thu`) | `/en/pricing/` |
 | Về COMPA | `/gioi-thieu/` | `/en/studio/` |
 | Liên hệ | `/lien-he/` | `/en/contact/` |
 | Dịch vụ (khi công khai) | `/dich-vu/`, `/dich-vu/:slug/` | `/en/services/`, `/en/services/:slug/` |
@@ -42,6 +43,7 @@ npm run dev        # http://127.0.0.1:5173/
 Tổng quan · Danh mục dự án · Dự án · Ảnh mở đầu · Thương hiệu & Liên hệ · Nội dung Việt–Anh.
 
 - **Danh mục dự án** (`/admin/danh-muc`): thêm, đổi tên vi/en, slug, mô tả, ảnh đại diện, sắp xếp. Danh mục chưa có dự án công khai tự ẩn trên website. Muốn xóa danh mục còn dự án thì chuyển dự án sang danh mục khác trước (có nút chuyển hàng loạt).
+- **Đơn giá**: mỗi danh mục có bảng giá riêng (hạng mục vi/en, đơn giá VNĐ, đơn vị, ghi chú) nhập ngay trong “Danh mục dự án”. Dòng thấp nhất hiện dưới thẻ danh mục ở trang Dự án (“Đơn giá từ 300.000 đ/m²”, bấm vào sang đúng mục trên trang Đơn giá). Tiêu đề, giới thiệu, ghi chú cuối trang, bật/tắt trang và bật/tắt ghi chú “Đơn giá minh họa” nằm ở “Nội dung Việt–Anh”.
 - Mỗi dự án thuộc **đúng một danh mục** (chọn trong form dự án, bắt buộc trước khi công khai). “Hạng mục” (Kiến trúc / Nội thất / Cảnh quan / Thi công) là trường riêng.
 
 - Dữ liệu lưu trong **IndexedDB** của trình duyệt (ảnh tải lên lưu dạng Blob). Lần đầu mở admin, nội dung trong `content/` được chép vào IndexedDB; sau đó không bao giờ bị ghi đè trừ khi bấm “Khôi phục dữ liệu demo”.
@@ -98,14 +100,15 @@ Qua admin (khuyến nghị) rồi xuất gói. Ảnh mẫu hiện tại có `isD
 - Mã màu trong `tokens.css` lấy mẫu từ file logo (xám than `#535351`, vàng be `#CEC09D`), chưa đối chiếu với file nhận diện chính thức.
 - Font: Montserrat (OFL, tự host WOFF2, subset Việt + Latin, 300/400/600) thay thế tạm cho proxima-nova.
 - Toàn bộ 12 dự án là minh họa, chia vào 6 danh mục mẫu (Biệt thự, Nhà phố, Khách sạn, Homestay, Nhà hàng, Coffee — mỗi danh mục 2 dự án); dự án 01 có đủ 20 ảnh (5 Ngoại thất + 10 Nội thất + 5 Sân vườn) để kiểm tra gallery. Danh sách danh mục thật cần khách xác nhận.
+- **Đơn giá đang là số minh họa** (riêng biệt thự 300.000 đ/m² theo ví dụ yêu cầu); trang hiện ghi chú “Đơn giá minh họa — chưa phải báo giá chính thức”. Thay bằng giá thật của khách rồi tắt ghi chú trong admin.
 - Trang Dịch vụ ở trạng thái nháp, cần khách cung cấp mô tả.
 - `allowIndexing: false` → mọi trang `noindex` + header `X-Robots-Tag` cho tới khi có dự án thật.
 
 **Đã kiểm tra (ngày 20/11/2026, trên máy local)**
 
-- Typecheck và build thành công; 44 trang prerender; `npm run check:seo` đạt toàn bộ.
+- Typecheck và build thành công; 46 trang prerender; `npm run check:seo` đạt toàn bộ.
 - Chrome headless ở 1440 / 768 / 390px: không tràn ngang, mỗi trang đúng một `<h1>`, không lỗi hydration.
-- Kiểm thử tự động 46 bước: điều hướng 3 cấp (danh mục → dự án → chi tiết, breadcrumb, đổi ngôn ngữ giữ đúng trang, sai danh mục tự về URL chuẩn), đổi slug danh mục tạo chuyển hướng, chặn xóa danh mục còn dự án, nhóm 5/10/5, lightbox giữ trong nhóm (“Nội thất — 3/10”, dừng ở đầu/cuối, Escape trả focus), đổi ngôn ngữ giữ trang, menu bằng bàn phím, tải thẳng/refresh trang chi tiết, luồng admin (tải 20 ảnh giữ thứ tự chọn, chặn công khai khi còn ảnh chưa phân loại, phân nhóm không mất/không trùng, công khai, hiện trên web, reload còn, đổi thứ tự nhóm/chuyển ảnh phản ánh ở bản EN, đổi slug tạo chuyển hướng, xóa nhóm có ảnh, JSON xuất/nhập giữ cấu trúc và từ chối tham chiếu hỏng, xóa dự án).
+- Kiểm thử tự động 56 bước: dòng đơn giá dưới thẻ danh mục và liên kết sang đúng mục, bảng giá vi/en (300.000 đ/m² ↔ 300,000 VND/m²), sửa giá trong admin hiện ngay ngoài web, điều hướng 3 cấp (danh mục → dự án → chi tiết, breadcrumb, đổi ngôn ngữ giữ đúng trang, sai danh mục tự về URL chuẩn), đổi slug danh mục tạo chuyển hướng, chặn xóa danh mục còn dự án, nhóm 5/10/5, lightbox giữ trong nhóm (“Nội thất — 3/10”, dừng ở đầu/cuối, Escape trả focus), đổi ngôn ngữ giữ trang, menu bằng bàn phím, tải thẳng/refresh trang chi tiết, luồng admin (tải 20 ảnh giữ thứ tự chọn, chặn công khai khi còn ảnh chưa phân loại, phân nhóm không mất/không trùng, công khai, hiện trên web, reload còn, đổi thứ tự nhóm/chuyển ảnh phản ánh ở bản EN, đổi slug tạo chuyển hướng, xóa nhóm có ảnh, JSON xuất/nhập giữ cấu trúc và từ chối tham chiếu hỏng, xóa dự án).
 - Luồng xuất gói → `content:import` → build → dòng 301 trong `_redirects`.
 - `/du-an` → 301 `/du-an/`; URL sai → 404 thật; `/admin` có `X-Robots-Tag: noindex, nofollow` và `Cache-Control: no-store`.
 

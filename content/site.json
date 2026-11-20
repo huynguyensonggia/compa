@@ -105,7 +105,57 @@
         "en": ""
       },
       "coverAssetId": null,
-      "sortOrder": 0
+      "sortOrder": 0,
+      "prices": [
+        {
+          "id": "prc_bietthu_1",
+          "label": {
+            "vi": "Thiết kế kiến trúc",
+            "en": "Architectural design"
+          },
+          "amount": 300000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_bietthu_2",
+          "label": {
+            "vi": "Thiết kế nội thất",
+            "en": "Interior design"
+          },
+          "amount": 320000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_bietthu_3",
+          "label": {
+            "vi": "Thi công trọn gói",
+            "en": "Turnkey construction"
+          },
+          "amount": 6500000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        }
+      ]
     },
     {
       "id": "typ_nhapho",
@@ -122,7 +172,57 @@
         "en": ""
       },
       "coverAssetId": null,
-      "sortOrder": 1
+      "sortOrder": 1,
+      "prices": [
+        {
+          "id": "prc_nhapho_1",
+          "label": {
+            "vi": "Thiết kế kiến trúc",
+            "en": "Architectural design"
+          },
+          "amount": 200000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_nhapho_2",
+          "label": {
+            "vi": "Thiết kế nội thất",
+            "en": "Interior design"
+          },
+          "amount": 220000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_nhapho_3",
+          "label": {
+            "vi": "Thi công trọn gói",
+            "en": "Turnkey construction"
+          },
+          "amount": 5500000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        }
+      ]
     },
     {
       "id": "typ_khachsan",
@@ -139,7 +239,57 @@
         "en": ""
       },
       "coverAssetId": null,
-      "sortOrder": 2
+      "sortOrder": 2,
+      "prices": [
+        {
+          "id": "prc_khachsan_1",
+          "label": {
+            "vi": "Thiết kế kiến trúc",
+            "en": "Architectural design"
+          },
+          "amount": 280000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_khachsan_2",
+          "label": {
+            "vi": "Thiết kế nội thất",
+            "en": "Interior design"
+          },
+          "amount": 300000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_khachsan_3",
+          "label": {
+            "vi": "Thi công trọn gói",
+            "en": "Turnkey construction"
+          },
+          "amount": 7500000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        }
+      ]
     },
     {
       "id": "typ_homestay",
@@ -156,7 +306,57 @@
         "en": ""
       },
       "coverAssetId": null,
-      "sortOrder": 3
+      "sortOrder": 3,
+      "prices": [
+        {
+          "id": "prc_homestay_1",
+          "label": {
+            "vi": "Thiết kế kiến trúc",
+            "en": "Architectural design"
+          },
+          "amount": 220000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_homestay_2",
+          "label": {
+            "vi": "Thiết kế nội thất",
+            "en": "Interior design"
+          },
+          "amount": 220000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_homestay_3",
+          "label": {
+            "vi": "Thi công trọn gói",
+            "en": "Turnkey construction"
+          },
+          "amount": 6000000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        }
+      ]
     },
     {
       "id": "typ_nhahang",
@@ -173,7 +373,57 @@
         "en": ""
       },
       "coverAssetId": null,
-      "sortOrder": 4
+      "sortOrder": 4,
+      "prices": [
+        {
+          "id": "prc_nhahang_1",
+          "label": {
+            "vi": "Thiết kế kiến trúc",
+            "en": "Architectural design"
+          },
+          "amount": 250000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_nhahang_2",
+          "label": {
+            "vi": "Thiết kế nội thất",
+            "en": "Interior design"
+          },
+          "amount": 280000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_nhahang_3",
+          "label": {
+            "vi": "Thi công trọn gói",
+            "en": "Turnkey construction"
+          },
+          "amount": 6800000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        }
+      ]
     },
     {
       "id": "typ_coffee",
@@ -190,9 +440,75 @@
         "en": ""
       },
       "coverAssetId": null,
-      "sortOrder": 5
+      "sortOrder": 5,
+      "prices": [
+        {
+          "id": "prc_coffee_1",
+          "label": {
+            "vi": "Thiết kế kiến trúc",
+            "en": "Architectural design"
+          },
+          "amount": 200000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_coffee_2",
+          "label": {
+            "vi": "Thiết kế nội thất",
+            "en": "Interior design"
+          },
+          "amount": 250000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "prc_coffee_3",
+          "label": {
+            "vi": "Thi công trọn gói",
+            "en": "Turnkey construction"
+          },
+          "amount": 5800000,
+          "unit": {
+            "vi": "m²",
+            "en": "m²"
+          },
+          "note": {
+            "vi": "",
+            "en": ""
+          }
+        }
+      ]
     }
   ],
+  "pricing": {
+    "status": "published",
+    "title": {
+      "vi": "Đơn giá",
+      "en": "Pricing"
+    },
+    "intro": {
+      "vi": "Đơn giá tham khảo theo từng loại công trình, tính trên mét vuông sàn xây dựng.",
+      "en": "Indicative rates by building type, per square metre of floor area."
+    },
+    "note": {
+      "vi": "Đơn giá chưa bao gồm VAT. Báo giá chính thức được lập sau khi khảo sát hiện trạng và thống nhất phương án thiết kế.",
+      "en": "Rates exclude VAT. A formal quotation is prepared after a site survey and an agreed design scheme."
+    },
+    "isDemo": true
+  },
   "pages": {
     "studio": {
       "title": {

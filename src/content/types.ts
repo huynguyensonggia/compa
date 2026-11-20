@@ -113,6 +113,16 @@ export interface PostalAddress {
   display: Bi;
 }
 
+/** One line of a category's price table, e.g. Thiết kế kiến trúc — 300.000 đ/m². */
+export interface PriceItem {
+  id: string;
+  label: Bi;
+  /** Amount in VND; null = “Liên hệ”. */
+  amount: number | null;
+  unit: Bi;
+  note: Bi;
+}
+
 /** Parent category shown on /du-an/ (Khách sạn, Biệt thự, Nhà hàng, Coffee…). */
 export interface ProjectType {
   id: string;
@@ -121,6 +131,8 @@ export interface ProjectType {
   description: Bi;
   coverAssetId: string | null;
   sortOrder: number;
+  /** Price table shown on /don-gia/ and as “Đơn giá từ …” under the category card. */
+  prices: PriceItem[];
 }
 
 export interface ServiceItem {
@@ -162,6 +174,15 @@ export interface SiteContent {
     studio: { title: Bi; body: Bi; imageAssetId: string | null };
     contact: { title: Bi; intro: Bi };
     notFound: Bi;
+  };
+  pricing: {
+    status: PublishStatus;
+    title: Bi;
+    intro: Bi;
+    /** Footnote, e.g. prices exclude VAT, final quote after survey. */
+    note: Bi;
+    /** Show the “sample prices” notice until the client confirms real prices. */
+    isDemo: boolean;
   };
   services: {
     status: PublishStatus;

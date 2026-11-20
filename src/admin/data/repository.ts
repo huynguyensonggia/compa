@@ -102,6 +102,10 @@ function migrate(r: Records): Records {
   let stat: ReturnType<typeof getStaticRecords> | null = null;
   const fromStatic = () => (stat ??= getStaticRecords());
   if (!Array.isArray(site.projectTypes)) site.projectTypes = fromStatic().site.projectTypes;
+  if (!site.pricing) site.pricing = fromStatic().site.pricing;
+  for (const t of site.projectTypes) {
+    if (!Array.isArray(t.prices)) t.prices = fromStatic().site.projectTypes.find((s) => s.id === t.id)?.prices ?? [];
+  }
   for (const p of r.projects) {
     const legacy = p as ProjectFull & { publishedSlug?: string | null };
     if (p.typeId === undefined) p.typeId = fromStatic().projects.find((s) => s.id === p.id)?.typeId ?? null;

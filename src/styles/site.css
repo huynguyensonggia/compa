@@ -893,3 +893,112 @@
 .type-header {
   margin: 28px 0 48px;
 }
+
+/* ---------- Pricing ---------- */
+.project-card__price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 32px;
+  margin-top: 2px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-sand);
+  text-underline-offset: 4px;
+}
+.project-card__price:hover {
+  text-decoration-color: var(--text-primary);
+}
+.pricing {
+  max-width: 860px;
+}
+.pricing__intro {
+  margin-top: 18px;
+  max-width: 640px;
+  color: var(--text-secondary);
+}
+.pricing__demo {
+  margin-top: 20px;
+  padding: 10px 14px;
+  border-left: 2px solid var(--brand-sand);
+  background: var(--surface-warm);
+  font-size: 13px;
+  color: var(--text-primary);
+}
+.pricing__section {
+  margin-top: 48px;
+  scroll-margin-top: 24px;
+}
+.pricing__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.pricing__table th,
+.pricing__table td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+  vertical-align: top;
+}
+.pricing__table thead th {
+  padding-top: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.pricing__table tbody th {
+  font-weight: 400;
+}
+.pricing__table td,
+.pricing__table thead th:last-child {
+  text-align: right;
+  white-space: nowrap;
+  padding-left: 16px;
+}
+.pricing__table td {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.pricing__note {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.pricing__more {
+  margin-top: 8px;
+  font-size: 12.5px;
+  letter-spacing: 0.5px;
+}
+.pricing__more a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: var(--text-secondary);
+}
+.pricing__more a:hover {
+  color: var(--text-primary);
+}
+.pricing__footnote {
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+.pricing__cta {
+  margin-top: 16px;
+  font-size: 14px;
+}
+.pricing__cta a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-sand);
+  text-underline-offset: 4px;
+}

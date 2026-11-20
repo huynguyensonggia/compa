@@ -3,6 +3,7 @@ import { useAdminData } from '../AdminData';
 import { useSiteForm } from './useSiteForm';
 import { AssetPicker, thumbSrc } from '../components/AssetPicker';
 import { BiField, IssueList, SaveState } from '../components/ui';
+import { PriceTableEditor } from '../components/PriceTableEditor';
 import { newId, slugify } from '../data/slug';
 import { saveProject, ValidationError } from '../data/repository';
 import { byOrder } from '../../content/resolve';
@@ -34,7 +35,7 @@ export function TypesAdminPage() {
   const add = () => {
     const id = newId('typ');
     setAutoSlug((s) => new Set(s).add(id));
-    setTypes([...types, { id, slug: { vi: '', en: '' }, title: { vi: '', en: '' }, description: { vi: '', en: '' }, coverAssetId: null, sortOrder: types.length }]);
+    setTypes([...types, { id, slug: { vi: '', en: '' }, title: { vi: '', en: '' }, description: { vi: '', en: '' }, coverAssetId: null, sortOrder: types.length, prices: [] }]);
   };
 
   const moveProjects = async (fromId: string) => {
@@ -65,7 +66,7 @@ export function TypesAdminPage() {
       <IssueList issues={errors.map((message) => ({ level: 'error' as const, message }))} />
       {msg && <p className="a-issue a-issue--ok">{msg}</p>}
       <p className="a-hint">
-        Trang Dự án hiển thị các danh mục này theo thứ tự dưới đây; khách bấm vào danh mục để xem các dự án bên trong. Danh mục chưa có dự án công khai sẽ tự ẩn. Đổi slug
+        Trang Dự án hiển thị các danh mục này theo thứ tự dưới đây (bảng đơn giá của từng danh mục hiện ở trang Đơn giá); khách bấm vào danh mục để xem các dự án bên trong. Danh mục chưa có dự án công khai sẽ tự ẩn. Đổi slug
         của danh mục đang có dự án công khai sẽ tự tạo chuyển hướng 301.
       </p>
 
@@ -113,6 +114,7 @@ export function TypesAdminPage() {
               onChange={(description) => patch(t.id, { description })}
               hint="Hiển thị dưới tiêu đề trang danh mục và dùng làm mô tả meta. Để trống nếu chưa có nội dung xác nhận."
             />
+            <PriceTableEditor items={t.prices ?? []} onChange={(prices) => patch(t.id, { prices })} />
             <div className="a-cover">
               <div className="a-cover__img">{cover ? <img src={thumbSrc(cover)} alt="" /> : <span>Tự dùng ảnh bìa của dự án đầu tiên</span>}</div>
               <div className="a-toolbar">

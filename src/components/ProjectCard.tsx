@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import type { AssetMap, FocalPoint, ProjectFull, ResolvedAsset } from '../content/types';
 import { useLang } from '../i18n';
@@ -15,10 +16,12 @@ interface CardProps {
   meta?: string;
   priority?: boolean;
   eager?: boolean;
+  /** Rendered below the card link (e.g. a separate price link — links cannot be nested). */
+  extra?: ReactNode;
 }
 
 /** Square image + small spaced caption, shared by type cards and project cards. */
-export function GridCard({ to, title, image, focalPoint, meta, priority, eager }: CardProps) {
+export function GridCard({ to, title, image, focalPoint, meta, priority, eager, extra }: CardProps) {
   return (
     <li className="project-card">
       <Link to={to} className="project-card__link">
@@ -28,6 +31,7 @@ export function GridCard({ to, title, image, focalPoint, meta, priority, eager }
         <span className="project-card__title">{title}</span>
         {meta && <span className="project-card__meta">{meta}</span>}
       </Link>
+      {extra}
     </li>
   );
 }

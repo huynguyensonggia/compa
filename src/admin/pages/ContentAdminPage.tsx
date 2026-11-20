@@ -87,6 +87,20 @@ export function ContentAdminPage() {
       </section>
 
       <section className="a-card">
+        <h2>Trang đơn giá</h2>
+        <p className="a-hint">Bảng giá của từng loại công trình nhập ở mục “Danh mục dự án”. Trang: /don-gia/ và /en/pricing/.</p>
+        <label className="a-check">
+          <input type="checkbox" checked={draft.pricing.status === 'published'} onChange={(e) => set((d) => void (d.pricing.status = e.target.checked ? 'published' : 'draft'))} /> Công khai trang Đơn giá (hiện mục ĐƠN GIÁ trên menu và dòng “Đơn giá từ …” dưới thẻ danh mục)
+        </label>
+        <label className="a-check">
+          <input type="checkbox" checked={draft.pricing.isDemo} onChange={(e) => set((d) => void (d.pricing.isDemo = e.target.checked))} /> Hiện ghi chú “Đơn giá minh họa” (tắt khi đã có giá chính thức của khách)
+        </label>
+        <BiField label="Tiêu đề trang" value={draft.pricing.title} onChange={(v) => set((d) => void (d.pricing.title = v))} />
+        <BiField label="Giới thiệu" multiline rows={2} value={draft.pricing.intro} onChange={(v) => set((d) => void (d.pricing.intro = v))} />
+        <BiField label="Ghi chú cuối trang" multiline rows={2} value={draft.pricing.note} onChange={(v) => set((d) => void (d.pricing.note = v))} hint="Ví dụ: đơn giá chưa gồm VAT, báo giá chính thức sau khảo sát." />
+      </section>
+
+      <section className="a-card">
         <h2>Dịch vụ</h2>
         <p className="a-hint">
           Trang Dịch vụ chỉ xuất hiện trong menu GIỚI THIỆU, được prerender và vào sitemap khi ở trạng thái Công khai. Không bịa quy trình, bảng giá hay số năm kinh nghiệm.

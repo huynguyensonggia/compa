@@ -9,6 +9,7 @@ export const paths = {
   projects: (l: Lang) => (l === 'vi' ? '/du-an/' : '/en/projects/'),
   projectType: (l: Lang, typeSlug: string) => (l === 'vi' ? `/du-an/${typeSlug}/` : `/en/projects/${typeSlug}/`),
   project: (l: Lang, typeSlug: string, slug: string) => (l === 'vi' ? `/du-an/${typeSlug}/${slug}/` : `/en/projects/${typeSlug}/${slug}/`),
+  pricing: (l: Lang) => (l === 'vi' ? '/don-gia/' : '/en/pricing/'),
   studio: (l: Lang) => (l === 'vi' ? '/gioi-thieu/' : '/en/studio/'),
   contact: (l: Lang) => (l === 'vi' ? '/lien-he/' : '/en/contact/'),
   services: (l: Lang) => (l === 'vi' ? '/dich-vu/' : '/en/services/'),
@@ -30,6 +31,7 @@ export function translatePath(pathname: string, target: Lang, site: SiteContent)
     ['/gioi-thieu/', '/en/studio/'],
     ['/lien-he/', '/en/contact/'],
     ['/dich-vu/', '/en/services/'],
+    ['/don-gia/', '/en/pricing/'],
   ];
   for (const [vi, en] of simple) {
     if (p === vi || p === en) return target === 'vi' ? vi : en;

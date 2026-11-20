@@ -6,6 +6,8 @@ import { Seo } from '../seo/Seo';
 import { pageTitle } from '../seo/meta';
 import { SiteLayout } from '../components/SiteLayout';
 import { CARD_SIZES, GridCard } from '../components/ProjectCard';
+import { Link } from 'react-router-dom';
+import { formatPrice, lowestPrice } from '../content/pricing';
 
 /** /du-an/ — parent categories (Biệt thự, Khách sạn, Nhà hàng, Coffee…). */
 export function ProjectsPage() {
@@ -13,6 +15,16 @@ export function ProjectsPage() {
   const t = useT();
   const { site, projects, assets } = useContent();
   const types = visibleTypes(site, projects);
+  const priceLink = (type: (typeof types)[number]['type']) => {
+    const low = site.pricing?.status === 'published' ? lowestPrice(type) : null;
+    const text = low ? formatPrice(low, lang) : null;
+    if (!text) return undefined;
+    return (
+      <Link className="project-card__price" to={`${paths.pricing(lang)}#${type.slug[lang]}`}>
+        {t('pricing.from', { price: text })}
+      </Link>
+    );
+  };
   const firstCover = types[0] ? typeCover(types[0].type, types[0].projects, assets) : undefined;
   return (
     <SiteLayout>
@@ -37,6 +49,7 @@ export function ProjectsPage() {
                 image={typeCover(type, list, assets)}
                 priority={i === 0}
                 eager={i < 3}
+                extra={priceLink(type)}
               />
             ))}
           </ul>
