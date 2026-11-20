@@ -47,6 +47,34 @@ if (fs.existsSync(brandSrc)) {
   await sharp(brandSrc).resize(640, 640).webp({ quality: 88, effort: 5 }).toFile(path.join(brandOut, 'logo.webp'));
   // PNG for JSON-LD "logo" and other consumers.
   await sharp(brandSrc).resize(512, 512).png({ compressionLevel: 9 }).toFile(path.join(brandOut, 'logo.png'));
+  // Transparent version for the home hero: key out the flat charcoal background of the original
+  // (alpha unmixing per pixel, so anti-aliased edges stay smooth and the sand colour is kept as-is).
+  // A client-supplied transparent file at content/images-src/brand/logo-transparent.png takes precedence.
+  const suppliedTransparent = path.join(ROOT, 'content', 'images-src', 'brand', 'logo-transparent.png');
+  let keyed;
+  if (fs.existsSync(suppliedTransparent)) {
+    keyed = await sharp(suppliedTransparent).ensureAlpha().trim().png().toBuffer();
+  } else {
+    const { data, info } = await sharp(brandSrc).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    const bg = [data[0], data[1], data[2]]; // corner pixel = flat background
+    const fg = [206, 192, 157]; // logo sand, sampled from the file
+    const out = Buffer.alloc(info.width * info.height * 4);
+    for (let i = 0, o = 0; i < data.length; i += 3, o += 4) {
+      let a = 0;
+      for (let c = 0; c < 3; c++) a += (data[i + c] - bg[c]) / (fg[c] - bg[c]);
+      a = Math.min(1, Math.max(0, a / 3));
+      for (let c = 0; c < 3; c++) {
+        out[o + c] = a > 0.02 ? Math.min(255, Math.max(0, Math.round((data[i + c] - (1 - a) * bg[c]) / a))) : fg[c];
+      }
+      out[o + 3] = a < 0.04 ? 0 : Math.round(a * 255);
+    }
+    keyed = await sharp(out, { raw: { width: info.width, height: info.height, channels: 4 } }).trim().png().toBuffer();
+  }
+  // Fixed 960×304 canvas so the page can reserve the exact box (no layout shift); sharp up to ~2.5× at 380px.
+  const fitted = await sharp(keyed).resize(960, 304, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer();
+  await sharp(fitted).webp({ quality: 86, alphaQuality: 90, effort: 6 }).toFile(path.join(brandOut, 'logo-transparent.webp'));
+  await sharp(fitted).png({ compressionLevel: 9 }).toFile(path.join(brandOut, 'logo-transparent.png'));
+
   // Favicons: a crop of the original "O + compass" mark (scaled down, not redrawn).
   // Crop box is in the 2048×2048 source; scaled if the source size differs.
   const { width = 2048 } = await sharp(brandSrc).metadata();

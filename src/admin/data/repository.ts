@@ -103,6 +103,7 @@ function migrate(r: Records): Records {
   const fromStatic = () => (stat ??= getStaticRecords());
   if (!Array.isArray(site.projectTypes)) site.projectTypes = fromStatic().site.projectTypes;
   if (!site.pricing) site.pricing = fromStatic().site.pricing;
+  if (site.brand.logoOnPhotoFile === undefined) site.brand.logoOnPhotoFile = fromStatic().site.brand.logoOnPhotoFile;
   if (site.contact.instagram === undefined) site.contact.instagram = '';
   if (site.contact.tiktok === undefined) site.contact.tiktok = '';
   for (const t of site.projectTypes) {

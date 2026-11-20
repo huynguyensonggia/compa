@@ -13,6 +13,14 @@ export function BrandLogo({ variant = 'header' }: Props) {
   const { site, assets } = useContent();
   const { brand } = site;
   const uploaded = brand.logoAssetId ? assets[brand.logoAssetId] : undefined;
+  // Over the hero photo: transparent wordmark (background keyed out of the original file).
+  if (variant === 'hero' && !uploaded && brand.logoOnPhotoFile) {
+    return (
+      <span className="brand-logo brand-logo--on-photo">
+        <img src={brand.logoOnPhotoFile} alt={brand.name} width={960} height={304} />
+      </span>
+    );
+  }
   const src = uploaded?.src || brand.logoFile;
   if (src) {
     return (

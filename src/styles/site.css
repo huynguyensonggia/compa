@@ -1150,3 +1150,18 @@
   color: var(--brand-charcoal);
   box-shadow: inset 0 -2px 0 var(--brand-sand);
 }
+
+/* Home hero: transparent logo directly on the photo */
+.brand-logo--on-photo {
+  display: block;
+  width: var(--logo-photo-w);
+  height: auto;
+  aspect-ratio: 960 / 304;
+}
+.brand-logo--on-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* soft shadow keeps the sand wordmark legible over bright skies; colour is unchanged */
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.25));
+}

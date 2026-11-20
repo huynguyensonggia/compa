@@ -151,6 +151,8 @@ export interface SiteContent {
     logoSubline: string;
     /** Path of the original logo in /public (e.g. /brand/logo.png). Empty = temporary wordmark. */
     logoFile: string;
+    /** Transparent wordmark for use over photos (home hero), 960×304. Empty = use logoFile. */
+    logoOnPhotoFile: string;
     logoAssetId: string | null;
     tagline: Bi;
     description: Bi;

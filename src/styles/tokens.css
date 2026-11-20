@@ -44,6 +44,7 @@
   --logo-band-w: 260px;
   --logo-band-h: 120px;
   --logo-hero: 208px;
+  --logo-photo-w: 380px;
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
@@ -75,6 +76,7 @@
     --logo-band-w: 200px;
     --logo-band-h: 92px;
     --logo-hero: 168px;
+    --logo-photo-w: 270px;
     --space-6: 56px;
   }
 }

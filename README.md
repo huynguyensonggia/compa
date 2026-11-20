@@ -84,6 +84,7 @@ Các component chính: `BrandLogo`, `SiteHeader`, `LanguageSwitcher`, `ProjectGr
 
 - `public/brand/logo.webp` (640px) — hiển thị ở header và trang chủ, nguyên bản, không đổi màu, không cắt chữ phụ;
 - `public/brand/logo.png` (512px) — dùng cho JSON-LD `logo`;
+- `public/brand/logo-transparent.webp` (960×304) — logo **tách nền** dùng trên ảnh trang chủ: nền xám than phẳng của file gốc được tách theo từng điểm ảnh, giữ nguyên màu vàng be và viền mềm, không vẽ lại. Nếu khách gửi PNG nền trong suốt chính thức, đặt tại `content/images-src/brand/logo-transparent.png` để dùng thay;
 - `favicon-32.png`, `apple-touch-icon.png` — cắt từ biểu tượng chữ O + compa trong logo (thu nhỏ, không vẽ lại).
 
 Thay logo: ghi đè `content/images-src/brand/logo-original.jpg` rồi `npm run build`. Đường dẫn hiển thị khai báo ở `brand.logoFile` trong `content/site.json`.
