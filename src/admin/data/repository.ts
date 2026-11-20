@@ -6,7 +6,10 @@ import { resolveAsset, byOrder } from '../../content/resolve';
 import { CONTENT_CHANNEL, CONTENT_EVENT } from '../../content/ContentContext';
 import type { AssetMap, AssetRecord, ContentState, Project, ProjectFull, Redirect, SiteContent } from '../../content/types';
 import { validateProject } from './validate';
-import { newId } from './slug';
+import { newId, SLUG_RE } from './slug';
+import { projectPaths } from '../../content/projectTypes';
+import { paths } from '../../routing/paths';
+import { LANGS } from '../../content/types';
 
 export interface Records {
   site: SiteContent;
@@ -86,7 +89,26 @@ export async function loadRecords(): Promise<Records> {
     groups: groups.filter((g) => g.projectId === p.id).sort(byOrder),
     images: images.filter((i) => i.projectId === p.id).sort(byOrder),
   }));
-  return { site, projects: full, assets, redirects };
+  return migrate({ site, projects: full, assets, redirects });
+}
+
+/**
+ * Bring data saved by an earlier version up to date without overwriting edits:
+ * add project types from content/ when missing, keep/derive each project's type and published URLs,
+ * drop old slug-only redirects.
+ */
+function migrate(r: Records): Records {
+  const site = r.site;
+  let stat: ReturnType<typeof getStaticRecords> | null = null;
+  const fromStatic = () => (stat ??= getStaticRecords());
+  if (!Array.isArray(site.projectTypes)) site.projectTypes = fromStatic().site.projectTypes;
+  for (const p of r.projects) {
+    const legacy = p as ProjectFull & { publishedSlug?: string | null };
+    if (p.typeId === undefined) p.typeId = fromStatic().projects.find((s) => s.id === p.id)?.typeId ?? null;
+    if (p.publishedPaths === undefined) p.publishedPaths = p.status === 'published' ? projectPaths(site, p) : null;
+    delete legacy.publishedSlug;
+  }
+  return { ...r, redirects: r.redirects.filter((x) => x.from.startsWith('/') && x.to.startsWith('/')) };
 }
 
 /** Public site in local mode: IndexedDB if the admin has been used here, otherwise null (→ content/). */
@@ -116,14 +138,29 @@ export class ValidationError extends Error {
   }
 }
 
+type RedirectStore = {
+  getAll(): Promise<Redirect[]>;
+  put(value: Redirect): Promise<unknown>;
+  delete(key: string): Promise<unknown>;
+};
+
+/** Record old → new (301). Existing redirects to the old path are repointed, so there are no chains. */
+async function addRedirect(store: RedirectStore, from: string | null | undefined, to: string, now: string) {
+  if (from && from !== to) {
+    for (const r of await store.getAll()) if (r.to === from) await store.put({ ...r, to });
+    await store.put({ from, to, createdAt: now });
+  }
+  await store.delete(to); // the target is live again
+}
+
 /**
  * Save a project with its groups and gallery in ONE transaction.
- * Creates a 301 redirect when a published project's slug changes.
+ * Creates 301 redirects when a published project's URL changes (slug or type).
  */
 export async function saveProject(input: ProjectFull): Promise<ProjectFull> {
   const db = await getDb();
-  const all = (await loadRecords()).projects;
-  const errors = validateProject(input, all, input.status).filter((i) => i.level === 'error');
+  const { projects: all, site } = await loadRecords();
+  const errors = validateProject(input, all, input.status, site).filter((i) => i.level === 'error');
   if (errors.length) throw new ValidationError(errors.map((e) => e.message));
 
   const now = new Date().toISOString();
@@ -132,16 +169,14 @@ export async function saveProject(input: ProjectFull): Promise<ProjectFull> {
   const redirects = tx.objectStore('redirects');
 
   if (project.status === 'published') {
-    const old = project.publishedSlug;
-    if (old && old !== project.slug) {
-      // Point earlier redirects straight at the new slug (no chains) and add old → new.
-      for (const r of await redirects.getAll()) {
-        if (r.to === old) await redirects.put({ ...r, to: project.slug });
-      }
-      await redirects.put({ from: old, to: project.slug, createdAt: now });
+    const next = projectPaths(site, project);
+    if (!next) {
+      tx.abort();
+      throw new ValidationError(['Dự án chưa có danh mục hợp lệ.']);
     }
-    await redirects.delete(project.slug); // the slug is live again
-    project.publishedSlug = project.slug;
+    const old = project.publishedPaths;
+    for (const l of LANGS) await addRedirect(redirects, old?.[l], next[l], now);
+    project.publishedPaths = next;
   }
 
   const { groups, images, ...base } = project;
@@ -176,10 +211,9 @@ export async function deleteProject(id: string): Promise<void> {
   await tx.objectStore('projects').delete(id);
   for (const k of await tx.objectStore('groups').index('projectId').getAllKeys(id)) await tx.objectStore('groups').delete(k);
   for (const k of await tx.objectStore('images').index('projectId').getAllKeys(id)) await tx.objectStore('images').delete(k);
-  if (project) {
-    for (const r of await tx.objectStore('redirects').getAll()) {
-      if (r.to === project.slug) await tx.objectStore('redirects').delete(r.from);
-    }
+  const live = new Set(Object.values(project?.publishedPaths ?? {}));
+  for (const r of await tx.objectStore('redirects').getAll()) {
+    if (live.has(r.to)) await tx.objectStore('redirects').delete(r.from);
   }
   await tx.done;
   await collectUnusedBlobs();
@@ -198,9 +232,50 @@ export async function reorderProjects(orderedIds: string[]): Promise<void> {
 }
 
 // ---------- write: site ----------
+/**
+ * Save the site document. When a project type's slug changes, its published projects and the
+ * type page get 301 redirects from the old URLs (same transaction).
+ */
 export async function saveSite(site: SiteContent): Promise<void> {
+  const { site: before, projects } = await loadRecords();
+  const typeIds = new Set(site.projectTypes.map((t) => t.id));
+  const orphans = projects.filter((p) => p.typeId && !typeIds.has(p.typeId));
+  if (orphans.length) {
+    throw new ValidationError([`Không xóa được danh mục: còn ${orphans.length} dự án thuộc danh mục này (${orphans.map((p) => p.title.vi).join(', ')}).`]);
+  }
+  const slugs = new Set<string>();
+  for (const t of site.projectTypes) {
+    for (const l of LANGS) {
+      if (!SLUG_RE.test(t.slug[l])) throw new ValidationError([`Slug danh mục “${t.title.vi}” (${l}) không hợp lệ.`]);
+      const key = `${l}:${t.slug[l]}`;
+      if (slugs.has(key)) throw new ValidationError([`Slug danh mục “${t.slug[l]}” bị trùng.`]);
+      slugs.add(key);
+    }
+    if (!t.title.vi.trim()) throw new ValidationError(['Danh mục cần có tên tiếng Việt.']);
+  }
+
+  const now = new Date().toISOString();
   const db = await getDb();
-  await db.put('kv', { ...site, updatedAt: new Date().toISOString() }, 'site');
+  const tx = db.transaction(['kv', 'projects', 'redirects'], 'readwrite');
+  const redirects = tx.objectStore('redirects');
+  for (const type of site.projectTypes) {
+    const old = before.projectTypes?.find((t) => t.id === type.id);
+    if (!old) continue;
+    for (const l of LANGS) {
+      if (old.slug[l] !== type.slug[l]) await addRedirect(redirects, paths.projectType(l, old.slug[l]), paths.projectType(l, type.slug[l]), now);
+    }
+  }
+  for (const p of projects) {
+    if (p.status !== 'published') continue;
+    const next = projectPaths(site, p);
+    if (!next) continue;
+    if (p.publishedPaths?.vi === next.vi && p.publishedPaths?.en === next.en) continue;
+    for (const l of LANGS) await addRedirect(redirects, p.publishedPaths?.[l], next[l], now);
+    const { groups: _g, images: _i, ...base } = p;
+    await tx.objectStore('projects').put({ ...base, publishedPaths: next });
+  }
+  await tx.objectStore('kv').put({ ...site, updatedAt: now }, 'site');
+  await tx.done;
   notifyChange();
 }
 
@@ -252,6 +327,7 @@ export function referencedAssetIds(r: Pick<Records, 'site' | 'projects'>): Set<s
   add(r.site.pages.studio.imageAssetId);
   add(r.site.seo.defaultOgAssetId);
   r.site.hero.slides.forEach((s) => add(s.assetId));
+  (r.site.projectTypes ?? []).forEach((t) => add(t.coverAssetId));
   for (const p of r.projects) {
     add(p.coverAssetId);
     add(p.seo.ogAssetId);
@@ -334,6 +410,7 @@ export async function checkBackup(data: unknown): Promise<string[]> {
       else if (!usable(img.assetId)) problems.push(`${p.slug}: ảnh ${img.id} là ảnh tải lên ở trình duyệt khác, không có dữ liệu ảnh tại đây.`);
     }
     if (p.status === 'published' && p.images.some((i) => i.groupId === null)) problems.push(`${p.slug}: dự án công khai còn ảnh chưa phân loại.`);
+    if (p.typeId && !(d.site.projectTypes ?? []).some((t) => t.id === p.typeId)) problems.push(`${p.slug}: tham chiếu danh mục không tồn tại (${p.typeId}).`);
   }
   for (const s of d.site.hero?.slides ?? []) if (!assetIds.has(s.assetId)) problems.push(`Ảnh mở đầu ${s.id} tham chiếu asset không tồn tại.`);
   return problems;

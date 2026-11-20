@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAdminData } from '../AdminData';
 import { deleteProject, reorderProjects } from '../data/repository';
 import { thumbSrc } from '../components/AssetPicker';
-import { paths } from '../../routing/paths';
+import { projectPath, typeOfProject } from '../../content/projectTypes';
 
 export function ProjectsAdminPage() {
   const { records, assets, reload } = useAdminData();
@@ -60,7 +60,7 @@ export function ProjectsAdminPage() {
                 {p.title.vi || '(chưa đặt tên)'}
               </Link>
               <span className="a-prow__meta">
-                /{p.slug}/ · {p.images.length} ảnh · {p.groups.length} nhóm {p.isDemo && '· minh họa'}
+                {typeOfProject(records.site, p)?.title.vi ?? 'Chưa có danh mục'} · /{p.slug}/ · {p.images.length} ảnh · {p.groups.length} nhóm {p.isDemo && '· minh họa'}
               </span>
             </span>
             <span className={`a-badge ${p.status === 'published' ? 'a-badge--ok' : ''}`}>{p.status === 'published' ? 'Công khai' : 'Nháp'}</span>
@@ -77,8 +77,8 @@ export function ProjectsAdminPage() {
               >
                 ↓
               </button>
-              {p.status === 'published' && (
-                <a className="a-btn a-btn--ghost a-btn--sm" href={paths.project('vi', p.slug)} target="_blank" rel="noopener">
+              {p.status === 'published' && projectPath(records.site, p, 'vi') && (
+                <a className="a-btn a-btn--ghost a-btn--sm" href={projectPath(records.site, p, 'vi')!} target="_blank" rel="noopener">
                   Xem ↗
                 </a>
               )}

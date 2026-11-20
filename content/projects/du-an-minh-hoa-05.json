@@ -4,6 +4,7 @@
   "status": "published",
   "sortOrder": 4,
   "isDemo": true,
+  "typeId": "typ_khachsan",
   "title": {
     "vi": "Dự án minh họa 05",
     "en": "Sample project 05"

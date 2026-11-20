@@ -4,6 +4,7 @@
   "status": "published",
   "sortOrder": 6,
   "isDemo": true,
+  "typeId": "typ_coffee",
   "title": {
     "vi": "Dự án minh họa 07",
     "en": "Sample project 07"

@@ -4,6 +4,7 @@
   "status": "published",
   "sortOrder": 1,
   "isDemo": true,
+  "typeId": "typ_nhapho",
   "title": {
     "vi": "Dự án minh họa 02",
     "en": "Sample project 02"

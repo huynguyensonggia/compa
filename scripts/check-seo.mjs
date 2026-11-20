@@ -100,7 +100,9 @@ if (sm) {
   if (/\/admin/.test(sm)) fail('sitemap contains /admin');
   for (const f of fs.readdirSync(path.join(process.cwd(), 'content', 'projects'))) {
     const p = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content', 'projects', f), 'utf8'));
-    const inMap = sm.includes(`/du-an/${p.slug}/`);
+    const type = (site.projectTypes ?? []).find((t) => t.id === p.typeId);
+    const inMap = sm.includes(`/${p.slug}/</loc>`);
+    if (p.status === 'published' && type && !sm.includes(`/du-an/${type.slug.vi}/${p.slug}/`)) fail(`sitemap: ${p.slug} not under /du-an/${type.slug.vi}/`);
     if (p.status === 'published' && !inMap) fail(`sitemap missing ${p.slug}`);
     if (p.status !== 'published' && inMap) fail(`sitemap contains draft ${p.slug}`);
   }

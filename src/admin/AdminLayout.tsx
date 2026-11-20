@@ -6,6 +6,7 @@ import { paths } from '../routing/paths';
 
 const NAV = [
   { to: '/admin', label: 'Tổng quan', end: true },
+  { to: '/admin/danh-muc', label: 'Danh mục dự án' },
   { to: '/admin/du-an', label: 'Dự án' },
   { to: '/admin/anh-mo-dau', label: 'Ảnh mở đầu' },
   { to: '/admin/thuong-hieu', label: 'Thương hiệu & Liên hệ' },

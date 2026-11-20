@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useContent } from '../content/ContentContext';
+import { projectPath, typeBySlug, typeOfProject } from '../content/projectTypes';
 import { useLang } from '../i18n';
 import { paths } from '../routing/paths';
 import { Seo } from '../seo/Seo';
@@ -13,21 +14,19 @@ import { NotFoundPage } from './NotFoundPage';
 import { track } from '../analytics/track';
 
 export function ProjectDetailPage() {
-  const { slug = '' } = useParams();
+  const { typeSlug = '', slug = '' } = useParams();
   const lang = useLang();
-  const { site, projects, assets, redirects } = useContent();
+  const { site, projects, assets } = useContent();
   const project = projects.find((p) => p.slug === slug && p.status === 'published');
+  const type = project ? typeOfProject(site, project) : undefined;
 
   useEffect(() => {
-    if (project) track('project_view', { slug: project.slug, location: 'project' });
-  }, [project?.slug]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (project && type) track('project_view', { slug: project.slug, type: type.slug.vi, location: 'project' });
+  }, [project?.slug, type?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!project) {
-    // In production the static host answers old slugs with a 301 from _redirects; this covers local mode.
-    const moved = redirects.find((r) => r.from === slug);
-    if (moved) return <Navigate to={paths.project(lang, moved.to)} replace />;
-    return <NotFoundPage />;
-  }
+  if (!project || !type) return <NotFoundPage />;
+  // Same project reached under another type slug → canonical URL.
+  if (typeBySlug(site, lang, typeSlug)?.id !== type.id) return <Navigate to={projectPath(site, project, lang)!} replace />;
 
   const description = projectDescription(site, project, lang);
   const ogImagePath = ogProjectPath(project.slug);
@@ -37,13 +36,13 @@ export function ProjectDetailPage() {
         lang={lang}
         title={projectTitle(site, project, lang)}
         description={description}
-        path={paths.project(lang, project.slug)}
-        alternates={{ vi: paths.project('vi', project.slug), en: paths.project('en', project.slug) }}
+        path={paths.project(lang, type.slug[lang], project.slug)}
+        alternates={{ vi: paths.project('vi', type.slug.vi, project.slug), en: paths.project('en', type.slug.en, project.slug) }}
         ogImagePath={ogImagePath}
         ogType="article"
-        jsonLd={projectJsonLd(project, lang, description, ogImagePath)}
+        jsonLd={projectJsonLd(project, type, lang, description, ogImagePath)}
       />
-      <ProjectDetailView project={project} assets={assets} />
+      <ProjectDetailView project={project} assets={assets} site={site} />
     </SiteLayout>
   );
 }

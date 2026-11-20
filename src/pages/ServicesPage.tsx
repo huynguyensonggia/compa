@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useContent } from '../content/ContentContext';
-import { publishedProjects } from '../content/resolve';
+import { publicProjects } from '../content/projectTypes';
 import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { Seo } from '../seo/Seo';
@@ -55,7 +55,7 @@ export function ServiceDetailPage() {
   const { site, projects, assets } = useContent();
   const item = site.services.items.find((s) => s.slug[lang] === slug);
   if (!item || item.status !== 'published' || site.services.status !== 'published') return <NotFoundPage />;
-  const related = publishedProjects(projects)
+  const related = publicProjects(site, projects)
     .filter((p) => p.categories.includes(item.key))
     .slice(0, 6);
   const body = item.body[lang] || '';

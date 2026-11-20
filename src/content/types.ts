@@ -87,8 +87,10 @@ export interface Project {
   coverAssetId: string | null;
   seo: ProjectSeo;
   updatedAt: string;
-  /** Slug at the time of the last publish; used to create 301 redirects on slug change. */
-  publishedSlug?: string | null;
+  /** Project type (danh mục cha: Biệt thự, Khách sạn…). Exactly one per project. */
+  typeId: string | null;
+  /** Public URLs at the last publish; used to create 301 redirects when slug or type changes. */
+  publishedPaths?: Record<Lang, string> | null;
 }
 
 export interface ProjectFull extends Project {
@@ -109,6 +111,16 @@ export interface PostalAddress {
   addressRegion: string;
   addressCountry: string;
   display: Bi;
+}
+
+/** Parent category shown on /du-an/ (Khách sạn, Biệt thự, Nhà hàng, Coffee…). */
+export interface ProjectType {
+  id: string;
+  slug: Bi;
+  title: Bi;
+  description: Bi;
+  coverAssetId: string | null;
+  sortOrder: number;
 }
 
 export interface ServiceItem {
@@ -145,6 +157,7 @@ export interface SiteContent {
     gbpReviewUrl: string;
   };
   hero: { slides: HeroSlide[] };
+  projectTypes: ProjectType[];
   pages: {
     studio: { title: Bi; body: Bi; imageAssetId: string | null };
     contact: { title: Bi; intro: Bi };
@@ -168,6 +181,7 @@ export interface SiteContent {
   updatedAt: string;
 }
 
+/** Permanent redirect between public paths (with trailing slash), e.g. after a slug or type change. */
 export interface Redirect {
   from: string;
   to: string;

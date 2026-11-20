@@ -28,8 +28,9 @@ npm run dev        # http://127.0.0.1:5173/
 | Trang | Tiếng Việt | English |
 |---|---|---|
 | Trang chủ | `/` | `/en/` |
-| Dự án | `/du-an/` | `/en/projects/` |
-| Chi tiết dự án | `/du-an/:slug/` | `/en/projects/:slug/` |
+| Dự án — danh mục cha (Biệt thự, Khách sạn, Nhà hàng, Coffee…) | `/du-an/` | `/en/projects/` |
+| Dự án thuộc một danh mục | `/du-an/:danh-muc/` (vd. `/du-an/khach-san/`) | `/en/projects/:type/` (vd. `/en/projects/hotels/`) |
+| Chi tiết dự án | `/du-an/:danh-muc/:slug/` | `/en/projects/:type/:slug/` |
 | Về COMPA | `/gioi-thieu/` | `/en/studio/` |
 | Liên hệ | `/lien-he/` | `/en/contact/` |
 | Dịch vụ (khi công khai) | `/dich-vu/`, `/dich-vu/:slug/` | `/en/services/`, `/en/services/:slug/` |
@@ -38,13 +39,16 @@ npm run dev        # http://127.0.0.1:5173/
 
 ## Trang quản trị (bản thử nghiệm trên thiết bị)
 
-Tổng quan · Dự án · Ảnh mở đầu · Thương hiệu & Liên hệ · Nội dung Việt–Anh.
+Tổng quan · Danh mục dự án · Dự án · Ảnh mở đầu · Thương hiệu & Liên hệ · Nội dung Việt–Anh.
+
+- **Danh mục dự án** (`/admin/danh-muc`): thêm, đổi tên vi/en, slug, mô tả, ảnh đại diện, sắp xếp. Danh mục chưa có dự án công khai tự ẩn trên website. Muốn xóa danh mục còn dự án thì chuyển dự án sang danh mục khác trước (có nút chuyển hàng loạt).
+- Mỗi dự án thuộc **đúng một danh mục** (chọn trong form dự án, bắt buộc trước khi công khai). “Hạng mục” (Kiến trúc / Nội thất / Cảnh quan / Thi công) là trường riêng.
 
 - Dữ liệu lưu trong **IndexedDB** của trình duyệt (ảnh tải lên lưu dạng Blob). Lần đầu mở admin, nội dung trong `content/` được chép vào IndexedDB; sau đó không bao giờ bị ghi đè trừ khi bấm “Khôi phục dữ liệu demo”.
 - Khi chạy `npm run dev`, website đọc IndexedDB nếu admin đã được dùng, nếu chưa thì đọc `content/`. Thay đổi còn sau khi reload.
 - **Mỗi địa chỉ là một vùng dữ liệu riêng**: đổi cổng (5173 → 5174) hay đổi trình duyệt sẽ thấy dữ liệu khác.
 - Gallery theo không gian: nhóm Ngoại thất / Nội thất / Sân vườn (thêm, đổi tên, sắp xếp được), khu “Chưa phân loại”, tải nhiều ảnh, chọn nhiều + “Chuyển vào nhóm”, kéo thả, nút ←/→/↑/↓ cho bàn phím. Còn ảnh chưa phân loại thì lưu nháp được, công khai bị chặn.
-- Đổi slug dự án đã công khai → tự ghi chuyển hướng 301 (xuất ra `_redirects` khi build).
+- Đường dẫn của dự án đã công khai thay đổi (đổi slug, đổi danh mục, hoặc đổi slug của danh mục) → tự ghi chuyển hướng 301 cho cả bản Việt và Anh (xuất ra `_redirects` khi build).
 - “Sao lưu JSON” chỉ chứa **tham chiếu ảnh**, không phải sao lưu đầy đủ ảnh.
 - **Chưa có xác thực.** Không dùng như hệ thống quản trị production.
 
@@ -60,7 +64,7 @@ IndexedDB chỉ nằm trong trình duyệt của người quản trị; bản bu
 
 | Cần sửa | Ở đâu |
 |---|---|
-| Thương hiệu, NAP (tên/địa chỉ/điện thoại), slide, nội dung giới thiệu, dịch vụ, cờ SEO | `content/site.json` (hoặc admin) |
+| Thương hiệu, NAP (tên/địa chỉ/điện thoại), danh mục dự án (`projectTypes`), slide, nội dung giới thiệu, dịch vụ, cờ SEO | `content/site.json` (hoặc admin) |
 | Dự án (nhóm, ảnh, thứ tự, SEO) | `content/projects/<slug>.json` (hoặc admin) |
 | Danh mục ảnh: đường dẫn, kích thước, nguồn, giấy phép, `isDemo` | `content/assets.json` |
 | Ảnh gốc (giữ để xuất lại) | `content/images-src/` → tự sinh `public/images/*.webp` |
@@ -93,15 +97,15 @@ Qua admin (khuyến nghị) rồi xuất gói. Ảnh mẫu hiện tại có `isD
 - Logo: đã dùng file gốc của khách (ảnh raster nền xám). Chưa có bản vector / PNG nền trong suốt.
 - Mã màu trong `tokens.css` lấy mẫu từ file logo (xám than `#535351`, vàng be `#CEC09D`), chưa đối chiếu với file nhận diện chính thức.
 - Font: Montserrat (OFL, tự host WOFF2, subset Việt + Latin, 300/400/600) thay thế tạm cho proxima-nova.
-- Toàn bộ 12 dự án là minh họa; dự án 01 có đủ 20 ảnh (5 Ngoại thất + 10 Nội thất + 5 Sân vườn) để kiểm tra gallery.
+- Toàn bộ 12 dự án là minh họa, chia vào 6 danh mục mẫu (Biệt thự, Nhà phố, Khách sạn, Homestay, Nhà hàng, Coffee — mỗi danh mục 2 dự án); dự án 01 có đủ 20 ảnh (5 Ngoại thất + 10 Nội thất + 5 Sân vườn) để kiểm tra gallery. Danh sách danh mục thật cần khách xác nhận.
 - Trang Dịch vụ ở trạng thái nháp, cần khách cung cấp mô tả.
 - `allowIndexing: false` → mọi trang `noindex` + header `X-Robots-Tag` cho tới khi có dự án thật.
 
 **Đã kiểm tra (ngày 20/11/2026, trên máy local)**
 
-- Typecheck và build thành công; 32 trang prerender; `npm run check:seo` đạt toàn bộ.
+- Typecheck và build thành công; 44 trang prerender; `npm run check:seo` đạt toàn bộ.
 - Chrome headless ở 1440 / 768 / 390px: không tràn ngang, mỗi trang đúng một `<h1>`, không lỗi hydration.
-- Kiểm thử tự động 35 bước: nhóm 5/10/5, lightbox giữ trong nhóm (“Nội thất — 3/10”, dừng ở đầu/cuối, Escape trả focus), đổi ngôn ngữ giữ trang, menu bằng bàn phím, tải thẳng/refresh trang chi tiết, luồng admin (tải 20 ảnh giữ thứ tự chọn, chặn công khai khi còn ảnh chưa phân loại, phân nhóm không mất/không trùng, công khai, hiện trên web, reload còn, đổi thứ tự nhóm/chuyển ảnh phản ánh ở bản EN, đổi slug tạo chuyển hướng, xóa nhóm có ảnh, JSON xuất/nhập giữ cấu trúc và từ chối tham chiếu hỏng, xóa dự án).
+- Kiểm thử tự động 46 bước: điều hướng 3 cấp (danh mục → dự án → chi tiết, breadcrumb, đổi ngôn ngữ giữ đúng trang, sai danh mục tự về URL chuẩn), đổi slug danh mục tạo chuyển hướng, chặn xóa danh mục còn dự án, nhóm 5/10/5, lightbox giữ trong nhóm (“Nội thất — 3/10”, dừng ở đầu/cuối, Escape trả focus), đổi ngôn ngữ giữ trang, menu bằng bàn phím, tải thẳng/refresh trang chi tiết, luồng admin (tải 20 ảnh giữ thứ tự chọn, chặn công khai khi còn ảnh chưa phân loại, phân nhóm không mất/không trùng, công khai, hiện trên web, reload còn, đổi thứ tự nhóm/chuyển ảnh phản ánh ở bản EN, đổi slug tạo chuyển hướng, xóa nhóm có ảnh, JSON xuất/nhập giữ cấu trúc và từ chối tham chiếu hỏng, xóa dự án).
 - Luồng xuất gói → `content:import` → build → dòng 301 trong `_redirects`.
 - `/du-an` → 301 `/du-an/`; URL sai → 404 thật; `/admin` có `X-Robots-Tag: noindex, nofollow` và `Cache-Control: no-store`.
 

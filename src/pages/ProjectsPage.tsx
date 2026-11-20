@@ -1,19 +1,19 @@
 import { useContent } from '../content/ContentContext';
-import { publishedProjects } from '../content/resolve';
+import { typeCover, visibleTypes } from '../content/projectTypes';
 import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { Seo } from '../seo/Seo';
 import { pageTitle } from '../seo/meta';
 import { SiteLayout } from '../components/SiteLayout';
-import { ProjectGrid } from '../components/ProjectGrid';
-import { CARD_SIZES } from '../components/ProjectCard';
+import { CARD_SIZES, GridCard } from '../components/ProjectCard';
 
+/** /du-an/ — parent categories (Biệt thự, Khách sạn, Nhà hàng, Coffee…). */
 export function ProjectsPage() {
   const lang = useLang();
   const t = useT();
   const { site, projects, assets } = useContent();
-  const list = publishedProjects(projects);
-  const firstCover = list[0]?.coverAssetId ? assets[list[0].coverAssetId] : undefined;
+  const types = visibleTypes(site, projects);
+  const firstCover = types[0] ? typeCover(types[0].type, types[0].projects, assets) : undefined;
   return (
     <SiteLayout>
       <Seo
@@ -26,7 +26,23 @@ export function ProjectsPage() {
       />
       <div className="container">
         <h1 className="visually-hidden">{t('projects.title')}</h1>
-        {list.length ? <ProjectGrid projects={list} assets={assets} /> : <p className="empty-note">{t('projects.empty')}</p>}
+        {types.length ? (
+          <ul className="project-grid">
+            {types.map(({ type, projects: list }, i) => (
+              <GridCard
+                key={type.id}
+                to={paths.projectType(lang, type.slug[lang])}
+                title={type.title[lang] || type.title.vi}
+                meta={list.length === 1 ? t('types.countOne') : t('types.count', { n: list.length })}
+                image={typeCover(type, list, assets)}
+                priority={i === 0}
+                eager={i < 3}
+              />
+            ))}
+          </ul>
+        ) : (
+          <p className="empty-note">{t('projects.empty')}</p>
+        )}
       </div>
     </SiteLayout>
   );

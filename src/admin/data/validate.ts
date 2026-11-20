@@ -1,4 +1,4 @@
-import type { ProjectFull, Lang, Bi } from '../../content/types';
+import type { ProjectFull, Lang, Bi, SiteContent } from '../../content/types';
 import { SLUG_RE } from './slug';
 
 export interface Issue {
@@ -7,7 +7,7 @@ export interface Issue {
 }
 
 /** Validation for saving a project. Errors block saving; warnings are shown only. */
-export function validateProject(p: ProjectFull, others: ProjectFull[], intent: 'draft' | 'published'): Issue[] {
+export function validateProject(p: ProjectFull, others: ProjectFull[], intent: 'draft' | 'published', site?: SiteContent): Issue[] {
   const issues: Issue[] = [];
   const err = (message: string) => issues.push({ level: 'error', message });
   const warn = (message: string) => issues.push({ level: 'warning', message });
@@ -15,6 +15,7 @@ export function validateProject(p: ProjectFull, others: ProjectFull[], intent: '
   if (!p.title.vi.trim()) err('Cần nhập tên dự án (tiếng Việt).');
   if (!SLUG_RE.test(p.slug)) err('Slug chỉ gồm chữ thường không dấu, số và dấu gạch ngang (ví dụ: nha-vuon-cam-thanh).');
   if (others.some((o) => o.id !== p.id && o.slug === p.slug)) err(`Slug "${p.slug}" đã được dùng cho dự án khác.`);
+  if (site && p.typeId && !site.projectTypes.some((t) => t.id === p.typeId)) err('Danh mục của dự án không còn tồn tại.');
   if (p.year !== null && (!Number.isInteger(p.year) || p.year < 1950 || p.year > 2100)) err('Năm không hợp lệ.');
 
   const groupIds = new Set(p.groups.map((g) => g.id));
@@ -31,6 +32,7 @@ export function validateProject(p: ProjectFull, others: ProjectFull[], intent: '
     if (unclassified) {
       err(`Còn ${unclassified} ảnh trong "Chưa phân loại". Hãy chuyển các ảnh này vào một nhóm không gian (hoặc xóa khỏi gallery) trước khi công khai.`);
     }
+    if (!p.typeId) err('Cần chọn danh mục (Biệt thự, Khách sạn…) trước khi công khai.');
     if (!p.coverAssetId) err('Cần chọn ảnh bìa trước khi công khai.');
     if (!p.images.length) err('Gallery chưa có ảnh.');
     if (!p.title.en.trim()) warn('Chưa có tên tiếng Anh — bản EN sẽ hiển thị tên tiếng Việt.');

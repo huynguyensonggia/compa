@@ -21,7 +21,7 @@ export async function buildContentPackage(): Promise<{ blob: Blob; warnings: str
   const r = await loadRecords();
   const warnings: string[] = [];
   for (const p of r.projects) {
-    for (const issue of validateProject(p, r.projects, p.status)) {
+    for (const issue of validateProject(p, r.projects, p.status, r.site)) {
       if (issue.level === 'error') throw new Error(`${p.slug}: ${issue.message}`);
       warnings.push(`${p.slug}: ${issue.message}`);
     }
@@ -42,6 +42,7 @@ export async function buildContentPackage(): Promise<{ blob: Blob; warnings: str
     name(p.coverAssetId, `du-an/${p.slug}/anh-bia`);
     name(p.seo.ogAssetId, `du-an/${p.slug}/anh-chia-se`);
   }
+  r.site.projectTypes.forEach((t) => name(t.coverAssetId, `danh-muc/${t.slug.vi}`));
   r.site.hero.slides.forEach((s, i) => name(s.assetId, `trang-chu/anh-mo-dau-${pad(i + 1)}`));
   name(r.site.pages.studio.imageAssetId, 'gioi-thieu/anh-01');
   name(r.site.brand.logoAssetId, 'thuong-hieu/logo');

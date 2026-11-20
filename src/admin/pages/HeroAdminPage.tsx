@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useAdminData } from '../AdminData';
 import { useSiteForm } from './useSiteForm';
 import { AssetPicker, thumbSrc } from '../components/AssetPicker';
-import { BiField, SaveState } from '../components/ui';
+import { BiField, SaveState, IssueList } from '../components/ui';
 import { newId } from '../data/slug';
 import type { HeroSlide } from '../../content/types';
 
 export function HeroAdminPage() {
   const { assets } = useAdminData();
-  const { draft, setDraft, dirty, savedAt, save } = useSiteForm();
+  const { draft, setDraft, dirty, savedAt, save, errors } = useSiteForm();
   const [picking, setPicking] = useState(false);
   if (!draft) return null;
   const slides = draft.hero.slides;
@@ -32,6 +32,7 @@ export function HeroAdminPage() {
           Lưu
         </button>
       </div>
+      <IssueList issues={errors.map((message) => ({ level: 'error' as const, message }))} />
       <p className="a-hint">Trang chủ hiển thị 4–6 ảnh, chuyển cảnh khoảng 6 giây. Ảnh đầu tiên được tải ưu tiên. Nhấn lên ảnh để đặt điểm lấy nét (vùng luôn giữ khi cắt).</p>
       {(slides.length < 4 || slides.length > 6) && <p className="a-issue a-issue--warning">Nên có 4–6 ảnh (hiện có {slides.length}).</p>}
       <ol className="a-slides">

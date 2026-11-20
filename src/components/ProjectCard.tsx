@@ -1,8 +1,36 @@
 import { Link } from 'react-router-dom';
-import type { AssetMap, ProjectFull } from '../content/types';
+import type { AssetMap, FocalPoint, ProjectFull, ResolvedAsset } from '../content/types';
 import { useLang } from '../i18n';
-import { paths } from '../routing/paths';
+import { useContent } from '../content/ContentContext';
+import { projectPath } from '../content/projectTypes';
 import { Picture } from './Picture';
+
+export const CARD_SIZES = '(min-width: 1024px) 28vw, (min-width: 640px) 42vw, 90vw';
+
+interface CardProps {
+  to: string;
+  title: string;
+  image: ResolvedAsset | undefined;
+  focalPoint?: FocalPoint;
+  meta?: string;
+  priority?: boolean;
+  eager?: boolean;
+}
+
+/** Square image + small spaced caption, shared by type cards and project cards. */
+export function GridCard({ to, title, image, focalPoint, meta, priority, eager }: CardProps) {
+  return (
+    <li className="project-card">
+      <Link to={to} className="project-card__link">
+        <span className="project-card__media">
+          <Picture asset={image} alt="" sizes={CARD_SIZES} priority={priority} eager={eager} focalPoint={focalPoint} />
+        </span>
+        <span className="project-card__title">{title}</span>
+        {meta && <span className="project-card__meta">{meta}</span>}
+      </Link>
+    </li>
+  );
+}
 
 interface Props {
   project: ProjectFull;
@@ -11,28 +39,20 @@ interface Props {
   eager?: boolean;
 }
 
-export const CARD_SIZES = '(min-width: 1024px) 28vw, (min-width: 640px) 42vw, 90vw';
-
 export function ProjectCard({ project, assets, priority, eager }: Props) {
   const lang = useLang();
-  const title = project.title[lang] || project.title.vi;
-  const cover = project.coverAssetId ? assets[project.coverAssetId] : undefined;
+  const { site } = useContent();
+  const to = projectPath(site, project, lang);
+  if (!to) return null;
   const coverImage = project.images.find((i) => i.assetId === project.coverAssetId);
   return (
-    <li className="project-card">
-      <Link to={paths.project(lang, project.slug)} className="project-card__link">
-        <span className="project-card__media">
-          <Picture
-            asset={cover}
-            alt=""
-            sizes={CARD_SIZES}
-            priority={priority}
-            eager={eager}
-            focalPoint={coverImage?.focalPoint}
-          />
-        </span>
-        <span className="project-card__title">{title}</span>
-      </Link>
-    </li>
+    <GridCard
+      to={to}
+      title={project.title[lang] || project.title.vi}
+      image={project.coverAssetId ? assets[project.coverAssetId] : undefined}
+      focalPoint={coverImage?.focalPoint}
+      priority={priority}
+      eager={eager}
+    />
   );
 }

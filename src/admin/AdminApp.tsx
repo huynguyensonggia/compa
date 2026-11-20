@@ -6,6 +6,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ProjectsAdminPage } from './pages/ProjectsAdminPage';
 import { ProjectEditorPage } from './pages/ProjectEditorPage';
 import { HeroAdminPage } from './pages/HeroAdminPage';
+import { TypesAdminPage } from './pages/TypesAdminPage';
 import { BrandAdminPage } from './pages/BrandAdminPage';
 import { ContentAdminPage } from './pages/ContentAdminPage';
 import '../styles/admin.css';
@@ -26,6 +27,7 @@ export default function AdminApp() {
             <Route path="du-an" element={<ProjectsAdminPage />} />
             <Route path="du-an/moi" element={<ProjectEditorPage key="new" />} />
             <Route path="du-an/:id" element={<KeyedEditor />} />
+            <Route path="danh-muc" element={<TypesAdminPage />} />
             <Route path="anh-mo-dau" element={<HeroAdminPage />} />
             <Route path="thuong-hieu" element={<BrandAdminPage />} />
             <Route path="noi-dung" element={<ContentAdminPage />} />

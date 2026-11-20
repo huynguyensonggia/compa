@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useAdminData } from '../AdminData';
 import { useSiteForm } from './useSiteForm';
 import { AssetPicker, thumbSrc } from '../components/AssetPicker';
-import { BiField, Counter, Field, SaveState } from '../components/ui';
+import { BiField, Counter, Field, SaveState, IssueList } from '../components/ui';
 import type { SiteContent } from '../../content/types';
 
 export function BrandAdminPage() {
   const { assets } = useAdminData();
-  const { draft, setDraft, dirty, savedAt, save } = useSiteForm();
+  const { draft, setDraft, dirty, savedAt, save, errors } = useSiteForm();
   const [picking, setPicking] = useState(false);
   if (!draft) return null;
   const set = (fn: (d: SiteContent) => void) => {
@@ -37,6 +37,7 @@ export function BrandAdminPage() {
           Lưu
         </button>
       </div>
+      <IssueList issues={errors.map((message) => ({ level: 'error' as const, message }))} />
       <p className="a-hint">
         Đây là nguồn NAP (tên, địa chỉ, điện thoại) duy nhất: dùng cho footer, trang Liên hệ, dữ liệu có cấu trúc (JSON-LD) và nội dung chia sẻ. Giữ đúng một cách viết.
       </p>

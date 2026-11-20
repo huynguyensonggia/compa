@@ -4,6 +4,7 @@
   "status": "published",
   "sortOrder": 10,
   "isDemo": true,
+  "typeId": "typ_homestay",
   "title": {
     "vi": "Dự án minh họa 11",
     "en": "Sample project 11"

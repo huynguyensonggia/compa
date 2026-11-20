@@ -47,6 +47,8 @@ for (const p of projects) {
     if (!assetIds.has(i.assetId)) problems.push(`${p.slug}: ảnh ${i.id} tham chiếu asset không tồn tại`);
   }
   if (p.status === 'published' && p.images.some((i) => i.groupId === null)) problems.push(`${p.slug}: dự án công khai còn ảnh chưa phân loại`);
+  if (p.typeId && !(site.projectTypes ?? []).some((t) => t.id === p.typeId)) problems.push(`${p.slug}: danh mục không tồn tại (${p.typeId})`);
+  if (p.status === 'published' && !p.typeId) problems.push(`${p.slug}: dự án công khai chưa có danh mục`);
   if (p.coverAssetId && !assetIds.has(p.coverAssetId)) problems.push(`${p.slug}: ảnh bìa không tồn tại`);
 }
 for (const s of site.hero.slides) if (!assetIds.has(s.assetId)) problems.push(`Ảnh mở đầu ${s.id}: asset không tồn tại`);

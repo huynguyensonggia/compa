@@ -101,13 +101,12 @@ const headers = [
 ];
 write('_headers', headers.join('\n'));
 
-// 7) _redirects: admin SPA fallback + 301 for changed slugs (both with and without trailing slash)
-const lines = ['# Admin is client-rendered', '/admin/* /admin/index.html 200', '', '# Old project slugs (generated from content/redirects.json)'];
+// 7) _redirects: admin SPA fallback + 301 for moved pages (both with and without trailing slash)
+const lines = ['# Admin is client-rendered', '/admin/* /admin/index.html 200', '', '# Moved pages (generated from content/redirects.json)'];
 for (const r of ssr.redirects()) {
-  lines.push(`/du-an/${r.from}/ /du-an/${r.to}/ 301`);
-  lines.push(`/du-an/${r.from} /du-an/${r.to}/ 301`);
-  lines.push(`/en/projects/${r.from}/ /en/projects/${r.to}/ 301`);
-  lines.push(`/en/projects/${r.from} /en/projects/${r.to}/ 301`);
+  if (!r.from.startsWith('/') || !r.to.startsWith('/')) continue;
+  lines.push(`${r.from} ${r.to} 301`);
+  if (r.from.endsWith('/')) lines.push(`${r.from.slice(0, -1)} ${r.to} 301`);
 }
 write('_redirects', lines.join('\n') + '\n');
 

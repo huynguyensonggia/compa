@@ -1,4 +1,4 @@
-import type { Lang, ProjectFull, SiteContent } from '../content/types';
+import type { Lang, ProjectFull, ProjectType, SiteContent } from '../content/types';
 import { absUrl, OG_DEFAULT_PATH, SITE_URL } from './config';
 import { paths } from '../routing/paths';
 import { translate } from '../i18n';
@@ -52,13 +52,14 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
   };
 }
 
-export function projectJsonLd(p: ProjectFull, lang: Lang, description: string, imagePath: string) {
+export function projectJsonLd(p: ProjectFull, type: ProjectType, lang: Lang, description: string, imagePath: string) {
+  const url = paths.project(lang, type.slug[lang], p.slug);
   const node: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     name: p.title[lang] || p.title.vi,
     description,
-    url: absUrl(paths.project(lang, p.slug)),
+    url: absUrl(url),
     image: absUrl(imagePath),
     inLanguage: lang,
   };
@@ -70,7 +71,8 @@ export function projectJsonLd(p: ProjectFull, lang: Lang, description: string, i
   return [
     breadcrumbJsonLd([
       { name: translate(lang, 'projects.title'), path: paths.projects(lang) },
-      { name: p.title[lang] || p.title.vi, path: paths.project(lang, p.slug) },
+      { name: type.title[lang] || type.title.vi, path: paths.projectType(lang, type.slug[lang]) },
+      { name: p.title[lang] || p.title.vi, path: url },
     ]),
     node,
   ];

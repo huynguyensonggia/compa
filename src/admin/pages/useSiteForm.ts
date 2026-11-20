@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAdminData } from '../AdminData';
-import { saveSite } from '../data/repository';
+import { saveSite, ValidationError } from '../data/repository';
 import { timeNow, useUnsavedGuard } from '../components/ui';
 import type { SiteContent } from '../../content/types';
 
@@ -10,6 +10,7 @@ export function useSiteForm() {
   const [saved, setSaved] = useState<SiteContent | null>(null);
   const [draft, setDraft] = useState<SiteContent | null>(null);
   const [savedAt, setSavedAt] = useState<string | null>(null);
+  const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
     if (records && !draft) {
@@ -22,12 +23,19 @@ export function useSiteForm() {
   useUnsavedGuard(dirty);
 
   const save = async () => {
-    if (!draft) return;
-    await saveSite(draft);
+    if (!draft) return false;
+    try {
+      await saveSite(draft);
+    } catch (e) {
+      setErrors(e instanceof ValidationError ? e.issues : [(e as Error).message]);
+      return false;
+    }
+    setErrors([]);
     setSaved(structuredClone(draft));
     setSavedAt(timeNow());
     await reload();
+    return true;
   };
 
-  return { draft, setDraft, dirty, savedAt, save, reset: () => saved && setDraft(structuredClone(saved)) };
+  return { draft, setDraft, dirty, savedAt, save, errors, reset: () => saved && setDraft(structuredClone(saved)) };
 }

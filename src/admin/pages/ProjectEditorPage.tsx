@@ -13,6 +13,7 @@ import { LangProvider, translate } from '../../i18n';
 import { ProjectDetailView } from '../../pages/ProjectDetailView';
 import { projectDescription, projectTitle } from '../../seo/meta';
 import { paths } from '../../routing/paths';
+import { projectPath, sortedTypes } from '../../content/projectTypes';
 
 const CAT_LABEL: Record<Category, string> = { architecture: 'Kiến trúc', interior: 'Nội thất', landscape: 'Cảnh quan', construction: 'Thi công' };
 
@@ -32,7 +33,8 @@ function blankProject(sortOrder: number): ProjectFull {
     coverAssetId: null,
     seo: { title: { vi: '', en: '' }, description: { vi: '', en: '' }, ogAssetId: null },
     updatedAt: new Date().toISOString(),
-    publishedSlug: null,
+    typeId: null,
+    publishedPaths: null,
     groups: DEFAULT_GROUPS.map((t, i) => ({ id: newId('grp'), projectId: id, title: { ...t }, sortOrder: i })),
     images: [],
   };
@@ -69,14 +71,17 @@ export function ProjectEditorPage() {
   const others = records.projects.filter((p) => p.id !== draft.id);
   const update = (patch: Partial<ProjectFull>) => setDraft((d) => (d ? { ...d, ...patch } : d));
   const wasPublished = saved?.status === 'published';
-  const slugChangedLive = !!saved?.publishedSlug && saved.publishedSlug !== draft.slug;
+  const livePath = saved?.publishedPaths?.vi ?? null;
+  const nextPath = projectPath(records.site, draft, 'vi');
+  const slugChangedLive = !!livePath && !!nextPath && livePath !== nextPath;
+  const types = sortedTypes(records.site);
   const unclassified = draft.images.filter((i) => i.groupId === null).length;
   const issues = validateProject(draft, others, draft.status);
 
   const persist = async (status: 'draft' | 'published') => {
     const next = { ...draft, status };
     if (status === 'published' && slugChangedLive) {
-      if (!confirm(`Đổi slug của dự án đang công khai từ “${saved!.publishedSlug}” sang “${draft.slug}”.\nĐường dẫn cũ sẽ được chuyển hướng 301 sang đường dẫn mới. Tiếp tục?`)) return;
+      if (!confirm(`Đổi đường dẫn của dự án đang công khai:\n${livePath}\n→ ${nextPath}\nĐường dẫn cũ sẽ được chuyển hướng 301 sang đường dẫn mới. Tiếp tục?`)) return;
     }
     try {
       const result = await saveProject(next);
@@ -147,13 +152,25 @@ export function ProjectEditorPage() {
           value={draft.title}
           onChange={(title) => update({ title, ...(slugTouched ? {} : { slug: slugify(title.vi) }) })}
         />
+        <Field label="Danh mục" hint="Danh mục cha hiển thị ở trang Dự án (Biệt thự, Khách sạn, Nhà hàng, Coffee…). Quản lý ở mục “Danh mục dự án”.">
+          {(fid) => (
+            <select id={fid} value={draft.typeId ?? ''} onChange={(e) => update({ typeId: e.target.value || null })} className={!draft.typeId ? 'is-missing' : ''}>
+              <option value="">— Chọn danh mục —</option>
+              {types.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.title.vi}
+                </option>
+              ))}
+            </select>
+          )}
+        </Field>
         <Field
           label="Slug (đường dẫn)"
           hint={
             <>
-              /du-an/<strong>{draft.slug || '…'}</strong>/ và /en/projects/<strong>{draft.slug || '…'}</strong>/ — tự gợi ý từ tên tiếng Việt.
+              {projectPath(records.site, { ...draft, slug: draft.slug || '…' }, 'vi') ?? `/du-an/{danh-mục}/${draft.slug || '…'}/`} — tự gợi ý từ tên tiếng Việt.
               {slugChangedLive && (
-                <span className="a-warn-inline"> Đang đổi slug của dự án đã công khai: khi lưu sẽ tạo chuyển hướng 301 từ “{saved?.publishedSlug}”.</span>
+                <span className="a-warn-inline"> Đường dẫn của dự án đã công khai sẽ đổi từ {livePath} sang {nextPath}; khi lưu sẽ tạo chuyển hướng 301.</span>
               )}
             </>
           }
@@ -286,7 +303,7 @@ export function ProjectEditorPage() {
               lang={l}
               title={projectTitle(records.site, draft, l)}
               description={projectDescription(records.site, draft, l)}
-              path={paths.project(l, draft.slug || 'slug')}
+              path={projectPath(records.site, { ...draft, slug: draft.slug || 'slug' }, l) ?? paths.projects(l)}
               image={ogAsset}
               siteName={records.site.brand.name}
             />
@@ -325,7 +342,7 @@ export function ProjectEditorPage() {
           <div className="a-preview__body site-main">
             <LangProvider lang={preview}>
               <p className="visually-hidden">{translate(preview, 'project.gallery')}</p>
-              <ProjectDetailView project={draft} assets={assets} />
+              <ProjectDetailView project={draft} assets={assets} site={records.site} />
             </LangProvider>
           </div>
         </div>

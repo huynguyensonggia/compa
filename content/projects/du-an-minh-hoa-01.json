@@ -4,6 +4,7 @@
   "status": "published",
   "sortOrder": 0,
   "isDemo": true,
+  "typeId": "typ_bietthu",
   "title": {
     "vi": "Dự án minh họa 01",
     "en": "Sample project 01"

@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom';
-import type { AssetMap, ProjectFull } from '../content/types';
+import type { AssetMap, ProjectFull, SiteContent } from '../content/types';
 import { gallerySections } from '../content/resolve';
+import { typeOfProject } from '../content/projectTypes';
 import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { ProjectGallery } from '../components/ProjectGallery';
 
 /** Public project template. Also used unchanged by the admin "Xem trước" panel. */
-export function ProjectDetailView({ project, assets }: { project: ProjectFull; assets: AssetMap }) {
+export function ProjectDetailView({ project, assets, site }: { project: ProjectFull; assets: AssetMap; site: SiteContent }) {
   const lang = useLang();
   const t = useT();
+  const type = typeOfProject(site, project);
+  const typeTitle = type ? type.title[lang] || type.title.vi : '';
+  const typeHref = type ? paths.projectType(lang, type.slug[lang]) : paths.projects(lang);
   const title = project.title[lang] || project.title.vi;
   const location = project.location[lang] || project.location.vi;
   const description = project.description[lang] || project.description.vi;
@@ -24,6 +28,11 @@ export function ProjectDetailView({ project, assets }: { project: ProjectFull; a
           <li>
             <Link to={paths.projects(lang)}>{t('projects.title')}</Link>
           </li>
+          {type && (
+            <li>
+              <Link to={typeHref}>{typeTitle}</Link>
+            </li>
+          )}
           <li aria-current="page">{title}</li>
         </ol>
       </nav>
@@ -68,7 +77,7 @@ export function ProjectDetailView({ project, assets }: { project: ProjectFull; a
       </header>
       <ProjectGallery sections={sections} assets={assets} />
       <p className="project__back">
-        <Link to={paths.projects(lang)}>{t('project.back')}</Link>
+        <Link to={typeHref}>{type ? t('project.back', { type: typeTitle }) : t('type.back')}</Link>
       </p>
     </article>
   );

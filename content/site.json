@@ -89,6 +89,110 @@
       }
     ]
   },
+  "projectTypes": [
+    {
+      "id": "typ_bietthu",
+      "slug": {
+        "vi": "biet-thu",
+        "en": "villas"
+      },
+      "title": {
+        "vi": "Biệt thự",
+        "en": "Villas"
+      },
+      "description": {
+        "vi": "",
+        "en": ""
+      },
+      "coverAssetId": null,
+      "sortOrder": 0
+    },
+    {
+      "id": "typ_nhapho",
+      "slug": {
+        "vi": "nha-pho",
+        "en": "townhouses"
+      },
+      "title": {
+        "vi": "Nhà phố",
+        "en": "Townhouses"
+      },
+      "description": {
+        "vi": "",
+        "en": ""
+      },
+      "coverAssetId": null,
+      "sortOrder": 1
+    },
+    {
+      "id": "typ_khachsan",
+      "slug": {
+        "vi": "khach-san",
+        "en": "hotels"
+      },
+      "title": {
+        "vi": "Khách sạn",
+        "en": "Hotels"
+      },
+      "description": {
+        "vi": "",
+        "en": ""
+      },
+      "coverAssetId": null,
+      "sortOrder": 2
+    },
+    {
+      "id": "typ_homestay",
+      "slug": {
+        "vi": "homestay",
+        "en": "homestays"
+      },
+      "title": {
+        "vi": "Homestay",
+        "en": "Homestays"
+      },
+      "description": {
+        "vi": "",
+        "en": ""
+      },
+      "coverAssetId": null,
+      "sortOrder": 3
+    },
+    {
+      "id": "typ_nhahang",
+      "slug": {
+        "vi": "nha-hang",
+        "en": "restaurants"
+      },
+      "title": {
+        "vi": "Nhà hàng",
+        "en": "Restaurants"
+      },
+      "description": {
+        "vi": "",
+        "en": ""
+      },
+      "coverAssetId": null,
+      "sortOrder": 4
+    },
+    {
+      "id": "typ_coffee",
+      "slug": {
+        "vi": "coffee",
+        "en": "coffee-shops"
+      },
+      "title": {
+        "vi": "Coffee",
+        "en": "Coffee shops"
+      },
+      "description": {
+        "vi": "",
+        "en": ""
+      },
+      "coverAssetId": null,
+      "sortOrder": 5
+    }
+  ],
   "pages": {
     "studio": {
       "title": {

@@ -7,7 +7,7 @@ import { ContentProvider } from './content/ContentContext';
 import { getStaticContent, getStaticRecords } from './content/static';
 import { HeadCollectorCtx, type HeadCollector } from './seo/Seo';
 import { analyticsHeadHtml, buildHeadHtml } from './seo/head';
-import { publishedProjects } from './content/resolve';
+import { publicProjects, visibleTypes } from './content/projectTypes';
 import { paths } from './routing/paths';
 import { SITE_URL, OG_DEFAULT_PATH, ogProjectPath } from './seo/config';
 import type { Lang } from './content/types';
@@ -47,7 +47,7 @@ export interface RouteEntry {
 /** Every public, published page. Drafts are never prerendered nor listed in the sitemap. */
 export function listRoutes(): RouteEntry[] {
   const { site } = content;
-  const projects = publishedProjects(content.projects);
+  const projects = publicProjects(site, content.projects);
   const latest = projects.map((p) => p.updatedAt).sort().pop() || site.updatedAt;
   const out: RouteEntry[] = [];
   const pair = (make: (l: Lang) => string, lastmod?: string) => {
@@ -57,7 +57,11 @@ export function listRoutes(): RouteEntry[] {
   };
   pair(paths.home, site.updatedAt);
   pair(paths.projects, latest);
-  for (const p of projects) pair((l) => paths.project(l, p.slug), p.updatedAt);
+  for (const { type, projects: list } of visibleTypes(site, content.projects)) {
+    const typeLastmod = list.map((p) => p.updatedAt).sort().pop();
+    pair((l) => paths.projectType(l, type.slug[l]), typeLastmod);
+    for (const p of list) pair((l) => paths.project(l, type.slug[l], p.slug), p.updatedAt);
+  }
   pair(paths.studio, site.updatedAt);
   pair(paths.contact, site.updatedAt);
   if (site.services.status === 'published') {
@@ -77,7 +81,7 @@ export function ogJobs() {
   const def = content.site.seo.defaultOgAssetId ?? content.site.hero.slides[0]?.assetId;
   const defSlide = content.site.hero.slides.find((s) => s.assetId === def);
   if (def && byId.has(def)) jobs.push({ out: OG_DEFAULT_PATH, asset: byId.get(def), focalPoint: defSlide?.focalPoint ?? null });
-  for (const p of publishedProjects(content.projects)) {
+  for (const p of publicProjects(content.site, content.projects)) {
     const id = p.seo.ogAssetId || p.coverAssetId;
     if (!id || !byId.has(id)) continue;
     const img = p.images.find((i) => i.assetId === id);

@@ -12,7 +12,8 @@
 - [x] Logo gốc (raster 2048×2048 nền xám) đã dùng cho header, trang chủ, favicon và JSON-LD.
 - [ ] Logo **vector hoặc PNG nền trong suốt** (để dùng trên nền sáng và in ấn, nếu khách có).
 - [ ] **Mã màu chính thức** từ file thiết kế (hiện lấy mẫu từ ảnh logo: `#535351` / `#CEC09D`).
-- [ ] **Danh sách dự án thật**: tên, địa điểm, năm, hạng mục, mô tả 80–200 từ, ảnh và **quyền sử dụng ảnh**.
+- [ ] **Danh mục dự án thật** (hiện là mẫu: Biệt thự, Nhà phố, Khách sạn, Homestay, Nhà hàng, Coffee) kèm mô tả ngắn nếu có.
+- [ ] **Danh sách dự án thật**: danh mục, tên, địa điểm, năm, hạng mục, mô tả 80–200 từ, ảnh và **quyền sử dụng ảnh**.
 - [ ] **Mô tả dịch vụ thật** cho 4 mảng (kiến trúc, nội thất, cảnh quan, thi công) và **khu vực nhận công trình**. Trang Dịch vụ đang ở trạng thái nháp.
 - [ ] **Sửa địa chỉ trên fanpage** cho đúng chuỗi chuẩn (fanpage đang ghi “Hội An, Thành Phố Đà Nẵng 51000”).
 - [ ] Sau khi tạo Google Business Profile: link địa điểm (`googleMapsPlaceUrl`), toạ độ (`geo`), danh mục chính, giờ làm việc (`openingHours`), link xin đánh giá (`gbpReviewUrl`), URL bản đồ nhúng (`mapEmbedUrl`) → điền trong admin “Thương hiệu & Liên hệ” (hoặc `content/site.json`). Trường trống thì không xuất hiện trong JSON-LD và nút “Chỉ đường” bị ẩn.
@@ -33,7 +34,7 @@ Gói này khác “Sao lưu JSON” (chỉ tham chiếu ảnh, không phải sao
 
 - Prerender mọi trang công khai; title / description / canonical / hreflang vi-en-x-default / Open Graph 1200×630 / Twitter card / `og:locale`.
 - JSON-LD `HomeAndConstructionBusiness` + `ProfessionalService` (NAP lấy từ cùng cấu hình với footer và /lien-he); trang dự án có `BreadcrumbList` + `CreativeWork` (dự án minh họa **không** có `creator`).
-- `sitemap.xml` (chỉ dự án công khai, có `lastmod` và `xhtml:link hreflang`), `robots.txt` có dòng `Sitemap:`.
+- `sitemap.xml` (trang danh mục có dự án công khai + dự án công khai, có `lastmod` và `xhtml:link hreflang`), `robots.txt` có dòng `Sitemap:`.
 - `_headers`: `/admin*` → `X-Robots-Tag: noindex, nofollow` + `Cache-Control: no-store`; asset có hash cache 1 năm; HTML `must-revalidate`. Khi `allowIndexing: false` có thêm `X-Robots-Tag: noindex` cho toàn site.
 - `_redirects`: rewrite admin + 301 cho slug cũ. `404.html` song ngữ, trả mã 404 thật.
 - Sự kiện `dataLayer`: `call_click`, `email_click`, `facebook_click`, `directions_click`, `project_view` (kèm slug), `language_switch` — kèm vị trí, không dữ liệu cá nhân.

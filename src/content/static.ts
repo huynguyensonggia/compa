@@ -4,6 +4,7 @@ import assetsJson from '../../content/assets.json';
 import redirectsJson from '../../content/redirects.json';
 import type { AssetRecord, ContentState, ProjectFull, Redirect, SiteContent, AssetMap } from './types';
 import { resolveAsset } from './resolve';
+import { projectPaths } from './projectTypes';
 
 const projectModules = import.meta.glob('../../content/projects/*.json', { eager: true, import: 'default' });
 
@@ -12,7 +13,8 @@ export function getStaticRecords() {
   const assets = structuredClone((assetsJson as unknown as { assets: AssetRecord[] }).assets);
   const projects = Object.values(projectModules).map((m) => {
     const p = structuredClone(m) as ProjectFull;
-    if (p.publishedSlug === undefined) p.publishedSlug = p.status === 'published' ? p.slug : null;
+    if (p.typeId === undefined) p.typeId = null;
+    if (p.publishedPaths === undefined) p.publishedPaths = p.status === 'published' ? projectPaths(site, p) : null;
     p.groups = p.groups.map((g) => ({ ...g, projectId: p.id }));
     p.images = p.images.map((i) => ({ ...i, projectId: p.id }));
     return p;

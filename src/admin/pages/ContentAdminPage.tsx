@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { useAdminData } from '../AdminData';
 import { useSiteForm } from './useSiteForm';
 import { AssetPicker, thumbSrc } from '../components/AssetPicker';
-import { BiField, SaveState } from '../components/ui';
+import { BiField, SaveState, IssueList } from '../components/ui';
 import { listMissingTranslations } from './translations';
 import type { SiteContent } from '../../content/types';
 
 export function ContentAdminPage() {
   const { records, assets } = useAdminData();
-  const { draft, setDraft, dirty, savedAt, save } = useSiteForm();
+  const { draft, setDraft, dirty, savedAt, save, errors } = useSiteForm();
   const [picking, setPicking] = useState(false);
   if (!draft || !records) return null;
   const set = (fn: (d: SiteContent) => void) => {
@@ -31,6 +31,7 @@ export function ContentAdminPage() {
           Lưu
         </button>
       </div>
+      <IssueList issues={errors.map((message) => ({ level: 'error' as const, message }))} />
 
       <section className="a-card">
         <h2>Trường còn thiếu bản dịch ({missing.length})</h2>

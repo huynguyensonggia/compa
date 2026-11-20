@@ -1,14 +1,18 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { useContent } from '../content/ContentContext';
 import { translate } from '../i18n';
 import { Seo } from '../seo/Seo';
-import { paths } from '../routing/paths';
+import { paths, withSlash } from '../routing/paths';
 import { BrandLogo } from '../components/BrandLogo';
 
 /** Bilingual 404 (identical markup for any URL, so the static 404.html hydrates cleanly). */
 export function NotFoundPage() {
-  const { site } = useContent();
+  const { site, redirects } = useContent();
   const { pathname } = useLocation();
+  // Moved pages (slug/type changes). In production the host answers these with a 301 from _redirects;
+  // this covers local mode and client-side navigation.
+  const moved = redirects.find((r) => r.from === withSlash(pathname));
+  if (moved) return <Navigate to={moved.to} replace />;
   return (
     <div className="not-found">
       <Seo
