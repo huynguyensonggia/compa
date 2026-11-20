@@ -1165,3 +1165,30 @@
   /* soft shadow keeps the sand wordmark legible over bright skies; colour is unchanged */
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.25));
 }
+
+/* Footer contact rows: icon first, then text */
+.site-footer__contact {
+  gap: 2px;
+}
+.site-footer__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 32px;
+  padding: 6px 0;
+}
+.site-footer__contact a.site-footer__row {
+  min-height: 32px;
+}
+.site-footer__icon {
+  flex: none;
+  margin-top: 2px;
+  fill: none;
+  stroke: var(--brand-sand);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.site-footer a.site-footer__row:hover .site-footer__icon {
+  stroke: var(--on-charcoal-strong);
+}
