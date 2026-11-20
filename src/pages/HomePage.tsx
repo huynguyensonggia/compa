@@ -41,6 +41,7 @@ export function HomePage() {
         <p className="hero__tagline">{site.brand.tagline[lang]}</p>
         <Link className="hero__cta" to={paths.projects(lang)}>
           {t('home.explore')}
+          <span className="visually-hidden"> {t('home.exploreTarget')}</span>
         </Link>
       </main>
       <div className="hero__social">
