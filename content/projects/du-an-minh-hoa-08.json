@@ -1,0 +1,79 @@
+{
+  "id": "prj_d4268d4083",
+  "slug": "du-an-minh-hoa-08",
+  "status": "published",
+  "sortOrder": 7,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 08",
+    "en": "Sample project 08"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "interior",
+    "construction"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_26e093f127",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_6d646aa856",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_66ae2df34d",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_d593ce93d9",
+      "groupId": "grp_6d646aa856",
+      "assetId": "as_26e093f127",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Hiên nhà nhìn ra hồ bơi lúc hoàng hôn",
+        "en": "Terrace overlooking the pool at sunset"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_aee8d7362c",
+      "groupId": "grp_66ae2df34d",
+      "assetId": "as_b0a2e4f914",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Bếp trắng với đèn thả màu đen",
+        "en": "White kitchen with black pendant lights"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

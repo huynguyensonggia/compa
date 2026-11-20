@@ -1,0 +1,183 @@
+export type Lang = 'vi' | 'en';
+export const LANGS: Lang[] = ['vi', 'en'];
+
+/** A bilingual text value. */
+export interface Bi {
+  vi: string;
+  en: string;
+}
+
+export type FocalPoint = { x: number; y: number } | null;
+
+export type Category = 'architecture' | 'interior' | 'landscape' | 'construction';
+export const CATEGORIES: Category[] = ['architecture', 'interior', 'landscape', 'construction'];
+
+export type PublishStatus = 'draft' | 'published';
+
+/**
+ * Stored image asset. Static assets live in content/images-src and are served as
+ * /images/{src}-{480|960|1600}.webp. Blob assets exist only in the admin's IndexedDB.
+ */
+export interface AssetRecord {
+  id: string;
+  width: number;
+  height: number;
+  src?: string;
+  ext?: string;
+  blob?: Blob;
+  mime?: string;
+  fileName?: string;
+  alt?: Bi;
+  sourceUrl?: string;
+  license?: string;
+  isDemo?: boolean;
+  createdAt?: string;
+}
+
+/** Asset ready for rendering. */
+export interface ResolvedAsset {
+  id: string;
+  width: number;
+  height: number;
+  src: string;
+  srcSet?: string;
+  isBlob: boolean;
+  sourceUrl?: string;
+  license?: string;
+  isDemo?: boolean;
+}
+
+export type AssetMap = Record<string, ResolvedAsset>;
+
+export interface SpaceGroup {
+  id: string;
+  projectId?: string;
+  title: Bi;
+  sortOrder: number;
+}
+
+export interface GalleryImage {
+  id: string;
+  projectId?: string;
+  /** null = "Chưa phân loại" (only allowed while the project is a draft). */
+  groupId: string | null;
+  assetId: string;
+  sortOrder: number;
+  alt: Bi;
+  focalPoint: FocalPoint;
+}
+
+export interface ProjectSeo {
+  title: Bi;
+  description: Bi;
+  ogAssetId: string | null;
+}
+
+export interface Project {
+  id: string;
+  slug: string;
+  status: PublishStatus;
+  sortOrder: number;
+  isDemo: boolean;
+  title: Bi;
+  location: Bi;
+  year: number | null;
+  categories: Category[];
+  description: Bi;
+  coverAssetId: string | null;
+  seo: ProjectSeo;
+  updatedAt: string;
+  /** Slug at the time of the last publish; used to create 301 redirects on slug change. */
+  publishedSlug?: string | null;
+}
+
+export interface ProjectFull extends Project {
+  groups: SpaceGroup[];
+  images: GalleryImage[];
+}
+
+export interface HeroSlide {
+  id: string;
+  assetId: string;
+  alt: Bi;
+  focalPoint: FocalPoint;
+}
+
+export interface PostalAddress {
+  streetAddress: string;
+  addressLocality: string;
+  addressRegion: string;
+  addressCountry: string;
+  display: Bi;
+}
+
+export interface ServiceItem {
+  key: Category;
+  slug: Bi;
+  title: Bi;
+  body: Bi;
+  status: PublishStatus;
+}
+
+export interface SiteContent {
+  brand: {
+    name: string;
+    shortName: string;
+    logoText: string;
+    logoSubline: string;
+    /** Path of the original logo in /public (e.g. /brand/logo.png). Empty = temporary wordmark. */
+    logoFile: string;
+    logoAssetId: string | null;
+    tagline: Bi;
+    description: Bi;
+  };
+  contact: {
+    phone: string;
+    phoneE164: string;
+    email: string;
+    address: PostalAddress;
+    facebook: string;
+    areaServed: string[];
+    googleMapsPlaceUrl: string;
+    mapEmbedUrl: string;
+    geo: { lat: number; lng: number } | null;
+    openingHours: string[];
+    gbpReviewUrl: string;
+  };
+  hero: { slides: HeroSlide[] };
+  pages: {
+    studio: { title: Bi; body: Bi; imageAssetId: string | null };
+    contact: { title: Bi; intro: Bi };
+    notFound: Bi;
+  };
+  services: {
+    status: PublishStatus;
+    title: Bi;
+    intro: Bi;
+    items: ServiceItem[];
+  };
+  seo: {
+    allowIndexing: boolean;
+    homeTitle: Bi;
+    defaultDescription: Bi;
+    defaultOgAssetId: string | null;
+    gtmId: string;
+    ga4Id: string;
+    googleSiteVerification: string;
+  };
+  updatedAt: string;
+}
+
+export interface Redirect {
+  from: string;
+  to: string;
+  createdAt: string;
+}
+
+export interface ContentState {
+  site: SiteContent;
+  projects: ProjectFull[];
+  assets: AssetMap;
+  redirects: Redirect[];
+  source: 'static' | 'local';
+}

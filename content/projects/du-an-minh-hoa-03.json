@@ -1,0 +1,79 @@
+{
+  "id": "prj_901411a212",
+  "slug": "du-an-minh-hoa-03",
+  "status": "published",
+  "sortOrder": 2,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 03",
+    "en": "Sample project 03"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_c24074c560",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_0e654b6e71",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_52b0dbcda3",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_b28855489f",
+      "groupId": "grp_0e654b6e71",
+      "assetId": "as_c24074c560",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Mặt tiền nhà hai tầng với hàng rào lam đứng",
+        "en": "Two-storey façade with vertical slatted fence"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_e3ecd756c5",
+      "groupId": "grp_52b0dbcda3",
+      "assetId": "as_4fb2fc9dce",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Góc phòng với ghế bành vàng và tranh treo tường",
+        "en": "Corner with yellow armchair and framed art"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

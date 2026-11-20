@@ -1,0 +1,606 @@
+{
+  "assets": [
+    {
+      "id": "as_86520dec04",
+      "src": "du-an/du-an-minh-hoa-01/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Mặt tiền nhà hiện đại màu tối lúc chiều tối, cửa sổ hẹp sáng đèn",
+        "en": "Dark modern façade at dusk with lit narrow windows"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600585153490-76fb20a32601",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_b8e886452f",
+      "src": "du-an/du-an-minh-hoa-01/ngoai-that-02",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Nhà hai tầng ốp gỗ và kính lúc chạng vạng",
+        "en": "Two-storey timber and glass house at twilight"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_264609c611",
+      "src": "du-an/du-an-minh-hoa-01/ngoai-that-03",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Mặt tiền ốp gỗ với mái dốc và sân trước lát sỏi",
+        "en": "Timber-clad façade with pitched roof and gravel forecourt"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_e2e02fc98c",
+      "src": "du-an/du-an-minh-hoa-01/ngoai-that-04",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 2700,
+      "alt": {
+        "vi": "Góc nhà ốp tấm tối màu và lam gỗ dọc",
+        "en": "House corner with dark panels and vertical timber louvres"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600585154526-990dced4db0d",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_afbb059981",
+      "src": "du-an/du-an-minh-hoa-01/ngoai-that-05",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 2700,
+      "alt": {
+        "vi": "Tường hoa gió trắng kết hợp ốp gỗ dưới trời xanh",
+        "en": "White perforated screen wall with timber cladding under blue sky"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_50e6d47f2d",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1224,
+      "alt": {
+        "vi": "Phòng khách sáng với sofa trắng và vách ốp gỗ",
+        "en": "Bright living room with white sofa and timber wall"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_645e4fe8c6",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-02",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Cầu thang thép nhìn ra hồ bơi qua vách kính",
+        "en": "Steel staircase overlooking the pool through glass walls"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_11bfcd7df3",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-03",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Bếp trắng với đảo bếp và ghế gỗ",
+        "en": "White kitchen with island and timber stools"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_26f6ef3079",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-04",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Không gian sinh hoạt chung với bàn ăn và vách gỗ",
+        "en": "Living and dining space with timber feature wall"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1604014237800-1c9102c219da",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_1414378dfa",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-05",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 950,
+      "alt": {
+        "vi": "Phòng khách tông ấm với cửa sổ dài nằm ngang",
+        "en": "Warm-toned living room with a long horizontal window"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_8c2ff2226b",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-06",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Phòng khách thông tầng với cầu thang gỗ",
+        "en": "Double-height living room with timber stair"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_87f7cbba75",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-07",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 2700,
+      "alt": {
+        "vi": "Cầu thang gỗ, lan can kính và đèn thả",
+        "en": "Timber staircase with glass balustrade and pendant lights"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_ae0bfb531c",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-08",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 2700,
+      "alt": {
+        "vi": "Phòng tắm tối giản với bồn tắm đặt sàn",
+        "en": "Minimal bathroom with freestanding bathtub"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600566752355-35792bedcfea",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_194ca535cc",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-09",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 2400,
+      "alt": {
+        "vi": "Phòng khách với cửa sổ vòm và dầm gỗ",
+        "en": "Living room with arched windows and timber beams"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_fde676dbc7",
+      "src": "du-an/du-an-minh-hoa-01/noi-that-10",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Phòng ngủ tông trắng xám với cửa sổ lớn",
+        "en": "White and grey bedroom with large windows"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_5f93333a18",
+      "src": "du-an/du-an-minh-hoa-01/san-vuon-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1013,
+      "alt": {
+        "vi": "Lối đi lát đất giữa hai hàng hoa",
+        "en": "Earth path between flowering hedges"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_187a9b51ba",
+      "src": "du-an/du-an-minh-hoa-01/san-vuon-02",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Sân cỏ và cây lớn phía sau nhà",
+        "en": "Lawn and mature tree behind the house"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600607688969-a5bfcd646154",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_c5e477c618",
+      "src": "du-an/du-an-minh-hoa-01/san-vuon-03",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Sân cỏ và cây lớn trước nhà lúc chiều",
+        "en": "Lawn and large tree in front of the house at dusk"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_3ec7361bdb",
+      "src": "du-an/du-an-minh-hoa-01/san-vuon-04",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Cây xanh bên hồ bơi cạnh nhà trắng",
+        "en": "Planting beside the pool next to a white house"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_255b928b19",
+      "src": "du-an/du-an-minh-hoa-01/san-vuon-05",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1013,
+      "alt": {
+        "vi": "Thảm cỏ xanh cận cảnh",
+        "en": "Close-up of a green lawn"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1558904541-efa843a96f01",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_4ce0f455f3",
+      "src": "du-an/du-an-minh-hoa-02/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1509,
+      "alt": {
+        "vi": "Nhà hiện đại ốp gỗ với sân cỏ phía trước",
+        "en": "Modern timber-clad house with front lawn"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_01d579a77c",
+      "src": "du-an/du-an-minh-hoa-02/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Phòng khách tông xám với đèn thả",
+        "en": "Grey living room with pendant lamp"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_c24074c560",
+      "src": "du-an/du-an-minh-hoa-03/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1201,
+      "alt": {
+        "vi": "Mặt tiền nhà hai tầng với hàng rào lam đứng",
+        "en": "Two-storey façade with vertical slatted fence"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600563438938-a9a27216b4f5",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_4fb2fc9dce",
+      "src": "du-an/du-an-minh-hoa-03/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1589,
+      "alt": {
+        "vi": "Góc phòng với ghế bành vàng và tranh treo tường",
+        "en": "Corner with yellow armchair and framed art"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_c068092776",
+      "src": "du-an/du-an-minh-hoa-04/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1350,
+      "alt": {
+        "vi": "Nhà hai tầng hiện đại bên hồ bơi",
+        "en": "Modern two-storey house by a pool"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_aa71d9f77a",
+      "src": "du-an/du-an-minh-hoa-04/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1350,
+      "alt": {
+        "vi": "Phòng khách nhiều cây xanh và ánh sáng tự nhiên",
+        "en": "Living room with plants and natural light"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_fd61d69071",
+      "src": "du-an/du-an-minh-hoa-05/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Nhà trắng hai tầng với hồ bơi phía trước",
+        "en": "White two-storey house with a pool in front"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_037f57cf9a",
+      "src": "du-an/du-an-minh-hoa-05/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1800,
+      "alt": {
+        "vi": "Phòng ngủ tông tối với đèn trang trí",
+        "en": "Dark-toned bedroom with decorative lighting"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_fbe228e7fe",
+      "src": "du-an/du-an-minh-hoa-06/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1194,
+      "alt": {
+        "vi": "Nhà trắng nhiều tầng bên hồ bơi",
+        "en": "Multi-level white house beside a pool"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_d9420be1b0",
+      "src": "du-an/du-an-minh-hoa-06/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1013,
+      "alt": {
+        "vi": "Phòng ăn với ghế xanh lá và cây xanh",
+        "en": "Dining room with green chairs and plants"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1617806118233-18e1de247200",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_0886cf3a85",
+      "src": "du-an/du-an-minh-hoa-07/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Nhà mái dốc sáng đèn lúc chạng vạng",
+        "en": "Pitched-roof house lit at twilight"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_2abe345731",
+      "src": "du-an/du-an-minh-hoa-07/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Phòng khách trần ô cờ với kệ âm tường",
+        "en": "Living room with coffered ceiling and built-in shelves"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_26e093f127",
+      "src": "du-an/du-an-minh-hoa-08/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Hiên nhà nhìn ra hồ bơi lúc hoàng hôn",
+        "en": "Terrace overlooking the pool at sunset"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_b0a2e4f914",
+      "src": "du-an/du-an-minh-hoa-08/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1195,
+      "alt": {
+        "vi": "Bếp trắng với đèn thả màu đen",
+        "en": "White kitchen with black pendant lights"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1484154218962-a197022b5858",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_07dedf8b73",
+      "src": "du-an/du-an-minh-hoa-09/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Nhà có hiên rộng và sân cỏ",
+        "en": "House with a wide veranda and lawn"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_6b3a2dcf25",
+      "src": "du-an/du-an-minh-hoa-09/ngoai-that-02",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Nhà gạch mái dốc giữa hàng cây",
+        "en": "Brick pitched-roof house among trees"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1449844908441-8829872d2607",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_a467c8c38e",
+      "src": "du-an/du-an-minh-hoa-09/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1202,
+      "alt": {
+        "vi": "Phòng khách nhỏ sáng với sofa xanh",
+        "en": "Small bright living room with a blue sofa"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_394c2ddf78",
+      "src": "du-an/du-an-minh-hoa-10/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Nhà hai tầng có hồ bơi và cây cọ",
+        "en": "Two-storey house with pool and palms"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_fc9e95b867",
+      "src": "du-an/du-an-minh-hoa-10/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1201,
+      "alt": {
+        "vi": "Phòng khách với ghế bành đỏ và cửa sổ lớn",
+        "en": "Living room with red armchair and large window"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_2009c3693f",
+      "src": "du-an/du-an-minh-hoa-11/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1800,
+      "alt": {
+        "vi": "Nhà trắng khối hộp với sân cỏ",
+        "en": "White cubic house with lawn"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1523217582562-09d0def993a6",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_c43156b285",
+      "src": "du-an/du-an-minh-hoa-11/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Phòng khách mở thông với bếp",
+        "en": "Open-plan living room connected to the kitchen"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_9ced3edce6",
+      "src": "du-an/du-an-minh-hoa-12/ngoai-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1205,
+      "alt": {
+        "vi": "Nhà mái ngói đỏ quanh hồ bơi lúc tối",
+        "en": "Red-tiled house around a pool at night"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1416331108676-a22ccb276e35",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    },
+    {
+      "id": "as_35df1b79b2",
+      "src": "du-an/du-an-minh-hoa-12/noi-that-01",
+      "ext": "jpg",
+      "width": 1800,
+      "height": 1200,
+      "alt": {
+        "vi": "Phòng khách với sofa trắng và gối xanh",
+        "en": "Living room with white sofa and blue cushions"
+      },
+      "sourceUrl": "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "isDemo": true
+    }
+  ]
+}

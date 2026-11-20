@@ -1,0 +1,79 @@
+{
+  "id": "prj_21ce4d30bb",
+  "slug": "du-an-minh-hoa-05",
+  "status": "published",
+  "sortOrder": 4,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 05",
+    "en": "Sample project 05"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_fd61d69071",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_2e2cfded23",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_613dce091c",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_ff08f93f95",
+      "groupId": "grp_2e2cfded23",
+      "assetId": "as_fd61d69071",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà trắng hai tầng với hồ bơi phía trước",
+        "en": "White two-storey house with a pool in front"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_c142b223d0",
+      "groupId": "grp_613dce091c",
+      "assetId": "as_037f57cf9a",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng ngủ tông tối với đèn trang trí",
+        "en": "Dark-toned bedroom with decorative lighting"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

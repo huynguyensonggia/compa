@@ -1,0 +1,79 @@
+{
+  "id": "prj_ab5899277a",
+  "slug": "du-an-minh-hoa-02",
+  "status": "published",
+  "sortOrder": 1,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 02",
+    "en": "Sample project 02"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_4ce0f455f3",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_7fd8ca5f46",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_889b2f6239",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_3ef529ebc8",
+      "groupId": "grp_7fd8ca5f46",
+      "assetId": "as_4ce0f455f3",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà hiện đại ốp gỗ với sân cỏ phía trước",
+        "en": "Modern timber-clad house with front lawn"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_48f117b147",
+      "groupId": "grp_889b2f6239",
+      "assetId": "as_01d579a77c",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách tông xám với đèn thả",
+        "en": "Grey living room with pendant lamp"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

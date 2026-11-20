@@ -1,0 +1,286 @@
+{
+  "id": "prj_c537851a65",
+  "slug": "du-an-minh-hoa-01",
+  "status": "published",
+  "sortOrder": 0,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 01",
+    "en": "Sample project 01"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior",
+    "landscape"
+  ],
+  "description": {
+    "vi": "Dự án minh họa gồm ba khu vực: ngoại thất, nội thất và sân vườn, dùng để trình bày cách website sắp xếp hình ảnh theo từng không gian. Hình ảnh là ảnh mẫu có giấy phép sử dụng, chưa phải công trình do COMPA Architecture Hội An thực hiện; nội dung sẽ được thay bằng công trình thực tế kèm địa điểm, năm hoàn thành và hạng mục khi được xác nhận.",
+    "en": "A sample project with three areas – exterior, interior and garden – showing how the website arranges photographs by space. The images are licensed sample photos, not work completed by COMPA Architecture Hội An; they will be replaced with real projects, including location, year and scope, once confirmed."
+  },
+  "coverAssetId": "as_86520dec04",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_02aa6811e4",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_9003c2f7b7",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    },
+    {
+      "id": "grp_459b896834",
+      "title": {
+        "vi": "Sân vườn",
+        "en": "Garden"
+      },
+      "sortOrder": 2
+    }
+  ],
+  "images": [
+    {
+      "id": "img_62cec8d066",
+      "groupId": "grp_02aa6811e4",
+      "assetId": "as_86520dec04",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Mặt tiền nhà hiện đại màu tối lúc chiều tối, cửa sổ hẹp sáng đèn",
+        "en": "Dark modern façade at dusk with lit narrow windows"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_d6656e5915",
+      "groupId": "grp_02aa6811e4",
+      "assetId": "as_b8e886452f",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Nhà hai tầng ốp gỗ và kính lúc chạng vạng",
+        "en": "Two-storey timber and glass house at twilight"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_90a8dea8b9",
+      "groupId": "grp_02aa6811e4",
+      "assetId": "as_264609c611",
+      "sortOrder": 2,
+      "alt": {
+        "vi": "Mặt tiền ốp gỗ với mái dốc và sân trước lát sỏi",
+        "en": "Timber-clad façade with pitched roof and gravel forecourt"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_85aaaf4837",
+      "groupId": "grp_02aa6811e4",
+      "assetId": "as_e2e02fc98c",
+      "sortOrder": 3,
+      "alt": {
+        "vi": "Góc nhà ốp tấm tối màu và lam gỗ dọc",
+        "en": "House corner with dark panels and vertical timber louvres"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_19066b81a0",
+      "groupId": "grp_02aa6811e4",
+      "assetId": "as_afbb059981",
+      "sortOrder": 4,
+      "alt": {
+        "vi": "Tường hoa gió trắng kết hợp ốp gỗ dưới trời xanh",
+        "en": "White perforated screen wall with timber cladding under blue sky"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_479d9546f9",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_50e6d47f2d",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách sáng với sofa trắng và vách ốp gỗ",
+        "en": "Bright living room with white sofa and timber wall"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_1fb34aa542",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_645e4fe8c6",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Cầu thang thép nhìn ra hồ bơi qua vách kính",
+        "en": "Steel staircase overlooking the pool through glass walls"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_21b2fe804b",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_11bfcd7df3",
+      "sortOrder": 2,
+      "alt": {
+        "vi": "Bếp trắng với đảo bếp và ghế gỗ",
+        "en": "White kitchen with island and timber stools"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_a46699428e",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_26f6ef3079",
+      "sortOrder": 3,
+      "alt": {
+        "vi": "Không gian sinh hoạt chung với bàn ăn và vách gỗ",
+        "en": "Living and dining space with timber feature wall"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_e3346635c5",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_1414378dfa",
+      "sortOrder": 4,
+      "alt": {
+        "vi": "Phòng khách tông ấm với cửa sổ dài nằm ngang",
+        "en": "Warm-toned living room with a long horizontal window"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_34408aa874",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_8c2ff2226b",
+      "sortOrder": 5,
+      "alt": {
+        "vi": "Phòng khách thông tầng với cầu thang gỗ",
+        "en": "Double-height living room with timber stair"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_b8aa7e29a0",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_87f7cbba75",
+      "sortOrder": 6,
+      "alt": {
+        "vi": "Cầu thang gỗ, lan can kính và đèn thả",
+        "en": "Timber staircase with glass balustrade and pendant lights"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_5d827526cf",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_ae0bfb531c",
+      "sortOrder": 7,
+      "alt": {
+        "vi": "Phòng tắm tối giản với bồn tắm đặt sàn",
+        "en": "Minimal bathroom with freestanding bathtub"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_4988998ebb",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_194ca535cc",
+      "sortOrder": 8,
+      "alt": {
+        "vi": "Phòng khách với cửa sổ vòm và dầm gỗ",
+        "en": "Living room with arched windows and timber beams"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_0ab136c855",
+      "groupId": "grp_9003c2f7b7",
+      "assetId": "as_fde676dbc7",
+      "sortOrder": 9,
+      "alt": {
+        "vi": "Phòng ngủ tông trắng xám với cửa sổ lớn",
+        "en": "White and grey bedroom with large windows"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_9a4db4a922",
+      "groupId": "grp_459b896834",
+      "assetId": "as_5f93333a18",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Lối đi lát đất giữa hai hàng hoa",
+        "en": "Earth path between flowering hedges"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_0b5a9a4800",
+      "groupId": "grp_459b896834",
+      "assetId": "as_187a9b51ba",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Sân cỏ và cây lớn phía sau nhà",
+        "en": "Lawn and mature tree behind the house"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_886ddb275e",
+      "groupId": "grp_459b896834",
+      "assetId": "as_c5e477c618",
+      "sortOrder": 2,
+      "alt": {
+        "vi": "Sân cỏ và cây lớn trước nhà lúc chiều",
+        "en": "Lawn and large tree in front of the house at dusk"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_45f43108b8",
+      "groupId": "grp_459b896834",
+      "assetId": "as_3ec7361bdb",
+      "sortOrder": 3,
+      "alt": {
+        "vi": "Cây xanh bên hồ bơi cạnh nhà trắng",
+        "en": "Planting beside the pool next to a white house"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_e103b8b69d",
+      "groupId": "grp_459b896834",
+      "assetId": "as_255b928b19",
+      "sortOrder": 4,
+      "alt": {
+        "vi": "Thảm cỏ xanh cận cảnh",
+        "en": "Close-up of a green lawn"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

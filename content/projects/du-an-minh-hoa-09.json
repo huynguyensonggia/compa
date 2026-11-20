@@ -1,0 +1,90 @@
+{
+  "id": "prj_edbba8309f",
+  "slug": "du-an-minh-hoa-09",
+  "status": "published",
+  "sortOrder": 8,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 09",
+    "en": "Sample project 09"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "landscape"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_07dedf8b73",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_4b68fdb7a6",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_8091d9b302",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_17582e795e",
+      "groupId": "grp_4b68fdb7a6",
+      "assetId": "as_07dedf8b73",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà có hiên rộng và sân cỏ",
+        "en": "House with a wide veranda and lawn"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_5d135f3538",
+      "groupId": "grp_4b68fdb7a6",
+      "assetId": "as_6b3a2dcf25",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Nhà gạch mái dốc giữa hàng cây",
+        "en": "Brick pitched-roof house among trees"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_b412b2c307",
+      "groupId": "grp_8091d9b302",
+      "assetId": "as_a467c8c38e",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách nhỏ sáng với sofa xanh",
+        "en": "Small bright living room with a blue sofa"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

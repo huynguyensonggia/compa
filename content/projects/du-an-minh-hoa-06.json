@@ -1,0 +1,79 @@
+{
+  "id": "prj_8849b11d33",
+  "slug": "du-an-minh-hoa-06",
+  "status": "published",
+  "sortOrder": 5,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 06",
+    "en": "Sample project 06"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_fbe228e7fe",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_7ec0318628",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_62b5d034cd",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_c624ac7945",
+      "groupId": "grp_7ec0318628",
+      "assetId": "as_fbe228e7fe",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà trắng nhiều tầng bên hồ bơi",
+        "en": "Multi-level white house beside a pool"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_95603a4988",
+      "groupId": "grp_62b5d034cd",
+      "assetId": "as_d9420be1b0",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng ăn với ghế xanh lá và cây xanh",
+        "en": "Dining room with green chairs and plants"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

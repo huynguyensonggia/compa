@@ -1,0 +1,78 @@
+{
+  "id": "prj_e173ae3067",
+  "slug": "du-an-minh-hoa-12",
+  "status": "published",
+  "sortOrder": 11,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 12",
+    "en": "Sample project 12"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_9ced3edce6",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_6da9c919b4",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_5a7b399ab4",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_898c207874",
+      "groupId": "grp_6da9c919b4",
+      "assetId": "as_9ced3edce6",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà mái ngói đỏ quanh hồ bơi lúc tối",
+        "en": "Red-tiled house around a pool at night"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_d77ac8c9b5",
+      "groupId": "grp_5a7b399ab4",
+      "assetId": "as_35df1b79b2",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách với sofa trắng và gối xanh",
+        "en": "Living room with white sofa and blue cushions"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

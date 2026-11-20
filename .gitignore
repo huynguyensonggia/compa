@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+.env
+.env.local
+*.log
+content/images-src/_raw
+.lighthouse
+public/images
+public/favicon-32.png
+public/apple-touch-icon.png

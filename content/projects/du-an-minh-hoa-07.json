@@ -1,0 +1,78 @@
+{
+  "id": "prj_cd38075da6",
+  "slug": "du-an-minh-hoa-07",
+  "status": "published",
+  "sortOrder": 6,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 07",
+    "en": "Sample project 07"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_0886cf3a85",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_8425815507",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_fbff7ec399",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_eefafd5440",
+      "groupId": "grp_8425815507",
+      "assetId": "as_0886cf3a85",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà mái dốc sáng đèn lúc chạng vạng",
+        "en": "Pitched-roof house lit at twilight"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_8e22f0d921",
+      "groupId": "grp_fbff7ec399",
+      "assetId": "as_2abe345731",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách trần ô cờ với kệ âm tường",
+        "en": "Living room with coffered ceiling and built-in shelves"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

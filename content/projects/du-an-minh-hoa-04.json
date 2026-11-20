@@ -1,0 +1,79 @@
+{
+  "id": "prj_02f2065a6a",
+  "slug": "du-an-minh-hoa-04",
+  "status": "published",
+  "sortOrder": 3,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 04",
+    "en": "Sample project 04"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "construction"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_c068092776",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_234e4f3336",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_44e9b3be77",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_48ac9fc6d4",
+      "groupId": "grp_234e4f3336",
+      "assetId": "as_c068092776",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà hai tầng hiện đại bên hồ bơi",
+        "en": "Modern two-storey house by a pool"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_9c925a1742",
+      "groupId": "grp_44e9b3be77",
+      "assetId": "as_aa71d9f77a",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách nhiều cây xanh và ánh sáng tự nhiên",
+        "en": "Living room with plants and natural light"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}

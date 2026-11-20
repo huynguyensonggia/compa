@@ -1,0 +1,212 @@
+{
+  "brand": {
+    "name": "COMPA Architecture Hội An",
+    "shortName": "COMPA Architecture",
+    "logoText": "COMPA",
+    "logoSubline": "ARCHITECTURE - INTERIOR - LANDSCAPE",
+    "logoFile": "",
+    "logoAssetId": null,
+    "tagline": {
+      "vi": "Đồng hành từ bản vẽ đến tổ ấm.",
+      "en": "With you from drawings to home."
+    },
+    "description": {
+      "vi": "Thiết kế và thi công nhà ở tại Hội An, Đà Nẵng.",
+      "en": "Residential design and construction in Hoi An and Da Nang."
+    }
+  },
+  "contact": {
+    "phone": "077 355 8945",
+    "phoneE164": "+84773558945",
+    "email": "compa.architecture.hoian@gmail.com",
+    "address": {
+      "streetAddress": "102/5 Lý Thường Kiệt",
+      "addressLocality": "Phường Hội An",
+      "addressRegion": "Thành phố Đà Nẵng",
+      "addressCountry": "VN",
+      "display": {
+        "vi": "102/5 Lý Thường Kiệt, Phường Hội An, Thành phố Đà Nẵng",
+        "en": "102/5 Ly Thuong Kiet, Hoi An Ward, Da Nang City, Vietnam"
+      }
+    },
+    "facebook": "https://www.facebook.com/compa.architecture.hoian",
+    "areaServed": [
+      "Hội An",
+      "Đà Nẵng"
+    ],
+    "googleMapsPlaceUrl": "",
+    "mapEmbedUrl": "",
+    "geo": null,
+    "openingHours": [],
+    "gbpReviewUrl": ""
+  },
+  "hero": {
+    "slides": [
+      {
+        "id": "sld_9b8a047135",
+        "assetId": "as_c5e477c618",
+        "alt": {
+          "vi": "Sân cỏ và cây lớn trước nhà lúc chiều",
+          "en": "Lawn and large tree in front of the house at dusk"
+        },
+        "focalPoint": null
+      },
+      {
+        "id": "sld_189e028a9f",
+        "assetId": "as_afbb059981",
+        "alt": {
+          "vi": "Tường hoa gió trắng kết hợp ốp gỗ dưới trời xanh",
+          "en": "White perforated screen wall with timber cladding under blue sky"
+        },
+        "focalPoint": null
+      },
+      {
+        "id": "sld_3d7f936c01",
+        "assetId": "as_1414378dfa",
+        "alt": {
+          "vi": "Phòng khách tông ấm với cửa sổ dài nằm ngang",
+          "en": "Warm-toned living room with a long horizontal window"
+        },
+        "focalPoint": null
+      },
+      {
+        "id": "sld_fdcc0973d5",
+        "assetId": "as_c068092776",
+        "alt": {
+          "vi": "Nhà hai tầng hiện đại bên hồ bơi",
+          "en": "Modern two-storey house by a pool"
+        },
+        "focalPoint": null
+      },
+      {
+        "id": "sld_d75ecfd0e2",
+        "assetId": "as_b8e886452f",
+        "alt": {
+          "vi": "Nhà hai tầng ốp gỗ và kính lúc chạng vạng",
+          "en": "Two-storey timber and glass house at twilight"
+        },
+        "focalPoint": null
+      }
+    ]
+  },
+  "pages": {
+    "studio": {
+      "title": {
+        "vi": "Về COMPA",
+        "en": "About COMPA"
+      },
+      "body": {
+        "vi": "COMPA Architecture Hội An thiết kế và thi công nhà ở tại Hội An, Đà Nẵng. Công việc của chúng tôi gồm kiến trúc, nội thất và cảnh quan, cùng gia chủ đi từ những bản vẽ đầu tiên cho tới khi ngôi nhà hoàn thiện và trở thành tổ ấm.",
+        "en": "COMPA Architecture Hội An designs and builds homes in Hoi An and Da Nang. Our work covers architecture, interiors and landscape, accompanying homeowners from the first drawings until the house is finished and becomes a home."
+      },
+      "imageAssetId": "as_26f6ef3079"
+    },
+    "contact": {
+      "title": {
+        "vi": "Liên hệ",
+        "en": "Contact"
+      },
+      "intro": {
+        "vi": "Liên hệ COMPA Architecture Hội An để trao đổi về ngôi nhà của bạn.",
+        "en": "Get in touch with COMPA Architecture Hội An to talk about your home."
+      }
+    },
+    "notFound": {
+      "vi": "Trang bạn tìm không tồn tại hoặc đã được chuyển đi.",
+      "en": "The page you are looking for does not exist or has moved."
+    }
+  },
+  "services": {
+    "status": "draft",
+    "title": {
+      "vi": "Dịch vụ",
+      "en": "Services"
+    },
+    "intro": {
+      "vi": "",
+      "en": ""
+    },
+    "items": [
+      {
+        "key": "architecture",
+        "slug": {
+          "vi": "thiet-ke-kien-truc",
+          "en": "architecture-design"
+        },
+        "title": {
+          "vi": "Thiết kế kiến trúc",
+          "en": "Architectural design"
+        },
+        "body": {
+          "vi": "",
+          "en": ""
+        },
+        "status": "draft"
+      },
+      {
+        "key": "interior",
+        "slug": {
+          "vi": "thiet-ke-noi-that",
+          "en": "interior-design"
+        },
+        "title": {
+          "vi": "Thiết kế nội thất",
+          "en": "Interior design"
+        },
+        "body": {
+          "vi": "",
+          "en": ""
+        },
+        "status": "draft"
+      },
+      {
+        "key": "landscape",
+        "slug": {
+          "vi": "thiet-ke-canh-quan",
+          "en": "landscape-design"
+        },
+        "title": {
+          "vi": "Thiết kế cảnh quan",
+          "en": "Landscape design"
+        },
+        "body": {
+          "vi": "",
+          "en": ""
+        },
+        "status": "draft"
+      },
+      {
+        "key": "construction",
+        "slug": {
+          "vi": "thi-cong-nha-o",
+          "en": "home-construction"
+        },
+        "title": {
+          "vi": "Thi công nhà ở",
+          "en": "Home construction"
+        },
+        "body": {
+          "vi": "",
+          "en": ""
+        },
+        "status": "draft"
+      }
+    ]
+  },
+  "seo": {
+    "allowIndexing": false,
+    "homeTitle": {
+      "vi": "COMPA Architecture Hội An – Thiết kế & thi công nhà ở Hội An, Đà Nẵng",
+      "en": "COMPA Architecture Hội An – Home design & build in Hoi An, Da Nang"
+    },
+    "defaultDescription": {
+      "vi": "COMPA Architecture Hội An thiết kế kiến trúc, nội thất, cảnh quan và thi công nhà ở tại Hội An, Đà Nẵng. Đồng hành từ bản vẽ đến tổ ấm.",
+      "en": "COMPA Architecture Hội An offers architecture, interior and landscape design and home construction in Hoi An and Da Nang, Vietnam."
+    },
+    "defaultOgAssetId": "as_c5e477c618",
+    "gtmId": "",
+    "ga4Id": "",
+    "googleSiteVerification": ""
+  },
+  "updatedAt": "2026-11-20T07:12:02.623Z"
+}

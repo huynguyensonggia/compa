@@ -1,0 +1,79 @@
+{
+  "id": "prj_e78ec176b0",
+  "slug": "du-an-minh-hoa-10",
+  "status": "published",
+  "sortOrder": 9,
+  "isDemo": true,
+  "title": {
+    "vi": "Dự án minh họa 10",
+    "en": "Sample project 10"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "construction"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_394c2ddf78",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_e07209980f",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_7bb153e6ca",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_7f2a7f04f0",
+      "groupId": "grp_e07209980f",
+      "assetId": "as_394c2ddf78",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà hai tầng có hồ bơi và cây cọ",
+        "en": "Two-storey house with pool and palms"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_4f90454a51",
+      "groupId": "grp_7bb153e6ca",
+      "assetId": "as_fc9e95b867",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách với ghế bành đỏ và cửa sổ lớn",
+        "en": "Living room with red armchair and large window"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-20T07:11:15.271Z"
+}
