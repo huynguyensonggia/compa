@@ -41,8 +41,8 @@
   --logo-header: 144px;
   /* Logo in the charcoal header: the logo file's own charcoal margin blends into the band,
      so it is shown as a wide crop of the square (no artwork is cut). */
-  --logo-band-w: 260px;
-  --logo-band-h: 120px;
+  --logo-band-w: 200px;
+  --logo-band-h: 76px;
   --logo-hero: 208px;
   --logo-photo-w: 380px;
   --space-1: 8px;
@@ -62,8 +62,8 @@
     --row-gap-grid: 48px;
     --header-top: 40px;
     --logo-header: 128px;
-    --logo-band-w: 230px;
-    --logo-band-h: 106px;
+    --logo-band-w: 190px;
+    --logo-band-h: 72px;
   }
 }
 
@@ -73,8 +73,8 @@
     --row-gap-grid: 40px;
     --header-top: 28px;
     --logo-header: 112px;
-    --logo-band-w: 200px;
-    --logo-band-h: 92px;
+    --logo-band-w: 170px;
+    --logo-band-h: 64px;
     --logo-hero: 168px;
     --logo-photo-w: 270px;
     --space-6: 56px;
