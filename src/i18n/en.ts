@@ -24,7 +24,6 @@ export const en: Record<MessageKey, string> = {
   'types.title': 'Project categories',
   'type.back': '← All categories',
   'meta.type': '{type} projects by COMPA Architecture Hội An – architecture, interior, landscape design and construction in Hoi An and Da Nang.',
-  'nav.pricing': 'PRICING',
   'pricing.from': 'From {price}',
   'pricing.item': 'Service',
   'pricing.rate': 'Rate',

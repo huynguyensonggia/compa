@@ -22,7 +22,6 @@ export const vi = {
   'types.title': 'Danh mục dự án',
   'type.back': '← Tất cả danh mục',
   'meta.type': 'Các dự án {type} của COMPA Architecture Hội An – thiết kế kiến trúc, nội thất, cảnh quan và thi công tại Hội An, Đà Nẵng.',
-  'nav.pricing': 'ĐƠN GIÁ',
   'pricing.from': 'Đơn giá từ {price}',
   'pricing.item': 'Hạng mục',
   'pricing.rate': 'Đơn giá',

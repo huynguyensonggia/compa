@@ -31,7 +31,7 @@ npm run dev        # http://127.0.0.1:5173/
 | Dự án — danh mục cha (Biệt thự, Khách sạn, Nhà hàng, Coffee…) | `/du-an/` | `/en/projects/` |
 | Dự án thuộc một danh mục | `/du-an/:danh-muc/` (vd. `/du-an/khach-san/`) | `/en/projects/:type/` (vd. `/en/projects/hotels/`) |
 | Chi tiết dự án | `/du-an/:danh-muc/:slug/` | `/en/projects/:type/:slug/` |
-| Đơn giá | `/don-gia/` (mỗi danh mục có neo, vd. `/don-gia/#biet-thu`) | `/en/pricing/` |
+| Đơn giá (không có trên menu; vào từ dòng “Đơn giá từ …” dưới thẻ danh mục) | `/don-gia/` (mỗi danh mục có neo, vd. `/don-gia/#biet-thu`) | `/en/pricing/` |
 | Về COMPA | `/gioi-thieu/` | `/en/studio/` |
 | Liên hệ | `/lien-he/` | `/en/contact/` |
 | Dịch vụ (khi công khai) | `/dich-vu/`, `/dich-vu/:slug/` | `/en/services/`, `/en/services/:slug/` |

@@ -90,7 +90,7 @@ export function ContentAdminPage() {
         <h2>Trang đơn giá</h2>
         <p className="a-hint">Bảng giá của từng loại công trình nhập ở mục “Danh mục dự án”. Trang: /don-gia/ và /en/pricing/.</p>
         <label className="a-check">
-          <input type="checkbox" checked={draft.pricing.status === 'published'} onChange={(e) => set((d) => void (d.pricing.status = e.target.checked ? 'published' : 'draft'))} /> Công khai trang Đơn giá (hiện mục ĐƠN GIÁ trên menu và dòng “Đơn giá từ …” dưới thẻ danh mục)
+          <input type="checkbox" checked={draft.pricing.status === 'published'} onChange={(e) => set((d) => void (d.pricing.status = e.target.checked ? 'published' : 'draft'))} /> Công khai trang Đơn giá (hiện dòng “Đơn giá từ …” dưới thẻ danh mục, dẫn sang trang này)
         </label>
         <label className="a-check">
           <input type="checkbox" checked={draft.pricing.isDemo} onChange={(e) => set((d) => void (d.pricing.isDemo = e.target.checked))} /> Hiện ghi chú “Đơn giá minh họa” (tắt khi đã có giá chính thức của khách)
