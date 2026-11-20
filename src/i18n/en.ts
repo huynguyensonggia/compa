@@ -65,6 +65,8 @@ export const en: Record<MessageKey, string> = {
   'contact.social': 'Social media',
   'footer.rights': 'All rights reserved.',
   'footer.contact': 'Contact',
+  'footer.links': 'Quick links',
+  'footer.projects': 'Projects',
   'notFound.title': 'Page not found',
   'notFound.cta': 'View projects',
   'notFound.home': 'Back to home',

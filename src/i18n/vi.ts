@@ -63,6 +63,8 @@ export const vi = {
   'contact.social': 'Mạng xã hội',
   'footer.rights': 'Bảo lưu mọi quyền.',
   'footer.contact': 'Liên hệ',
+  'footer.links': 'Liên kết',
+  'footer.projects': 'Dự án',
   'notFound.title': 'Không tìm thấy trang',
   'notFound.cta': 'Xem các dự án',
   'notFound.home': 'Về trang chủ',
