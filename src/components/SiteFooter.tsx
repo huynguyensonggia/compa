@@ -3,6 +3,7 @@ import { useContent } from '../content/ContentContext';
 import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { track } from '../analytics/track';
+import { SocialTextLinks } from './SocialLinks';
 
 export function SiteFooter() {
   const { site } = useContent();
@@ -31,11 +32,7 @@ export function SiteFooter() {
         </address>
         <div className="site-footer__links">
           <Link to={paths.contact(lang)}>{t('footer.contact')}</Link>
-          {c.facebook && (
-            <a href={c.facebook} target="_blank" rel="noopener noreferrer" onClick={() => track('facebook_click', { location: 'footer' })}>
-              Facebook
-            </a>
-          )}
+          <SocialTextLinks location="footer" />
         </div>
       </div>
       <p className="site-footer__copy">

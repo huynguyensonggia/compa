@@ -14,6 +14,7 @@
 - [ ] **Mã màu chính thức** từ file thiết kế (hiện lấy mẫu từ ảnh logo: `#535351` / `#CEC09D`).
 - [ ] **Danh mục dự án thật** (hiện là mẫu: Biệt thự, Nhà phố, Khách sạn, Homestay, Nhà hàng, Coffee) kèm mô tả ngắn nếu có.
 - [ ] **Bảng đơn giá thật** cho từng danh mục (hạng mục, đơn giá/m², điều kiện áp dụng, VAT). Hiện là giá minh họa; sau khi thay, tắt “Hiện ghi chú Đơn giá minh họa” trong admin.
+- [ ] Link **Instagram** và **TikTok** chính thức (nếu có) → nhập trong admin “Thương hiệu & Liên hệ”; nút tương ứng trên trang chủ sẽ tự hiện.
 - [ ] **Danh sách dự án thật**: danh mục, tên, địa điểm, năm, hạng mục, mô tả 80–200 từ, ảnh và **quyền sử dụng ảnh**.
 - [ ] **Mô tả dịch vụ thật** cho 4 mảng (kiến trúc, nội thất, cảnh quan, thi công) và **khu vực nhận công trình**. Trang Dịch vụ đang ở trạng thái nháp.
 - [ ] **Sửa địa chỉ trên fanpage** cho đúng chuỗi chuẩn (fanpage đang ghi “Hội An, Thành Phố Đà Nẵng 51000”).

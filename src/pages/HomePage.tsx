@@ -6,7 +6,7 @@ import { Seo } from '../seo/Seo';
 import { BrandLogo } from '../components/BrandLogo';
 import { HeroSlideshow } from '../components/HeroSlideshow';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
-import { track } from '../analytics/track';
+import { SocialDock } from '../components/SocialLinks';
 
 export function HomePage() {
   const lang = useLang();
@@ -43,18 +43,9 @@ export function HomePage() {
           {t('home.explore')}
         </Link>
       </main>
-      {site.contact.facebook && (
-        <div className="hero__social">
-          <a
-            href={site.contact.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track('facebook_click', { location: 'home' })}
-          >
-            Facebook
-          </a>
-        </div>
-      )}
+      <div className="hero__social">
+        <SocialDock location="home" />
+      </div>
     </div>
   );
 }

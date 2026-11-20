@@ -6,6 +6,7 @@ import { Seo } from '../seo/Seo';
 import { pageTitle } from '../seo/meta';
 import { SiteLayout } from '../components/SiteLayout';
 import { track } from '../analytics/track';
+import { SocialTextLinks, configuredSocials } from '../components/SocialLinks';
 
 export function ContactPage() {
   const lang = useLang();
@@ -50,13 +51,11 @@ export function ContactPage() {
               <address>{c.address.display[lang]}</address>
             </dd>
           </div>
-          {c.facebook && (
+          {configuredSocials(site).length > 0 && (
             <div>
-              <dt>{t('contact.facebook')}</dt>
-              <dd>
-                <a href={c.facebook} target="_blank" rel="noopener noreferrer" onClick={() => track('facebook_click', { location: 'contact' })}>
-                  {c.facebook.replace(/^https?:\/\/(www\.)?/, '')}
-                </a>
+              <dt>{t('contact.social')}</dt>
+              <dd className="contact__social">
+                <SocialTextLinks location="contact" />
               </dd>
             </div>
           )}

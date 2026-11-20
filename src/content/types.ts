@@ -161,6 +161,9 @@ export interface SiteContent {
     email: string;
     address: PostalAddress;
     facebook: string;
+    /** Leave empty until the account is verified — empty = no button/link anywhere. */
+    instagram: string;
+    tiktok: string;
     areaServed: string[];
     googleMapsPlaceUrl: string;
     mapEmbedUrl: string;

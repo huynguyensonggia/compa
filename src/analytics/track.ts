@@ -4,6 +4,8 @@ export type TrackEvent =
   | 'call_click'
   | 'email_click'
   | 'facebook_click'
+  | 'instagram_click'
+  | 'tiktok_click'
   | 'directions_click'
   | 'project_view'
   | 'language_switch';

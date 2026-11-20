@@ -28,7 +28,7 @@ export function businessJsonLd(site: SiteContent): Record<string, unknown> {
       addressCountry: c.address.addressCountry,
     },
     areaServed: c.areaServed.map((name) => ({ '@type': 'City', name })),
-    sameAs: [c.facebook].filter(Boolean),
+    sameAs: [c.facebook, c.instagram, c.tiktok].filter(Boolean),
   };
   // Only verified optional fields; empty fields are omitted entirely.
   if (c.geo && Number.isFinite(c.geo.lat) && Number.isFinite(c.geo.lng)) {
