@@ -94,7 +94,7 @@ Qua admin (khuyến nghị) rồi xuất gói. Ảnh mẫu hiện tại có `isD
 
 ## Ghi chú bàn giao
 
-**Mạng xã hội**: trang chủ có thanh nút Facebook / Instagram / TikTok (nổi lên khi rà chuột). Nút chỉ hiện khi có link trong admin → Thương hiệu & Liên hệ; hiện mới có Facebook đã xác minh. Footer, trang Liên hệ và JSON-LD (`sameAs`) dùng cùng nguồn link.
+**Mạng xã hội**: trang chủ có hàng nút vuông Facebook / Instagram / TikTok (rà chuột: nút đổi sang màu thương hiệu, biểu tượng trượt xuống). Nút chỉ hiện khi có link trong admin → Thương hiệu & Liên hệ; hiện mới có Facebook đã xác minh. Footer, trang Liên hệ và JSON-LD (`sameAs`) dùng cùng nguồn link.
 
 **Còn tạm / xấp xỉ**
 
