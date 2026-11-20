@@ -695,7 +695,7 @@
 }
 .hero__slide {
   opacity: 0;
-  transition: opacity 1.4s var(--ease);
+  transition: opacity 0.9s var(--ease);
 }
 .hero__slide.is-active {
   opacity: 1;

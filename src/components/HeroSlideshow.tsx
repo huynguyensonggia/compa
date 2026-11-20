@@ -3,7 +3,7 @@ import type { AssetMap, HeroSlide } from '../content/types';
 import { useLang, useT } from '../i18n';
 import { Picture } from './Picture';
 
-const INTERVAL_MS = 6000;
+const INTERVAL_MS = 3000;
 
 /**
  * Full-viewport crossfading slideshow. Only the current slide and the next one are mounted,
@@ -37,7 +37,7 @@ export function HeroSlideshow({ slides, assets }: { slides: HeroSlide[]; assets:
   useEffect(() => {
     if (!autoplay) return;
     // Prepare the next slide shortly before switching.
-    const pre = window.setTimeout(() => setLoaded((s) => new Set(s).add((index + 1) % count)), INTERVAL_MS - 2500);
+    const pre = window.setTimeout(() => setLoaded((s) => new Set(s).add((index + 1) % count)), Math.max(0, INTERVAL_MS - 2500));
     const id = window.setTimeout(() => setIndex((i) => (i + 1) % count), INTERVAL_MS);
     return () => {
       window.clearTimeout(pre);
