@@ -22,6 +22,8 @@
 
   /* Typography */
   --font-sans: 'Montserrat', Arial, sans-serif;
+  /* Project detail info + description: typewriter monospace (system font, Vietnamese glyphs on Windows/macOS/iOS) */
+  --font-mono: 'Courier New', Courier, 'Nimbus Mono PS', 'Liberation Mono', monospace;
   --fs-nav: 12.5px;
   --fs-caption: 12.5px;
   --fs-small: 13px;

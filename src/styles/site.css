@@ -297,33 +297,38 @@
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
+/* Info block: one “Label : value” per line, typewriter monospace */
 .project__meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 32px;
-  margin-top: 14px;
-  font-size: 12.5px;
-  letter-spacing: 0.6px;
-  color: var(--text-secondary);
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 2;
+  letter-spacing: 0;
+  color: var(--text-primary);
 }
 .project__meta div {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 0 0.6em;
 }
 .project__meta dt {
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 11.5px;
+  font-weight: 400;
+}
+.project__meta dt::after {
+  content: ' :';
 }
 .project__demo {
   color: var(--text-secondary);
 }
 .project__description {
-  max-width: 640px;
+  max-width: 760px;
   margin-top: 24px;
-  font-size: 14px;
-  line-height: var(--lh-body);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 2;
   color: var(--text-primary);
 }
 .project__description p + p {
