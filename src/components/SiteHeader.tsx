@@ -92,7 +92,7 @@ export function SiteHeader() {
                 <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.3" />
               </svg>
             </button>
-            <ul id={menuId} className="site-nav__submenu" hidden={!open}>
+            <ul id={menuId} className={`site-nav__submenu${open ? ' is-open' : ''}`}>
               {infoLinks.map((l) => {
                 const active = pathname.startsWith(l.to);
                 return (
