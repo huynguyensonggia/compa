@@ -134,53 +134,81 @@
   background: var(--surface-warm);
 }
 
-/* ---------- Language switch ---------- */
+/* ---------- Language switch: plain text "VI | EN" ---------- */
 .lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 .lang-switch ul {
   display: flex;
-  border: 1px solid var(--border-subtle);
+  align-items: center;
+}
+.lang-switch li + li::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 2px;
+  vertical-align: middle;
+  background: currentColor;
+  opacity: 0.35;
+}
+.lang-switch li {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
 }
 .lang-switch a {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: var(--tap);
-  min-height: 36px;
+  min-width: 40px;
+  min-height: 44px;
   padding: 0 8px;
   color: var(--text-secondary);
-  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  transition: color 0.2s var(--ease);
+}
+.lang-switch a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 9px;
+  width: 16px;
+  height: 1px;
+  background: var(--brand-sand);
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.2s var(--ease);
 }
 .lang-switch a:hover {
   color: var(--text-primary);
 }
 .lang-switch a.is-active {
-  background: var(--brand-charcoal);
-  color: #fff;
-  box-shadow: inset 0 -2px 0 var(--brand-sand);
+  color: var(--text-primary);
 }
-.lang-switch__globe {
-  color: var(--text-secondary);
+.lang-switch a.is-active::after {
+  transform: translateX(-50%) scaleX(1);
 }
-.lang-switch--dark ul {
-  border-color: rgba(255, 255, 255, 0.45);
+/* On dark backgrounds (charcoal header, hero photo) */
+.lang-switch--dark li,
+.lang-switch--dark a {
+  color: var(--on-charcoal);
 }
-.lang-switch--dark a,
-.lang-switch--dark .lang-switch__globe {
-  color: rgba(255, 255, 255, 0.92);
-}
-.lang-switch--dark a:hover {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.2);
-}
+.lang-switch--dark a:hover,
 .lang-switch--dark a.is-active {
-  background: rgba(82, 83, 80, 0.92);
+  color: #fff;
+}
+.hero .lang-switch--dark {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+.hero .lang-switch--dark li,
+.hero .lang-switch--dark a {
+  color: rgba(255, 255, 255, 0.82);
+}
+.hero .lang-switch--dark a:hover,
+.hero .lang-switch--dark a.is-active {
+  color: #fff;
 }
 
 /* ---------- Main + containers ---------- */
@@ -1224,25 +1252,6 @@
     margin-top: 0;
   }
 }
-.site-header .lang-switch ul {
-  border-color: rgba(206, 192, 157, 0.55);
-}
-.site-header .lang-switch a {
-  color: var(--on-charcoal);
-}
-.site-header .lang-switch .lang-switch__globe {
-  color: var(--on-charcoal);
-}
-.site-header .lang-switch a:hover {
-  color: var(--on-charcoal-strong);
-  background: rgba(0, 0, 0, 0.15);
-}
-.site-header .lang-switch a.is-active {
-  background: var(--on-charcoal-strong);
-  color: var(--brand-charcoal);
-  box-shadow: inset 0 -2px 0 var(--brand-sand);
-}
-
 /* Home hero: transparent logo directly on the photo */
 .brand-logo--on-photo {
   display: block;

@@ -5,16 +5,6 @@ import { translatePath } from '../routing/paths';
 import { track } from '../analytics/track';
 import type { Lang } from '../content/types';
 
-function GlobeIcon() {
-  return (
-    <svg className="lang-switch__globe" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false">
-      <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.1" />
-      <ellipse cx="8" cy="8" rx="2.8" ry="6.5" fill="none" stroke="currentColor" strokeWidth="1.1" />
-      <path d="M1.5 8h13M2.6 4.6h10.8M2.6 11.4h10.8" fill="none" stroke="currentColor" strokeWidth="1.1" />
-    </svg>
-  );
-}
-
 /** VI / EN switch. Each language has its own URL; the switch links to the same page in the other language. */
 export function LanguageSwitcher({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const lang = useLang();
@@ -24,7 +14,6 @@ export function LanguageSwitcher({ tone = 'light' }: { tone?: 'light' | 'dark' }
   const options: Lang[] = ['vi', 'en'];
   return (
     <nav className={`lang-switch lang-switch--${tone}`} aria-label={t('lang.label')}>
-      <GlobeIcon />
       <ul>
         {options.map((l) => {
           const active = l === lang;
