@@ -1267,3 +1267,107 @@
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.25));
 }
 
+
+/*
+ * Footer social buttons.
+ * From Uiverse.io by david-mohseni - https://uiverse.io/david-mohseni/brave-shrimp-86
+ * MIT License, Copyright (c) david-mohseni (David Mohseni)
+ * Adapted: scoped class names, COMPA resting colours, TikTok instead of Twitter, keyboard focus.
+ */
+.social-bubbles {
+  display: inline-flex;
+  list-style: none;
+  margin: 0 0 0 -10px; /* first icon aligns with the text above */
+  padding: 40px 0 0; /* room for the tooltip */
+}
+.social-bubbles__item {
+  position: relative;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50%;
+  background: var(--brand-sand-soft);
+  color: var(--brand-charcoal);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.social-bubbles__item.is-pending {
+  cursor: default;
+}
+.social-bubbles__tooltip {
+  position: absolute;
+  top: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  background: var(--brand-sand-soft);
+  color: var(--brand-sand-soft);
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.social-bubbles__tooltip::before {
+  position: absolute;
+  content: '';
+  height: 8px;
+  width: 8px;
+  background: inherit;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.social-bubbles__item:hover .social-bubbles__tooltip,
+.social-bubbles__item:focus-visible .social-bubbles__tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+}
+.social-bubbles__item:hover .social-bubbles__tooltip {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.social-bubbles__item--facebook:hover,
+.social-bubbles__item--facebook:focus-visible,
+.social-bubbles__item--facebook:hover .social-bubbles__tooltip,
+.social-bubbles__item--facebook:focus-visible .social-bubbles__tooltip {
+  background: #1877f2;
+  color: #fff;
+}
+.social-bubbles__item--instagram:hover,
+.social-bubbles__item--instagram:focus-visible,
+.social-bubbles__item--instagram:hover .social-bubbles__tooltip,
+.social-bubbles__item--instagram:focus-visible .social-bubbles__tooltip {
+  background: #e4405f;
+  color: #fff;
+}
+.social-bubbles__item--tiktok:hover,
+.social-bubbles__item--tiktok:focus-visible,
+.social-bubbles__item--tiktok:hover .social-bubbles__tooltip,
+.social-bubbles__item--tiktok:focus-visible .social-bubbles__tooltip {
+  background: #000;
+  color: #fff;
+}
+.site-footer .social-bubbles__item:focus-visible {
+  outline: 2px solid var(--brand-sand);
+  outline-offset: 3px;
+}
+.site-footer a.social-bubbles__item:hover {
+  text-decoration: none;
+}
+/* keep the white icon on hover (footer links otherwise turn champagne + underline) */
+.site-footer a.social-bubbles__item:hover,
+.site-footer a.social-bubbles__item:focus-visible {
+  color: #fff;
+  text-decoration: none;
+}

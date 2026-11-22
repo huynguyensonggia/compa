@@ -93,3 +93,50 @@ export function SocialTextLinks({ location, className }: { location: string; cla
     </>
   );
 }
+
+/*
+ * From Uiverse.io by david-mohseni - https://uiverse.io/david-mohseni/brave-shrimp-86
+ * MIT License, Copyright (c) david-mohseni (David Mohseni)
+ *
+ * Adapted: round icon buttons with a pop-up tooltip and bouncy hover (look and animation kept),
+ * Facebook / Instagram / TikTok, COMPA sand resting colour, scoped class names, real links.
+ * A button without a URL yet is a non-link placeholder (same look, no dead link).
+ */
+export function SocialBubbles({ location }: { location: string }) {
+  const { site } = useContent();
+  const t = useT();
+  return (
+    <ul className="social-bubbles" aria-label={t('social.label')}>
+      {ICONS.map((s) => {
+        const url = site.contact[s.key]?.trim() ?? '';
+        const className = `social-bubbles__item social-bubbles__item--${s.key}`;
+        const content = (
+          <>
+            <span className="social-bubbles__tooltip" aria-hidden="true">
+              {s.label}
+            </span>
+            <svg viewBox="0 0 16 16" height="1.2em" fill="currentColor" aria-hidden="true" focusable="false">
+              {s.icon}
+            </svg>
+          </>
+        );
+        return (
+          <li key={s.key}>
+            {url ? (
+              <a className={className} href={url} target="_blank" rel="noopener noreferrer" onClick={() => track(s.event, { location })}>
+                {content}
+                <span className="visually-hidden">
+                  {s.label} — {t('social.newTab')}
+                </span>
+              </a>
+            ) : (
+              <span className={`${className} is-pending`} role="img" aria-label={`${s.label} — ${t('social.pending')}`}>
+                {content}
+              </span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}

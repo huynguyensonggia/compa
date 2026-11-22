@@ -3,7 +3,7 @@ import { useContent } from '../content/ContentContext';
 import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { track } from '../analytics/track';
-import { SocialTextLinks } from './SocialLinks';
+import { SocialBubbles, SocialTextLinks } from './SocialLinks';
 
 /** Lucide icons (MIT) inlined as SVG — map-pin, phone, mail. Decorative: the text carries the meaning. */
 function ContactIcon({ kind }: { kind: 'address' | 'phone' | 'email' }) {
@@ -54,6 +54,7 @@ export function SiteFooter() {
           <FooterLogo />
           <p className="site-footer__name">{site.brand.name}</p>
           <p className="site-footer__tagline">{site.brand.tagline[lang]}</p>
+          <SocialBubbles location="footer" />
         </div>
 
         <div className="site-footer__col">
