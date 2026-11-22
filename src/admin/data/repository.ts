@@ -111,8 +111,13 @@ function migrate(r: Records): Records {
   }
   for (const p of r.projects) {
     const legacy = p as ProjectFull & { publishedSlug?: string | null };
-    if (p.typeId === undefined) p.typeId = fromStatic().projects.find((s) => s.id === p.id)?.typeId ?? null;
-    if (p.publishedPaths === undefined) p.publishedPaths = p.status === 'published' ? projectPaths(site, p) : null;
+    // Missing or empty type (data saved before project types existed, or while content/ was stale):
+    // adopt the type of the same project in content/. Projects created in admin are left as they are.
+    if (p.typeId === undefined || p.typeId === null) {
+      p.typeId = fromStatic().projects.find((s) => s.id === p.id)?.typeId ?? null;
+    }
+    if (p.typeId && !site.projectTypes.some((t) => t.id === p.typeId)) p.typeId = null;
+    if (!p.publishedPaths) p.publishedPaths = p.status === 'published' ? projectPaths(site, p) : null;
     delete legacy.publishedSlug;
   }
   return { ...r, redirects: r.redirects.filter((x) => x.from.startsWith('/') && x.to.startsWith('/')) };
