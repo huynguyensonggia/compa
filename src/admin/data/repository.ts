@@ -65,14 +65,47 @@ async function writeAll(r: Records, keepBlobs?: Map<string, AssetRecord>) {
     await tx.objectStore('assets').put(blob && !a.blob ? { ...a, blob } : a);
   }
   for (const rd of r.redirects) await tx.objectStore('redirects').put(rd);
-  const meta: Meta = { seededAt: new Date().toISOString(), schema: 1 };
+  const meta: Meta = { seededAt: new Date().toISOString(), schema: 1, staticProjectIds: getStaticRecords().projects.map((p) => p.id) };
   await kv.put(meta, 'meta');
+  await tx.done;
+}
+
+/**
+ * Add seed projects that were added to content/ after this browser was seeded (e.g. new demo projects),
+ * without touching local edits. Projects already received once are never re-added, so a project the
+ * admin deleted stays deleted. Older data without the list assumes every seed project it lacks is new.
+ */
+async function syncNewSeedProjects(): Promise<void> {
+  const db = await getDb();
+  const meta = (await db.get('kv', 'meta')) as Meta | undefined;
+  if (!meta) return;
+  const stat = getStaticRecords();
+  const localIds = new Set(await db.getAllKeys('projects'));
+  const known = new Set(meta.staticProjectIds ?? []);
+  const fresh = stat.projects.filter((p) => !known.has(p.id) && !localIds.has(p.id));
+  const allIds = stat.projects.map((p) => p.id);
+  const listChanged = !meta.staticProjectIds || allIds.some((id) => !known.has(id));
+  if (!fresh.length && !listChanged) return;
+
+  const tx = db.transaction(['kv', 'projects', 'groups', 'images', 'assets'], 'readwrite');
+  let order = 0;
+  for (const p of await tx.objectStore('projects').getAll()) order = Math.max(order, p.sortOrder + 1);
+  const assetIds = new Set(await tx.objectStore('assets').getAllKeys());
+  for (const p of fresh) {
+    const { groups, images, ...project } = p;
+    await tx.objectStore('projects').put({ ...project, sortOrder: order++ });
+    for (const g of groups) await tx.objectStore('groups').put({ ...g, projectId: p.id });
+    for (const i of images) await tx.objectStore('images').put({ ...i, projectId: p.id });
+  }
+  for (const a of stat.assets) if (!assetIds.has(a.id)) await tx.objectStore('assets').put(a);
+  await tx.objectStore('kv').put({ ...meta, staticProjectIds: Array.from(new Set([...known, ...allIds])) }, 'meta');
   await tx.done;
 }
 
 // ---------- read ----------
 export async function loadRecords(): Promise<Records> {
   await ensureSeeded();
+  await syncNewSeedProjects();
   const db = await getDb();
   const tx = db.transaction(['kv', 'projects', 'groups', 'images', 'assets', 'redirects']);
   const [site, projects, groups, images, assets, redirects] = await Promise.all([
@@ -103,11 +136,13 @@ function migrate(r: Records): Records {
   const fromStatic = () => (stat ??= getStaticRecords());
   if (!Array.isArray(site.projectTypes)) site.projectTypes = fromStatic().site.projectTypes;
   if (!site.pricing) site.pricing = fromStatic().site.pricing;
+  if (site.hero.video === undefined) site.hero.video = fromStatic().site.hero.video ?? { src: '', poster: '' };
   if (site.brand.logoOnPhotoFile === undefined) site.brand.logoOnPhotoFile = fromStatic().site.brand.logoOnPhotoFile;
   if (site.contact.instagram === undefined) site.contact.instagram = '';
   if (site.contact.tiktok === undefined) site.contact.tiktok = '';
   for (const t of site.projectTypes) {
     if (!Array.isArray(t.prices)) t.prices = fromStatic().site.projectTypes.find((s) => s.id === t.id)?.prices ?? [];
+    if (t.icon === undefined) t.icon = fromStatic().site.projectTypes.find((s) => s.id === t.id)?.icon ?? '';
   }
   for (const p of r.projects) {
     const legacy = p as ProjectFull & { publishedSlug?: string | null };

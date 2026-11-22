@@ -1,0 +1,91 @@
+{
+  "id": "prj_c6189bf0fe",
+  "slug": "du-an-minh-hoa-14",
+  "status": "published",
+  "sortOrder": 13,
+  "isDemo": true,
+  "typeId": "typ_bietthu",
+  "title": {
+    "vi": "Dự án minh họa 14",
+    "en": "Sample project 14"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_264609c611",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_1056f94b24",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_8b3a05d321",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_c97bf97286",
+      "groupId": "grp_1056f94b24",
+      "assetId": "as_264609c611",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Mặt tiền ốp gỗ với mái dốc và sân trước lát sỏi",
+        "en": "Timber-clad façade with pitched roof and gravel forecourt"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_54374e9575",
+      "groupId": "grp_8b3a05d321",
+      "assetId": "as_11bfcd7df3",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Bếp trắng với đảo bếp và ghế gỗ",
+        "en": "White kitchen with island and timber stools"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_ac3c4c78a9",
+      "groupId": "grp_8b3a05d321",
+      "assetId": "as_26f6ef3079",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Không gian sinh hoạt chung với bàn ăn và vách gỗ",
+        "en": "Living and dining space with timber feature wall"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-22T15:13:22.807Z"
+}

@@ -12,7 +12,9 @@ export function HeroAdminPage() {
   const [picking, setPicking] = useState(false);
   if (!draft) return null;
   const slides = draft.hero.slides;
-  const setSlides = (next: HeroSlide[]) => setDraft({ ...draft, hero: { slides: next } });
+  const setSlides = (next: HeroSlide[]) => setDraft({ ...draft, hero: { ...draft.hero, slides: next } });
+  const video = draft.hero.video ?? { src: '', poster: '' };
+  const setVideo = (patch: Partial<typeof video>) => setDraft({ ...draft, hero: { ...draft.hero, video: { ...video, ...patch } } });
   const move = (i: number, d: number) => {
     const j = i + d;
     if (j < 0 || j >= slides.length) return;
@@ -33,7 +35,30 @@ export function HeroAdminPage() {
         </button>
       </div>
       <IssueList issues={errors.map((message) => ({ level: 'error' as const, message }))} />
-      <p className="a-hint">Trang chủ hiển thị 4–6 ảnh, chuyển cảnh khoảng 6 giây. Ảnh đầu tiên được tải ưu tiên. Nhấn lên ảnh để đặt điểm lấy nét (vùng luôn giữ khi cắt).</p>
+      <section className="a-card">
+        <h2>Video nền</h2>
+        <p className="a-hint">
+          Khi có đường dẫn video, trang chủ phát video một lần (tự chạy, tắt tiếng) rồi dừng ở cảnh cuối, thay cho slideshow ảnh bên dưới. Để trống để dùng slideshow. Đặt file vào thư mục <code>public/videos/</code> của dự án — nên dùng MP4 H.264 khoảng 1920×1080, 4–8 MB, kèm ảnh poster (khung hình đầu).
+        </p>
+        <label className="a-check">
+          <input type="checkbox" checked={!!video.src} onChange={(e) => setVideo({ src: e.target.checked ? '/videos/hero.mp4' : '' })} /> Dùng video thay slideshow
+        </label>
+        <div className="a-inline" style={{ marginTop: 8 }}>
+          <label className="a-field" style={{ flex: '1 1 280px' }}>
+            <span className="a-field__top">Đường dẫn video</span>
+            <input value={video.src} placeholder="/videos/hero.mp4" onChange={(e) => setVideo({ src: e.target.value.trim() })} />
+          </label>
+          <label className="a-field" style={{ flex: '1 1 280px' }}>
+            <span className="a-field__top">Ảnh poster</span>
+            <input value={video.poster} placeholder="/videos/hero-poster.webp" onChange={(e) => setVideo({ poster: e.target.value.trim() })} />
+          </label>
+          <label className="a-field" style={{ flex: '1 1 280px' }}>
+            <span className="a-field__top">Ảnh khung cuối (giữ lại khi video kết thúc)</span>
+            <input value={video.endImage ?? ''} placeholder="/videos/hero-end.webp" onChange={(e) => setVideo({ endImage: e.target.value.trim() })} />
+          </label>
+        </div>
+      </section>
+      <p className="a-hint">Trang chủ hiển thị 4–6 ảnh, chuyển cảnh khoảng 3 giây. Ảnh đầu tiên được tải ưu tiên. Nhấn lên ảnh để đặt điểm lấy nét (vùng luôn giữ khi cắt).</p>
       {(slides.length < 4 || slides.length > 6) && <p className="a-issue a-issue--warning">Nên có 4–6 ảnh (hiện có {slides.length}).</p>}
       <ol className="a-slides">
         {slides.map((s, i) => {

@@ -2,6 +2,8 @@ import { useContent } from '../content/ContentContext';
 
 interface Props {
   variant?: 'header' | 'hero' | 'footer';
+  /** Use the transparent wordmark (background keyed out) instead of the square charcoal file. */
+  transparent?: boolean;
 }
 
 /**
@@ -9,12 +11,12 @@ interface Props {
  * otherwise a clearly TEMPORARY text wordmark — NOT the original logo artwork (no compass symbol).
  * Replace by placing the file at public/brand/logo.png and setting brand.logoFile in content/site.json.
  */
-export function BrandLogo({ variant = 'header' }: Props) {
+export function BrandLogo({ variant = 'header', transparent = false }: Props) {
   const { site, assets } = useContent();
   const { brand } = site;
   const uploaded = brand.logoAssetId ? assets[brand.logoAssetId] : undefined;
   // Over the hero photo: transparent wordmark (background keyed out of the original file).
-  if (variant === 'hero' && !uploaded && brand.logoOnPhotoFile) {
+  if ((variant === 'hero' || transparent) && !uploaded && brand.logoOnPhotoFile) {
     return (
       <span className="brand-logo brand-logo--on-photo">
         <img src={brand.logoOnPhotoFile} alt={brand.name} width={960} height={304} />

@@ -13,3 +13,9 @@ public/brand/logo.webp
 public/brand/logo.png
 public/brand/logo-transparent.webp
 public/brand/logo-transparent.png
+
+# Original, uncompressed hero video (49 MB) — never commit
+/hero.mp4
+/hero-1080p.mp4
+/hero-poster.jpg
+/hero-poster.webp

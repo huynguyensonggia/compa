@@ -1,0 +1,91 @@
+{
+  "id": "prj_36526c396c",
+  "slug": "du-an-minh-hoa-17",
+  "status": "published",
+  "sortOrder": 16,
+  "isDemo": true,
+  "typeId": "typ_bietthu",
+  "title": {
+    "vi": "Dự án minh họa 17",
+    "en": "Sample project 17"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "landscape"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_187a9b51ba",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_7bd9f0cea9",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_bff8f99ae5",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_b901a2ebd3",
+      "groupId": "grp_7bd9f0cea9",
+      "assetId": "as_187a9b51ba",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Sân cỏ và cây lớn phía sau nhà",
+        "en": "Lawn and mature tree behind the house"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_5171f58ea3",
+      "groupId": "grp_bff8f99ae5",
+      "assetId": "as_194ca535cc",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách với cửa sổ vòm và dầm gỗ",
+        "en": "Living room with arched windows and timber beams"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_2293d18e73",
+      "groupId": "grp_bff8f99ae5",
+      "assetId": "as_fde676dbc7",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Phòng ngủ tông trắng xám với cửa sổ lớn",
+        "en": "White and grey bedroom with large windows"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-22T15:13:22.807Z"
+}

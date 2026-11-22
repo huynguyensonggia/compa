@@ -6,6 +6,8 @@ import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { useContent } from '../content/ContentContext';
 
+const LIGHT_HEADER = false;
+
 export function SiteHeader() {
   const lang = useLang();
   const t = useT();
@@ -52,15 +54,15 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${LIGHT_HEADER ? ' site-header--light' : ''}`}>
       <a className="skip-link" href="#main">
         {t('skip')}
       </a>
       <div className="site-header__lang">
-        <LanguageSwitcher tone="dark" />
+        <LanguageSwitcher tone={LIGHT_HEADER ? 'light' : 'dark'} />
       </div>
       <Link to={paths.home(lang)} className="site-header__logo">
-        <BrandLogo variant="header" />
+        <BrandLogo variant="header" transparent={LIGHT_HEADER} />
       </Link>
       <nav className="site-nav" aria-label={t('nav.main')}>
         <ul className="site-nav__list">

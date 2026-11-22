@@ -1,0 +1,91 @@
+{
+  "id": "prj_da85e8528f",
+  "slug": "du-an-minh-hoa-16",
+  "status": "published",
+  "sortOrder": 15,
+  "isDemo": true,
+  "typeId": "typ_bietthu",
+  "title": {
+    "vi": "Dự án minh họa 16",
+    "en": "Sample project 16"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_afbb059981",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_8d258960ea",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_16c49e510a",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_096228857f",
+      "groupId": "grp_8d258960ea",
+      "assetId": "as_afbb059981",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Tường hoa gió trắng kết hợp ốp gỗ dưới trời xanh",
+        "en": "White perforated screen wall with timber cladding under blue sky"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_4eddf3cfaf",
+      "groupId": "grp_16c49e510a",
+      "assetId": "as_87f7cbba75",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Cầu thang gỗ, lan can kính và đèn thả",
+        "en": "Timber staircase with glass balustrade and pendant lights"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_481ca0df2a",
+      "groupId": "grp_16c49e510a",
+      "assetId": "as_ae0bfb531c",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Phòng tắm tối giản với bồn tắm đặt sàn",
+        "en": "Minimal bathroom with freestanding bathtub"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-22T15:13:22.807Z"
+}

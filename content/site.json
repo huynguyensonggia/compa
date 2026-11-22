@@ -90,7 +90,12 @@
         },
         "focalPoint": null
       }
-    ]
+    ],
+    "video": {
+      "src": "/videos/hero.mp4",
+      "poster": "/videos/hero-poster.webp",
+      "endImage": "/videos/hero-end.webp"
+    }
   },
   "projectTypes": [
     {
@@ -108,6 +113,7 @@
         "en": ""
       },
       "coverAssetId": null,
+      "icon": "elev-villa",
       "sortOrder": 0,
       "prices": [
         {
@@ -175,6 +181,7 @@
         "en": ""
       },
       "coverAssetId": null,
+      "icon": "elev-townhouse",
       "sortOrder": 1,
       "prices": [
         {
@@ -242,6 +249,7 @@
         "en": ""
       },
       "coverAssetId": null,
+      "icon": "elev-hotel",
       "sortOrder": 2,
       "prices": [
         {
@@ -309,6 +317,7 @@
         "en": ""
       },
       "coverAssetId": null,
+      "icon": "elev-homestay",
       "sortOrder": 3,
       "prices": [
         {
@@ -376,6 +385,7 @@
         "en": ""
       },
       "coverAssetId": null,
+      "icon": "elev-restaurant",
       "sortOrder": 4,
       "prices": [
         {
@@ -443,6 +453,7 @@
         "en": ""
       },
       "coverAssetId": null,
+      "icon": "elev-coffee",
       "sortOrder": 5,
       "prices": [
         {

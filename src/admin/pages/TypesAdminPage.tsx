@@ -4,6 +4,7 @@ import { useSiteForm } from './useSiteForm';
 import { AssetPicker, thumbSrc } from '../components/AssetPicker';
 import { BiField, IssueList, SaveState } from '../components/ui';
 import { PriceTableEditor } from '../components/PriceTableEditor';
+import { CATEGORY_ICONS, CategoryIcon, type CategoryIconKey } from '../../components/CategoryIcon';
 import { newId, slugify } from '../data/slug';
 import { saveProject, ValidationError } from '../data/repository';
 import { byOrder } from '../../content/resolve';
@@ -35,7 +36,7 @@ export function TypesAdminPage() {
   const add = () => {
     const id = newId('typ');
     setAutoSlug((s) => new Set(s).add(id));
-    setTypes([...types, { id, slug: { vi: '', en: '' }, title: { vi: '', en: '' }, description: { vi: '', en: '' }, coverAssetId: null, sortOrder: types.length, prices: [] }]);
+    setTypes([...types, { id, slug: { vi: '', en: '' }, title: { vi: '', en: '' }, description: { vi: '', en: '' }, coverAssetId: null, sortOrder: types.length, prices: [], icon: '' }]);
   };
 
   const moveProjects = async (fromId: string) => {
@@ -114,6 +115,23 @@ export function TypesAdminPage() {
               onChange={(description) => patch(t.id, { description })}
               hint="Hiển thị dưới tiêu đề trang danh mục và dùng làm mô tả meta. Để trống nếu chưa có nội dung xác nhận."
             />
+            <fieldset className="a-bifield">
+              <legend>Biểu tượng (hiện trước tên danh mục ở trang Dự án)</legend>
+              <div className="a-icons" role="radiogroup" aria-label={`Biểu tượng cho ${t.title.vi || 'danh mục'}`}>
+                <label className={`a-icons__item${!t.icon ? ' is-on' : ''}`}>
+                  <input type="radio" name={`icon-${t.id}`} checked={!t.icon} onChange={() => patch(t.id, { icon: '' })} />
+                  <span className="a-icons__none">—</span>
+                  <span className="a-icons__label">Không dùng</span>
+                </label>
+                {(Object.keys(CATEGORY_ICONS) as CategoryIconKey[]).map((key) => (
+                  <label key={key} className={`a-icons__item${t.icon === key ? ' is-on' : ''}`}>
+                    <input type="radio" name={`icon-${t.id}`} checked={t.icon === key} onChange={() => patch(t.id, { icon: key })} />
+                    <CategoryIcon kind={key} className="a-icons__svg" />
+                    <span className="a-icons__label">{CATEGORY_ICONS[key].label}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
             <PriceTableEditor items={t.prices ?? []} onChange={(prices) => patch(t.id, { prices })} />
             <div className="a-cover">
               <div className="a-cover__img">{cover ? <img src={thumbSrc(cover)} alt="" /> : <span>Tự dùng ảnh bìa của dự án đầu tiên</span>}</div>

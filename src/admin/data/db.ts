@@ -4,6 +4,8 @@ import type { AssetRecord, GalleryImage, Project, Redirect, SiteContent, SpaceGr
 export interface Meta {
   seededAt: string;
   schema: number;
+  /** Seed projects (from content/) this browser has already received; used to add newly seeded ones only. */
+  staticProjectIds?: string[];
 }
 
 interface CompaDB extends DBSchema {

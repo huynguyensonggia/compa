@@ -133,6 +133,8 @@ export interface ProjectType {
   sortOrder: number;
   /** Price table shown on /don-gia/ and as “Đơn giá từ …” under the category card. */
   prices: PriceItem[];
+  /** Line icon shown before the category name (see components/CategoryIcon). Empty = no icon. */
+  icon?: string;
 }
 
 export interface ServiceItem {
@@ -173,7 +175,11 @@ export interface SiteContent {
     openingHours: string[];
     gbpReviewUrl: string;
   };
-  hero: { slides: HeroSlide[] };
+  hero: {
+    slides: HeroSlide[];
+    /** Optional background video; when src is set it replaces the photo slideshow. */
+    video?: { src: string; poster: string; endImage?: string };
+  };
   projectTypes: ProjectType[];
   pages: {
     studio: { title: Bi; body: Bi; imageAssetId: string | null };

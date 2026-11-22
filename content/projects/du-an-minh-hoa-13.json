@@ -1,0 +1,91 @@
+{
+  "id": "prj_9551706001",
+  "slug": "du-an-minh-hoa-13",
+  "status": "published",
+  "sortOrder": 12,
+  "isDemo": true,
+  "typeId": "typ_bietthu",
+  "title": {
+    "vi": "Dự án minh họa 13",
+    "en": "Sample project 13"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "interior"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_b8e886452f",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_d5d825c922",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_d4f4476b3c",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0741cbb6c8",
+      "groupId": "grp_d5d825c922",
+      "assetId": "as_b8e886452f",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Nhà hai tầng ốp gỗ và kính lúc chạng vạng",
+        "en": "Two-storey timber and glass house at twilight"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_e83ff87337",
+      "groupId": "grp_d4f4476b3c",
+      "assetId": "as_50e6d47f2d",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách sáng với sofa trắng và vách ốp gỗ",
+        "en": "Bright living room with white sofa and timber wall"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_f1f3e8f93d",
+      "groupId": "grp_d4f4476b3c",
+      "assetId": "as_645e4fe8c6",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Cầu thang thép nhìn ra hồ bơi qua vách kính",
+        "en": "Steel staircase overlooking the pool through glass walls"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-22T15:13:22.807Z"
+}

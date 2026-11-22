@@ -1,0 +1,91 @@
+{
+  "id": "prj_a121fded10",
+  "slug": "du-an-minh-hoa-15",
+  "status": "published",
+  "sortOrder": 14,
+  "isDemo": true,
+  "typeId": "typ_bietthu",
+  "title": {
+    "vi": "Dự án minh họa 15",
+    "en": "Sample project 15"
+  },
+  "location": {
+    "vi": "",
+    "en": ""
+  },
+  "year": null,
+  "categories": [
+    "architecture",
+    "construction"
+  ],
+  "description": {
+    "vi": "",
+    "en": ""
+  },
+  "coverAssetId": "as_e2e02fc98c",
+  "seo": {
+    "title": {
+      "vi": "",
+      "en": ""
+    },
+    "description": {
+      "vi": "",
+      "en": ""
+    },
+    "ogAssetId": null
+  },
+  "groups": [
+    {
+      "id": "grp_72cfdd5022",
+      "title": {
+        "vi": "Ngoại thất",
+        "en": "Exterior"
+      },
+      "sortOrder": 0
+    },
+    {
+      "id": "grp_c60c0ef395",
+      "title": {
+        "vi": "Nội thất",
+        "en": "Interior"
+      },
+      "sortOrder": 1
+    }
+  ],
+  "images": [
+    {
+      "id": "img_884d4c2e41",
+      "groupId": "grp_72cfdd5022",
+      "assetId": "as_e2e02fc98c",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Góc nhà ốp tấm tối màu và lam gỗ dọc",
+        "en": "House corner with dark panels and vertical timber louvres"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_b9a1357d09",
+      "groupId": "grp_c60c0ef395",
+      "assetId": "as_1414378dfa",
+      "sortOrder": 0,
+      "alt": {
+        "vi": "Phòng khách tông ấm với cửa sổ dài nằm ngang",
+        "en": "Warm-toned living room with a long horizontal window"
+      },
+      "focalPoint": null
+    },
+    {
+      "id": "img_03a5da838e",
+      "groupId": "grp_c60c0ef395",
+      "assetId": "as_8c2ff2226b",
+      "sortOrder": 1,
+      "alt": {
+        "vi": "Phòng khách thông tầng với cầu thang gỗ",
+        "en": "Double-height living room with timber stair"
+      },
+      "focalPoint": null
+    }
+  ],
+  "updatedAt": "2026-11-22T15:13:22.807Z"
+}
