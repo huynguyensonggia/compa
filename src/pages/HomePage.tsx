@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useContent } from '../content/ContentContext';
 import { useLang, useT } from '../i18n';
@@ -27,10 +28,22 @@ export function HomePage() {
       : undefined;
   // With a video, the logo + texts appear only when the video reaches its final shot.
   const [revealed, setRevealed] = useState(!video);
+  const [skipVideo, setSkipVideo] = useState(false);
   const show = video ? revealed : undefined;
 
+  const skipIntro = (event: MouseEvent<HTMLDivElement>) => {
+    if (!video || revealed) return;
+    const target = event.target as HTMLElement;
+    if (target.closest('a, button, input, select, textarea')) return;
+    setSkipVideo(true);
+    setRevealed(true);
+  };
+
   return (
-    <div className={`hero${video ? ' hero--video' : ''}${video && !revealed ? ' is-intro-pending' : ''}`}>
+    <div
+      className={`hero${video ? ' hero--video' : ''}${video && !revealed ? ' is-intro-pending' : ''}`}
+      onClick={skipIntro}
+    >
       <Seo
         lang={lang}
         title={site.seo.homeTitle[lang]}
@@ -42,7 +55,7 @@ export function HomePage() {
       <a className="skip-link" href="#main">
         {t('skip')}
       </a>
-      {video ? <HeroVideo src={video.src} poster={video.poster} endImage={video.endImage} onFinish={() => setRevealed(true)} /> : <HeroSlideshow slides={site.hero.slides} assets={assets} />}
+      {video ? <HeroVideo src={video.src} poster={video.poster} endImage={video.endImage} skipRequested={skipVideo} onFinish={() => setRevealed(true)} /> : <HeroSlideshow slides={site.hero.slides} assets={assets} />}
       <div className="hero__shade" aria-hidden="true" />
       <div className="hero__lang">
         <LanguageSwitcher tone="dark" />

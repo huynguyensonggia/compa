@@ -6,6 +6,8 @@ interface Props {
   poster: string;
   /** Final frame as a still: faded in when the video ends, and shown directly for reduced motion. */
   endImage?: string;
+  /** Stops the intro and reveals the final shot immediately. */
+  skipRequested?: boolean;
   /**
    * Called once when the hero content may appear: the video ended — or it cannot play
    * (autoplay blocked, load error), the visitor prefers reduced motion, or it took too long.
@@ -21,12 +23,21 @@ const MAX_WAIT_MS = 15000;
  * on the final shot (no loop). Pauses while the tab is hidden and resumes where it left off.
  * Framing is plain object-fit: cover — no scaling.
  */
-export function HeroVideo({ src, poster, endImage, onFinish }: Props) {
+export function HeroVideo({ src, poster, endImage, skipRequested, onFinish }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
   const [ended, setEnded] = useState(false);
   const [reduced, setReduced] = useState(false);
   const finishRef = useRef(onFinish);
   finishRef.current = onFinish;
+
+  useEffect(() => {
+    if (!skipRequested) return;
+    const video = ref.current;
+    if (!video) return;
+    video.pause();
+    setEnded(true);
+    finishRef.current?.();
+  }, [skipRequested]);
 
   useEffect(() => {
     const video = ref.current;

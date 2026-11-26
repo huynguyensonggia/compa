@@ -36,7 +36,7 @@
 
   /* Layout */
   --container: min(85vw, 1320px);
-  --gutter-grid: 50px;
+  --gutter-grid: 70px;
   --row-gap-grid: 64px;
   --gallery-gap: 3px;
   --header-top: 60px;

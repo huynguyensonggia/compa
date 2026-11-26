@@ -10,7 +10,6 @@ import { pageTitle } from '../seo/meta';
 import { SiteLayout } from '../components/SiteLayout';
 import { CARD_SIZES } from '../components/ProjectCard';
 import { Picture } from '../components/Picture';
-import { CategoryIcon } from '../components/CategoryIcon';
 import type { Lang, ProjectType } from '../content/types';
 
 const PROJECTS_PER_SECTION = 3;
@@ -21,6 +20,13 @@ function headlinePrices(type: ProjectType, lang: Lang) {
     .map((item) => ({ item, text: formatPrice(item, lang) }))
     .filter((p): p is { item: (typeof type.prices)[number]; text: string } => !!p.text)
     .slice(0, 2);
+}
+
+function priceParts(text: string) {
+  const separator = text.lastIndexOf('/');
+  return separator > -1
+    ? { amount: text.slice(0, separator), unit: text.slice(separator) }
+    : { amount: text, unit: '' };
 }
 
 /**
@@ -112,24 +118,30 @@ export function ProjectsPage() {
                     <header className="project-section__header">
                       <div className="project-section__intro">
                         <h2 id={`sec-${type.id}`} className="project-section__title">
-                          <CategoryIcon kind={type.icon} className="project-section__icon" />
                           <Link to={paths.projectType(lang, type.slug[lang])}>{title}</Link>
-                          <span className="project-section__count">
-                            ({list.length === 1 ? t('types.countOne') : t('types.count', { n: list.length })})
-                          </span>
                         </h2>
+                        <p className="project-section__count">
+                          {list.length === 1 ? t('types.countOne') : t('types.count', { n: list.length })}
+                        </p>
                         {description && <p className="project-section__description">{description}</p>}
                       </div>
 
                       {prices.length > 0 && (
                         <div className="project-section__pricing">
                           <dl>
-                            {prices.map(({ item, text }) => (
-                              <div key={item.id}>
-                                <dt>{item.label[lang] || item.label.vi}</dt>
-                                <dd>{t('pricing.fromShort', { price: text })}</dd>
-                              </div>
-                            ))}
+                            {prices.map(({ item, text }) => {
+                              const price = priceParts(text);
+                              return (
+                                <div key={item.id}>
+                                  <dt>{item.label[lang] || item.label.vi}</dt>
+                                  <dd>
+                                    <span className="project-section__price-from">{t('pricing.fromShort', { price: '' }).replace(/\s{2,}/g, ' ').replace('{price}', '').trim()}</span>
+                                    <span className="project-section__price-amount">{price.amount}</span>
+                                    {price.unit && <span className="project-section__price-unit">{price.unit}</span>}
+                                  </dd>
+                                </div>
+                              );
+                            })}
                           </dl>
                           <Link className="project-section__more" to={`${paths.pricing(lang)}#${type.slug[lang]}`}>
                             {t('pricing.detail')}<span className="link-arrow" aria-hidden="true">→</span>
