@@ -1,26 +1,26 @@
 {
   "id": "prj_901411a212",
-  "slug": "du-an-minh-hoa-03",
+  "slug": "nha-lam-dung",
   "status": "published",
   "sortOrder": 2,
   "isDemo": true,
   "typeId": "typ_nhapho",
   "title": {
-    "vi": "Dự án minh họa 03",
-    "en": "Sample project 03"
+    "vi": "Nhà Lam Đứng",
+    "en": "Vertical Louvre House"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Hải Châu, Đà Nẵng",
+    "en": "Hai Chau, Da Nang"
   },
-  "year": null,
+  "year": 2024,
   "categories": [
     "architecture",
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Mặt tiền hai tầng với hệ lam đứng lọc nắng tây và che tầm nhìn từ phố. Bên trong, ánh sáng xuyên qua khe lam tạo nhịp bóng đổ thay đổi theo giờ trong ngày.",
+    "en": "A two-storey façade of vertical louvres that filters the western sun and screens views from the street. Inside, light through the slats casts shadows that shift through the day."
   },
   "coverAssetId": "as_c24074c560",
   "seo": {

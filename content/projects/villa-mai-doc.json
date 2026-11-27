@@ -1,26 +1,26 @@
 {
   "id": "prj_c6189bf0fe",
-  "slug": "du-an-minh-hoa-14",
+  "slug": "villa-mai-doc",
   "status": "published",
   "sortOrder": 13,
   "isDemo": true,
   "typeId": "typ_bietthu",
   "title": {
-    "vi": "Dự án minh họa 14",
-    "en": "Sample project 14"
+    "vi": "Villa Mái Dốc",
+    "en": "Pitched Roof Villa"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Điện Bàn, Đà Nẵng",
+    "en": "Dien Ban, Da Nang"
   },
-  "year": null,
+  "year": 2023,
   "categories": [
     "architecture",
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Mặt tiền ốp gỗ dưới mái dốc, sân trước lát sỏi đơn giản và ít bảo trì. Ngôi nhà mang dáng vẻ quen thuộc nhưng được tổ chức lại cho nếp sống hiện đại.",
+    "en": "A timber façade beneath a pitched roof, with a simple, low-maintenance gravel forecourt. Familiar in form, the house is reorganised for modern living."
   },
   "coverAssetId": "as_264609c611",
   "seo": {

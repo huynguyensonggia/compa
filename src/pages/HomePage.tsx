@@ -61,17 +61,17 @@ export function HomePage() {
         <LanguageSwitcher tone="dark" />
       </div>
       <p className="hero__eyebrow">
-        <RandomFadeText text={site.brand.shortName} show={show} delay={video ? 200 : 0} />
+        <RandomFadeText text={site.brand.shortName} show={show} delay={video ? 200 : 0} order="ltr" />
       </p>
       <main id="main" className="hero__content" tabIndex={-1}>
         <h1 className="hero__logo">
           <BrandLogo variant="hero" />
         </h1>
         <p className="hero__tagline">
-          <RandomFadeText text={site.brand.tagline[lang]} show={show} delay={video ? 650 : 250} />
+          <RandomFadeText text={site.brand.tagline[lang]} show={show} delay={video ? 200 : 0} order="ltr" />
         </p>
         <Link className="hero__cta" to={paths.projects(lang)}>
-          <RandomFadeText text={t('home.explore')} show={show} delay={video ? 900 : 450} duration={1000} />
+          <RandomFadeText text={t('home.explore')} show={show} delay={video ? 200 : 0} order="ltr" />
           <span className="visually-hidden"> {t('home.exploreTarget')}</span>
         </Link>
       </main>

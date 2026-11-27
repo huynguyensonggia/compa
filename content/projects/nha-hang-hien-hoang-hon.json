@@ -1,26 +1,26 @@
 {
   "id": "prj_d4268d4083",
-  "slug": "du-an-minh-hoa-08",
+  "slug": "nha-hang-hien-hoang-hon",
   "status": "published",
   "sortOrder": 7,
   "isDemo": true,
   "typeId": "typ_nhahang",
   "title": {
-    "vi": "Dự án minh họa 08",
-    "en": "Sample project 08"
+    "vi": "Nhà hàng Hiên Hoàng Hôn",
+    "en": "Sunset Terrace Restaurant"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "An Bàng, Hội An",
+    "en": "An Bang, Hoi An"
   },
-  "year": null,
+  "year": 2024,
   "categories": [
     "interior",
     "construction"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Nhà hàng với hiên rộng nhìn ra hồ bơi, nơi thực khách ngắm hoàng hôn trong bữa tối. Nội thất dùng vật liệu tự nhiên, ánh sáng dịu để không gian chuyển mình nhẹ nhàng từ chiều sang đêm.",
+    "en": "A restaurant with a wide terrace over the pool, where diners watch the sunset over dinner. Natural materials and soft lighting let the space shift gently from evening into night."
   },
   "coverAssetId": "as_26e093f127",
   "seo": {

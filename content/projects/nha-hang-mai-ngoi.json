@@ -1,25 +1,25 @@
 {
   "id": "prj_e173ae3067",
-  "slug": "du-an-minh-hoa-12",
+  "slug": "nha-hang-mai-ngoi",
   "status": "published",
   "sortOrder": 11,
   "isDemo": true,
   "typeId": "typ_nhahang",
   "title": {
-    "vi": "Dự án minh họa 12",
-    "en": "Sample project 12"
+    "vi": "Nhà hàng Mái Ngói",
+    "en": "Tiled Roof Restaurant"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cẩm Kim, Hội An",
+    "en": "Cam Kim, Hoi An"
   },
-  "year": null,
+  "year": 2023,
   "categories": [
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Nhà hàng mái ngói đỏ quây quanh hồ bơi, gợi nhớ những mái nhà phố cổ Hội An. Buổi tối, ánh đèn phản chiếu trên mặt nước tạo không khí ấm cúng cho bữa ăn.",
+    "en": "A red-tiled restaurant around a pool, recalling the rooftops of Hoi An's old town. At night, lights reflected on the water give dinner a warm, intimate mood."
   },
   "coverAssetId": "as_9ced3edce6",
   "seo": {

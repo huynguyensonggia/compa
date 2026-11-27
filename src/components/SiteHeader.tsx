@@ -18,6 +18,12 @@ export function SiteHeader() {
   const wrapRef = useRef<HTMLLIElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const hoverCapable = useRef(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const slotRef = useRef<HTMLDivElement>(null);
+  // Scroll behaviour: the full header scrolls away with the page; once it is out of view a compact bar
+  // pins to the top while scrolling up and hides while scrolling down. "pinned" = fixed (compact) layout.
+  const [pinned, setPinned] = useState(false);
+  const [shown, setShown] = useState(false);
 
   // The pricing page is reached from the category cards, so it counts as part of “Dự án”.
   const projectsActive = pathname.startsWith(paths.projects(lang)) || pathname.startsWith(paths.pricing(lang));
@@ -33,6 +39,48 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => setOpen(false), [pathname]);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let fullH = headerRef.current?.offsetHeight ?? 0;
+    let isPinned = false;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const dy = y - lastY;
+      if (!isPinned) fullH = headerRef.current?.offsetHeight ?? fullH;
+      if (y <= fullH) {
+        // full header (partly) in view: normal, in-flow header
+        if (isPinned) {
+          isPinned = false;
+          if (slotRef.current) slotRef.current.style.height = '';
+          setPinned(false);
+          setShown(false);
+        }
+      } else {
+        if (!isPinned) {
+          isPinned = true;
+          if (slotRef.current) slotRef.current.style.height = `${fullH}px`; // keep the space, no layout jump
+          setPinned(true);
+        }
+        if (Math.abs(dy) > 6) {
+          setShown(dy < 0);
+          if (dy > 0) setOpen(false);
+        }
+      }
+      if (Math.abs(dy) > 6 || y <= fullH) lastY = y;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -54,7 +102,12 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className={`site-header${LIGHT_HEADER ? ' site-header--light' : ''}`}>
+    <div className="site-header-slot" ref={slotRef}>
+    <header
+      ref={headerRef}
+      className={`site-header${LIGHT_HEADER ? ' site-header--light' : ''}${pinned ? ' is-pinned' : ''}${pinned && shown ? ' is-shown' : ''}`}
+      onFocus={() => pinned && setShown(true)}
+    >
       <a className="skip-link" href="#main">
         {t('skip')}
       </a>
@@ -110,5 +163,6 @@ export function SiteHeader() {
         </ul>
       </nav>
     </header>
+    </div>
   );
 }

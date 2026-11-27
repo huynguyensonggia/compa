@@ -133,8 +133,12 @@ export interface ProjectType {
   sortOrder: number;
   /** Price table shown on /don-gia/ and as “Đơn giá từ …” under the category card. */
   prices: PriceItem[];
-  /** Line icon shown before the category name (see components/CategoryIcon). Empty = no icon. */
+  /** Line icon shown before the category name (see components/CategoryIcon). Empty = no icon; 'custom' = iconImage. */
   icon?: string;
+  /** Uploaded icon (transparent PNG or SVG as a data URL), used when icon === 'custom'. */
+  iconImage?: string;
+  /** Uploaded icon: keep its own colours instead of tinting it like the built-in line icons. */
+  iconKeepColor?: boolean;
 }
 
 export interface ServiceItem {

@@ -1,26 +1,26 @@
 {
   "id": "prj_21ce4d30bb",
-  "slug": "du-an-minh-hoa-05",
+  "slug": "khach-san-nang-trang",
   "status": "published",
   "sortOrder": 4,
   "isDemo": true,
   "typeId": "typ_khachsan",
   "title": {
-    "vi": "Dự án minh họa 05",
-    "en": "Sample project 05"
+    "vi": "Khách sạn Nắng Trắng",
+    "en": "White Sun Boutique Hotel"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cửa Đại, Hội An",
+    "en": "Cua Dai, Hoi An"
   },
-  "year": null,
+  "year": 2024,
   "categories": [
     "architecture",
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Khách sạn boutique gam trắng, các phòng nghỉ xếp quanh hồ bơi trung tâm. Thiết kế ưu tiên thông gió tự nhiên và những góc hiên nhỏ để khách nghỉ ngơi sau một ngày dạo phố cổ.",
+    "en": "A white boutique hotel with rooms arranged around a central pool. The design favours natural ventilation and small verandas where guests can rest after a day in the old town."
   },
   "coverAssetId": "as_fd61d69071",
   "seo": {

@@ -1,26 +1,26 @@
 {
   "id": "prj_9551706001",
-  "slug": "du-an-minh-hoa-13",
+  "slug": "villa-go-kinh",
   "status": "published",
   "sortOrder": 12,
   "isDemo": true,
   "typeId": "typ_bietthu",
   "title": {
-    "vi": "Dự án minh họa 13",
-    "en": "Sample project 13"
+    "vi": "Villa Gỗ Kính",
+    "en": "Timber & Glass Villa"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Hòa Xuân, Đà Nẵng",
+    "en": "Hoa Xuan, Da Nang"
   },
-  "year": null,
+  "year": 2024,
   "categories": [
     "architecture",
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Biệt thự hai tầng kết hợp ốp gỗ và vách kính, cầu thang lam gỗ trở thành điểm nhấn sáng đèn lúc chạng vạng. Mái đua lớn che nắng cho các phòng ở tầng trên.",
+    "en": "A two-storey villa combining timber cladding and glass, its slatted timber stair becoming a glowing feature at dusk. Broad eaves shade the upper rooms."
   },
   "coverAssetId": "as_b8e886452f",
   "seo": {

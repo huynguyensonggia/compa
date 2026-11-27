@@ -22,6 +22,8 @@ interface Props {
   show?: boolean;
   /** Fade out again when scrolled out of view (viewport mode). */
   exitOnLeave?: boolean;
+  /** Reveal order: shuffled (default) or a sweep from left to right. */
+  order?: 'random' | 'ltr';
 }
 
 const EASE = 'cubic-bezier(0.25, 0.1, 0.25, 1)';
@@ -67,7 +69,7 @@ function shuffledRanks(n: number, seedText: string): number[] {
   return ranks;
 }
 
-export function RandomFadeText({ text, className, duration = 1400, delay = 0, show, exitOnLeave = false }: Props) {
+export function RandomFadeText({ text, className, duration = 1400, delay = 0, show, exitOnLeave = false, order = 'random' }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const [inView, setInView] = useState(false);
   const [armed, setArmed] = useState(false);
@@ -80,8 +82,14 @@ export function RandomFadeText({ text, className, duration = 1400, delay = 0, sh
     );
   }, [text]);
   const count = words.reduce((n, w) => n + w.chars.length, 0);
-  const inRanks = useMemo(() => shuffledRanks(count, text), [count, text]);
-  const outRanks = useMemo(() => shuffledRanks(count, `${text}::out`), [count, text]);
+  const inRanks = useMemo(
+    () => (order === 'ltr' ? Array.from({ length: count }, (_, i) => i) : shuffledRanks(count, text)),
+    [count, text, order],
+  );
+  const outRanks = useMemo(
+    () => (order === 'ltr' ? inRanks : shuffledRanks(count, `${text}::out`)),
+    [count, text, order, inRanks],
+  );
 
   useEffect(() => {
     setArmed(true);

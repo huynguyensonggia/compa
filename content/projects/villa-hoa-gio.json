@@ -1,26 +1,26 @@
 {
   "id": "prj_da85e8528f",
-  "slug": "du-an-minh-hoa-16",
+  "slug": "villa-hoa-gio",
   "status": "published",
   "sortOrder": 15,
   "isDemo": true,
   "typeId": "typ_bietthu",
   "title": {
-    "vi": "Dự án minh họa 16",
-    "en": "Sample project 16"
+    "vi": "Villa Hoa Gió",
+    "en": "Breeze Block Villa"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cẩm Nam, Hội An",
+    "en": "Cam Nam, Hoi An"
   },
-  "year": null,
+  "year": 2024,
   "categories": [
     "architecture",
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Tường gạch hoa gió trắng kết hợp ốp gỗ, giúp nhà thông thoáng và mát tự nhiên. Ánh sáng lọc qua lớp hoa gió tạo những mảng bóng đổ sinh động trong ngày.",
+    "en": "White breeze-block walls paired with timber keep the house naturally ventilated and cool. Light filtered through the blocks casts lively patterns of shadow through the day."
   },
   "coverAssetId": "as_afbb059981",
   "seo": {

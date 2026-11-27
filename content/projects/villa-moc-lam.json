@@ -1,27 +1,27 @@
 {
   "id": "prj_c537851a65",
-  "slug": "du-an-minh-hoa-01",
+  "slug": "villa-moc-lam",
   "status": "published",
   "sortOrder": 0,
   "isDemo": true,
   "typeId": "typ_bietthu",
   "title": {
-    "vi": "Dự án minh họa 01",
-    "en": "Sample project 01"
+    "vi": "Villa Mộc Lam",
+    "en": "Moc Lam Villa"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "An Bàng, Hội An",
+    "en": "An Bang, Hoi An"
   },
-  "year": null,
+  "year": 2024,
   "categories": [
     "architecture",
     "interior",
     "landscape"
   ],
   "description": {
-    "vi": "Dự án minh họa gồm ba khu vực: ngoại thất, nội thất và sân vườn, dùng để trình bày cách website sắp xếp hình ảnh theo từng không gian. Hình ảnh là ảnh mẫu có giấy phép sử dụng, chưa phải công trình do COMPA Architecture Hội An thực hiện; nội dung sẽ được thay bằng công trình thực tế kèm địa điểm, năm hoàn thành và hạng mục khi được xác nhận.",
-    "en": "A sample project with three areas – exterior, interior and garden – showing how the website arranges photographs by space. The images are licensed sample photos, not work completed by COMPA Architecture Hội An; they will be replaced with real projects, including location, year and scope, once confirmed."
+    "vi": "Khối nhà ốp tấm tối màu, nhịp cửa sổ hẹp đón ánh sáng chiều mà vẫn giữ sự riêng tư cho gia đình. Không gian trong nhà mở ra khu vườn phía sau, nơi bãi cỏ và hàng cây làm dịu nắng gió biển.",
+    "en": "A dark-clad volume with narrow windows that let in the evening light while keeping the family's privacy. Inside, the living spaces open onto a rear garden where lawn and trees soften the sea sun and wind."
   },
   "coverAssetId": "as_86520dec04",
   "seo": {

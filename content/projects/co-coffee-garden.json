@@ -1,26 +1,26 @@
 {
   "id": "prj_e78ec176b0",
-  "slug": "du-an-minh-hoa-10",
+  "slug": "co-coffee-garden",
   "status": "published",
   "sortOrder": 9,
   "isDemo": true,
   "typeId": "typ_coffee",
   "title": {
-    "vi": "Dự án minh họa 10",
-    "en": "Sample project 10"
+    "vi": "Cọ Coffee & Garden",
+    "en": "Palm Coffee & Garden"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Sơn Trà, Đà Nẵng",
+    "en": "Son Tra, Da Nang"
   },
-  "year": null,
+  "year": 2024,
   "categories": [
     "architecture",
     "construction"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Quán cà phê sân vườn hai tầng bên hồ bơi và hàng cọ. Tầng trên là khu ngồi ngắm cảnh, tầng dưới mở hoàn toàn ra khu vườn nhiệt đới.",
+    "en": "A two-storey garden café by a pool lined with palms. The upper floor is a lookout lounge; the ground floor opens fully onto a tropical garden."
   },
   "coverAssetId": "as_394c2ddf78",
   "seo": {

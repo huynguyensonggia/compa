@@ -1,26 +1,26 @@
 {
   "id": "prj_ab5899277a",
-  "slug": "du-an-minh-hoa-02",
+  "slug": "nha-hien-go",
   "status": "published",
   "sortOrder": 1,
   "isDemo": true,
   "typeId": "typ_nhapho",
   "title": {
-    "vi": "Dự án minh họa 02",
-    "en": "Sample project 02"
+    "vi": "Nhà Hiên Gỗ",
+    "en": "Timber Veranda House"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cẩm Châu, Hội An",
+    "en": "Cam Chau, Hoi An"
   },
-  "year": null,
+  "year": 2023,
   "categories": [
     "architecture",
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Ngôi nhà phố ốp gỗ lùi sâu sau khoảng sân cỏ, tạo một hiên chuyển tiếp mát mẻ giữa phố và nhà. Vật liệu ấm, đường nét giản dị cho cuộc sống thường ngày nhẹ nhàng.",
+    "en": "A timber-clad townhouse set back behind a lawn, creating a cool veranda between street and home. Warm materials and simple lines for an easy everyday life."
   },
   "coverAssetId": "as_4ce0f455f3",
   "seo": {

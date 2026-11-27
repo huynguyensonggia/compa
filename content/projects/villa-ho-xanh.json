@@ -1,26 +1,26 @@
 {
   "id": "prj_02f2065a6a",
-  "slug": "du-an-minh-hoa-04",
+  "slug": "villa-ho-xanh",
   "status": "published",
   "sortOrder": 3,
   "isDemo": true,
   "typeId": "typ_bietthu",
   "title": {
-    "vi": "Dự án minh họa 04",
-    "en": "Sample project 04"
+    "vi": "Villa Hồ Xanh",
+    "en": "Blue Pool Villa"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Ngũ Hành Sơn, Đà Nẵng",
+    "en": "Ngu Hanh Son, Da Nang"
   },
-  "year": null,
+  "year": 2023,
   "categories": [
     "architecture",
     "construction"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Biệt thự hai tầng bao quanh hồ bơi, các phòng chính đều hướng ra mặt nước và khoảng xanh. Mái đua sâu và vách kính lớn giữ cho nhà thoáng mát suốt mùa hè miền Trung.",
+    "en": "A two-storey villa wrapped around its pool, with every main room facing the water and greenery. Deep eaves and large glass walls keep the house airy through the Central Vietnam summer."
   },
   "coverAssetId": "as_c068092776",
   "seo": {

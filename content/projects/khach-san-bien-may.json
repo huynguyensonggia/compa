@@ -1,26 +1,26 @@
 {
   "id": "prj_8849b11d33",
-  "slug": "du-an-minh-hoa-06",
+  "slug": "khach-san-bien-may",
   "status": "published",
   "sortOrder": 5,
   "isDemo": true,
   "typeId": "typ_khachsan",
   "title": {
-    "vi": "Dự án minh họa 06",
-    "en": "Sample project 06"
+    "vi": "Khách sạn Biển Mây",
+    "en": "Cloud Sea Hotel"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Mỹ Khê, Đà Nẵng",
+    "en": "My Khe, Da Nang"
   },
-  "year": null,
+  "year": 2022,
   "categories": [
     "architecture",
     "interior"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Khối nhà nhiều tầng giật cấp để mỗi phòng đều có ban công đón gió biển. Hồ bơi tầng trệt nối liền sảnh đón, tạo không khí nghỉ dưỡng ngay khi khách bước vào.",
+    "en": "A stepped multi-storey block that gives every room a balcony to catch the sea breeze. The ground-floor pool flows into the lobby, setting a resort mood from the moment guests arrive."
   },
   "coverAssetId": "as_fbe228e7fe",
   "seo": {

@@ -3,7 +3,7 @@ import { useContent } from '../content/ContentContext';
 import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { track } from '../analytics/track';
-import { SocialDock, SocialTextLinks } from './SocialLinks';
+import { SocialDock } from './SocialLinks';
 
 /** Lucide icons (MIT) inlined as SVG — map-pin, phone, mail. Decorative: the text carries the meaning. */
 function ContactIcon({ kind }: { kind: 'address' | 'phone' | 'email' }) {
@@ -60,24 +60,17 @@ export function SiteFooter() {
         <div className="site-footer__col">
           <h2 className="site-footer__title">{t('footer.contact')}</h2>
           <address className="site-footer__list">
-            {/* Maps link only once a verified Google Maps place URL is configured. */}
-            {c.googleMapsPlaceUrl ? (
-              <a
-                className="site-footer__row"
-                href={c.googleMapsPlaceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('directions_click', { location: 'footer' })}
-              >
-                <ContactIcon kind="address" />
-                {address}
-              </a>
-            ) : (
-              <span className="site-footer__row">
-                <ContactIcon kind="address" />
-                {address}
-              </span>
-            )}
+            {/* Verified place URL when configured, otherwise a Google Maps search for the address. */}
+            <a
+              className="site-footer__row"
+              href={c.googleMapsPlaceUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address.display.vi)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track('directions_click', { location: 'footer' })}
+            >
+              <ContactIcon kind="address" />
+              {address}
+            </a>
             <a className="site-footer__row" href={`tel:${c.phoneE164}`} onClick={() => track('call_click', { location: 'footer' })}>
               <ContactIcon kind="phone" />
               <span>{c.phone}</span>
@@ -93,15 +86,19 @@ export function SiteFooter() {
           <h2 className="site-footer__title">{t('footer.links')}</h2>
           <div className="site-footer__links">
             <Link to={paths.projects(lang)}>{t('footer.projects')}</Link>
+            {site.services.status === 'published' && <Link to={paths.services(lang)}>{t('nav.services')}</Link>}
+            {site.pricing.status === 'published' && <Link to={paths.pricing(lang)}>{t('footer.pricing')}</Link>}
             <Link to={paths.studio(lang)}>{t('nav.about')}</Link>
             <Link to={paths.contact(lang)}>{t('nav.contact')}</Link>
-            <SocialTextLinks location="footer" />
           </div>
         </nav>
       </div>
-      <p className="site-footer__copy">
-        © {year} {site.brand.name}. {t('footer.rights')}
-      </p>
+      <div className="site-footer__copy">
+        <p>
+          © {year} {site.brand.name}. {t('footer.rights')}
+        </p>
+        {c.areaServed.length > 0 && <p className="site-footer__area">{c.areaServed.join(' · ')}</p>}
+      </div>
     </footer>
   );
 }

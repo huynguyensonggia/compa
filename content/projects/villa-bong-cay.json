@@ -1,26 +1,26 @@
 {
   "id": "prj_36526c396c",
-  "slug": "du-an-minh-hoa-17",
+  "slug": "villa-bong-cay",
   "status": "published",
   "sortOrder": 16,
   "isDemo": true,
   "typeId": "typ_bietthu",
   "title": {
-    "vi": "Dự án minh họa 17",
-    "en": "Sample project 17"
+    "vi": "Villa Bóng Cây",
+    "en": "Tree Shade Villa"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cẩm Thanh, Hội An",
+    "en": "Cam Thanh, Hoi An"
   },
-  "year": null,
+  "year": 2025,
   "categories": [
     "architecture",
     "landscape"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Biệt thự được bố trí để giữ lại cây lớn sẵn có, sân cỏ phía sau trở thành trung tâm sinh hoạt của gia đình. Các phòng mở rộng ra vườn dưới bóng cây mát.",
+    "en": "The villa is laid out to keep the existing large tree, making the rear lawn the heart of family life. Rooms open onto the garden in the shade of its canopy."
   },
   "coverAssetId": "as_187a9b51ba",
   "seo": {

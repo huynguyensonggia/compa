@@ -325,30 +325,38 @@
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
-/* Info block: one “Label : value” per line, typewriter monospace */
+/* Project detail: larger title, spec row (small label over mono value), readable sans description */
+.project__title {
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.3;
+}
 .project__meta {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 16px;
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  line-height: 2;
-  letter-spacing: 0;
-  color: var(--text-primary);
-}
-.project__meta div {
-  display: flex;
   flex-wrap: wrap;
-  gap: 0 0.6em;
+  gap: 16px 56px;
+  margin: 24px 0 0;
+  padding: 18px 0;
+  border-top: 1px solid rgba(165, 141, 99, 0.45);
+  border-bottom: 1px solid rgba(165, 141, 99, 0.45);
 }
 .project__meta dt {
-  font-weight: 400;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
-.project__meta dt::after {
-  content: ' :';
+.project__meta dd {
+  margin: 4px 0 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-primary);
 }
 .project__demo {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
   color: var(--text-secondary);
 }
 .project__description {
@@ -361,6 +369,11 @@
 }
 .project__description p + p {
   margin-top: 1em;
+}
+@media (max-width: 639px) {
+  .project__meta {
+    gap: 14px 32px;
+  }
 }
 .project__back {
   margin-top: var(--space-5);
@@ -694,9 +707,10 @@
   margin: -2px 0 14px -2px;
 }
 .site-footer__name {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: #fff;
 }
 .site-footer__tagline {
@@ -766,8 +780,16 @@
   margin: 0 auto;
   padding: 16px 0 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 24px;
   font-size: 11.5px;
   color: rgba(255, 255, 255, 0.78);
+}
+.site-footer__area {
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 @media (max-width: 1023px) {
   .site-footer__inner {
@@ -1247,9 +1269,10 @@
   white-space: nowrap;
   scrollbar-width: none;
   font-family: var(--font-sans);
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.55px;
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: var(--ls-caption);
+  text-transform: uppercase;
 }
 .project-index::-webkit-scrollbar {
   display: none;
@@ -1303,11 +1326,12 @@
   flex-wrap: wrap;
   gap: 4px 16px;
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 44px;
+  font-family: var(--font-sans);
+  font-size: 34px;
   font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: 0;
+  line-height: 1.2;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 /* hover: sand underline drawn from the left under the category name */
 .project-section__title a {
@@ -1331,9 +1355,10 @@
 .project-section__count {
   margin: 10px 0 0;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 400;
-  letter-spacing: 0.8px;
+  letter-spacing: var(--ls-caption);
+  text-transform: uppercase;
   color: var(--text-secondary);
 }
 .project-section__description {
@@ -1361,10 +1386,11 @@
   min-width: 0;
 }
 .project-section__pricing dt {
-  margin-bottom: 7px;
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.35px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   color: var(--text-secondary);
 }
 .project-section__pricing dd {
@@ -1379,9 +1405,9 @@
   color: var(--text-secondary);
 }
 .project-section__price-amount {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 23px;
-  font-weight: 400;
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
   color: #3d3e3a;
 }
 .project-section__price-unit {
@@ -1392,9 +1418,14 @@
 .project-section__more {
   margin-top: 18px;
   min-height: 32px;
-  font-size: 12px;
-  letter-spacing: 0.1px;
   border-bottom-color: rgba(165, 141, 99, 0.78);
+}
+.project-section .project-section__more,
+.project-section__all a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 .project-section__more,
 .project-section__all a,
@@ -1433,6 +1464,13 @@
   overflow: hidden;
   background: var(--brand-sand-soft);
 }
+/* Desktop: cap the frame height so one screen shows the section header, the cards and “Xem tất cả” */
+@media (min-width: 1024px) {
+  .project-portfolio__media {
+    width: 100%; /* keep full column width; otherwise the capped height shrinks the width via aspect-ratio */
+    max-height: 50vh;
+  }
+}
 .project-portfolio__media img,
 .project-portfolio__media .img-fallback {
   width: 100%;
@@ -1450,17 +1488,18 @@
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.25px;
+  letter-spacing: 2.5px;
   line-height: 1.6;
+  text-transform: uppercase;
   color: var(--text-primary);
 }
 .project-portfolio__meta {
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
   text-align: center;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.25px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0;
   color: var(--text-secondary);
 }
 /* Filter change: the chosen category fades in */
@@ -1489,7 +1528,7 @@
 }
 .project-journey h2 {
   max-width: 30ch;
-  margin: 0 auto 12px;
+  margin: 0 auto 28px;
   font-size: 24px;
   font-weight: 300;
   line-height: 1.45;
@@ -1503,7 +1542,7 @@
     align-items: start;
   }
   .project-section__title {
-    font-size: 34px;
+    font-size: 30px;
   }
   .project-section__pricing {
     max-width: 560px;
@@ -1528,8 +1567,8 @@
     padding-top: 48px;
   }
   .project-section__title {
-    font-size: 30px;
-    letter-spacing: 0;
+    font-size: 24px;
+    letter-spacing: 3px;
   }
   .project-section__pricing {
     padding: 14px 0 0;
@@ -1546,8 +1585,8 @@
   }
   .project-portfolio__title {
     margin-top: 12px;
-    font-size: 11.5px;
-    letter-spacing: 1.2px;
+    font-size: 12px;
+    letter-spacing: 2px;
   }
   .project-portfolio__meta {
     font-size: 11px;
@@ -1850,8 +1889,9 @@
 }
 
 /* Footer: same flip buttons as the hero, aligned with the brand column text */
+/* the round buttons carry inner padding; pull them left so the first icon lines up with the text above */
 .site-footer__social {
-  margin: 4px 0 0 -0px;
+  margin: 4px 0 0 -17px;
 }
 .site-footer__social .social-flip {
   gap: 6px;
@@ -1859,4 +1899,234 @@
 .site-footer .social-flip__box:hover,
 .site-footer .social-flip__box:focus-visible {
   text-decoration: none;
+}
+
+/* Projects page closing call to action: outline button like the home hero, phone as a quiet alternative */
+.project-journey .project-journey__cta {
+  min-height: var(--tap);
+  padding: 0 28px;
+  border: 1px solid var(--brand-charcoal);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+}
+.project-journey .project-journey__cta:hover,
+.project-journey .project-journey__cta:focus-visible {
+  background: var(--brand-charcoal);
+  border-color: var(--brand-charcoal);
+  color: #fff;
+}
+.project-journey__call {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.project-journey .project-journey__call a {
+  display: inline;
+  min-height: 0;
+  border-bottom: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  color: inherit;
+}
+.project-journey .project-journey__call a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-sand);
+  text-underline-offset: 4px;
+}
+
+/* Uploaded category icon: tinted with the text colour through a mask (the hidden img sets the proportions) */
+.is-custom.is-mask {
+  display: inline-block;
+  background: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.is-custom.is-mask img {
+  display: block;
+  width: auto;
+  height: 100%;
+  visibility: hidden;
+}
+img.is-custom {
+  object-fit: contain;
+}
+/* Category icon before the section title on /du-an/ */
+.project-section__icon {
+  flex: none;
+  align-self: center;
+  width: auto;
+  height: 0.8em;
+  margin-right: -4px; /* the title row already has a 16px gap */
+  color: #9c8b62;
+}
+
+/* ---------- Scroll reveal (components/useReveal) ----------
+   Calm, one-time motion: opacity + a short rise, sand lines drawn left to right.
+   Hidden states apply only under html.js; .reveal:not(.is-armed) falls back to visible after 3 s. */
+@keyframes reveal-fallback {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Projects page: sand line under each category header draws from the left */
+.project-section__header {
+  position: relative;
+  border-bottom-color: transparent;
+}
+.project-section__header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgba(165, 141, 99, 0.45);
+  transform-origin: left center;
+  transition: transform 1.1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s;
+}
+.js .project-section.reveal:not(.is-in) .project-section__header::after {
+  transform: scaleX(0);
+}
+.js .project-section.reveal:not(.is-armed) .project-section__header::after {
+  animation: reveal-fallback 0.6s ease 3s forwards;
+}
+/* Projects page: cards rise in one after another */
+.project-portfolio.reveal .project-portfolio__item {
+  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.project-portfolio.reveal .project-portfolio__item:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.project-portfolio.reveal .project-portfolio__item:nth-child(3) {
+  transition-delay: 0.24s;
+}
+.js .project-portfolio.reveal:not(.is-in) .project-portfolio__item {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.js .project-portfolio.reveal:not(.is-armed) .project-portfolio__item {
+  animation: reveal-fallback 0.6s ease 3s forwards;
+}
+/* Project gallery: the short sand line before each group heading draws in, thumbnails rise in a quick cascade */
+.gallery__heading::before {
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.js .gallery__section.reveal:not(.is-in) .gallery__heading::before {
+  transform: scaleX(0);
+}
+.gallery__section.reveal .gallery__item {
+  transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.gallery__section.reveal .gallery__item:nth-child(2) { transition-delay: 0.06s; }
+.gallery__section.reveal .gallery__item:nth-child(3) { transition-delay: 0.12s; }
+.gallery__section.reveal .gallery__item:nth-child(4) { transition-delay: 0.18s; }
+.gallery__section.reveal .gallery__item:nth-child(5) { transition-delay: 0.24s; }
+.gallery__section.reveal .gallery__item:nth-child(6) { transition-delay: 0.3s; }
+.gallery__section.reveal .gallery__item:nth-child(7) { transition-delay: 0.36s; }
+.gallery__section.reveal .gallery__item:nth-child(n + 8) { transition-delay: 0.42s; }
+.js .gallery__section.reveal:not(.is-in) .gallery__item {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.js .gallery__section.reveal:not(.is-armed) .gallery__item,
+.js .gallery__section.reveal:not(.is-armed) .gallery__heading::before {
+  animation: reveal-fallback 0.6s ease 3s forwards;
+}
+/* Images fade in once decoded instead of popping in (the warm frame background shows meanwhile) */
+.js .gallery__thumb img:not(.is-loaded),
+.js .project-portfolio__media img:not(.is-loaded) {
+  opacity: 0;
+  animation: reveal-fallback 0.6s ease 3s forwards; /* never stay hidden if scripts fail */
+}
+.gallery__thumb img.is-loaded,
+.project-portfolio__media img.is-loaded {
+  transition: opacity 0.6s var(--ease), transform 0.5s var(--ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-section__header::after,
+  .project-portfolio__item,
+  .gallery__item,
+  .gallery__heading::before,
+  .gallery__thumb img,
+  .project-portfolio__media img {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Header on scroll ----------
+   The full charcoal header scrolls away with the page. Past it, the header becomes a compact fixed bar
+   (logo left, menu + language right) that slides in when scrolling up and out when scrolling down.
+   .site-header-slot keeps the original height while the header is fixed, so the page never jumps. */
+.site-header-slot {
+  background: var(--brand-charcoal);
+}
+.site-header.is-pinned {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  padding: 6px max(16px, calc((100vw - var(--container)) / 2));
+  transform: translateY(-100%);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.site-header.is-pinned.is-shown {
+  transform: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+.site-header.is-pinned .site-header__logo {
+  order: 1;
+}
+.site-header.is-pinned .brand-logo:not(.brand-logo--temporary) {
+  width: 132px;
+  height: 50px;
+}
+.site-header.is-pinned .site-nav {
+  order: 2;
+  margin: 0 0 0 auto;
+}
+.site-header.is-pinned .site-header__lang {
+  position: static;
+  order: 3;
+}
+@media (max-width: 639px) {
+  .site-header.is-pinned {
+    gap: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .site-header.is-pinned .brand-logo:not(.brand-logo--temporary) {
+    width: 104px;
+    height: 40px;
+  }
+  /* no room for the language switch in the compact bar on phones; it stays in the full header */
+  .site-header.is-pinned .site-header__lang {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header.is-pinned {
+    transition: none;
+  }
+}
+/* anchors jumped to while scrolling up land below the compact bar */
+.project-index {
+  scroll-margin-top: 80px;
 }

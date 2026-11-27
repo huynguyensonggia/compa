@@ -6,10 +6,14 @@ import { formatPrice } from '../content/pricing';
 import { useLang, useT } from '../i18n';
 import { paths } from '../routing/paths';
 import { Seo } from '../seo/Seo';
+import { track } from '../analytics/track';
 import { pageTitle } from '../seo/meta';
 import { SiteLayout } from '../components/SiteLayout';
 import { CARD_SIZES } from '../components/ProjectCard';
 import { Picture } from '../components/Picture';
+import { TypeIcon } from '../components/CategoryIcon';
+import { Reveal } from '../components/useReveal';
+import { RandomFadeText } from '../components/RandomFadeText';
 import type { Lang, ProjectType } from '../content/types';
 
 const PROJECTS_PER_SECTION = 3;
@@ -114,14 +118,15 @@ export function ProjectsPage() {
                 const prices = showPrices ? headlinePrices(type, lang) : [];
                 const description = type.description[lang]?.trim();
                 return (
-                  <section className="project-section" id={type.slug[lang]} key={type.id} aria-labelledby={`sec-${type.id}`}>
+                  <Reveal as="section" className="project-section" id={type.slug[lang]} key={type.id} aria-labelledby={`sec-${type.id}`}>
                     <header className="project-section__header">
                       <div className="project-section__intro">
                         <h2 id={`sec-${type.id}`} className="project-section__title">
+                          <TypeIcon type={type} className="project-section__icon" />
                           <Link to={paths.projectType(lang, type.slug[lang])}>{title}</Link>
                         </h2>
                         <p className="project-section__count">
-                          {list.length === 1 ? t('types.countOne') : t('types.count', { n: list.length })}
+                          {list.length === 1 ? t('types.countOne') : t('types.count', { n: String(list.length).padStart(2, '0') })}
                         </p>
                         {description && <p className="project-section__description">{description}</p>}
                       </div>
@@ -150,13 +155,14 @@ export function ProjectsPage() {
                       )}
                     </header>
 
-                    <ul className="project-portfolio">
+                    <Reveal as="ul" className="project-portfolio" threshold={0.1}>
                       {list.slice(0, perSection).map((project, projectIndex) => {
                         const to = projectPath(site, project, lang);
                         if (!to) return null;
                         const cover = project.coverAssetId ? assets[project.coverAssetId] : undefined;
                         const coverImage = project.images.find((i) => i.assetId === project.coverAssetId);
-                        const caption = [title, project.location[lang] || project.location.vi, project.year].filter(Boolean).join(' · ');
+                        // The category is already the section heading, so the caption shows only place and year.
+                        const caption = [project.location[lang] || project.location.vi, project.year].filter(Boolean).join(' — ');
                         return (
                           <li className="project-portfolio__item" key={project.id}>
                             <Link className="project-portfolio__link" to={to}>
@@ -176,7 +182,7 @@ export function ProjectsPage() {
                           </li>
                         );
                       })}
-                    </ul>
+                    </Reveal>
 
                     {list.length > perSection && (
                       <p className="project-section__all">
@@ -185,15 +191,22 @@ export function ProjectsPage() {
                           {t('types.viewAll', { n: list.length, type: title.toLowerCase() })}<span className="link-arrow" aria-hidden="true">→</span></Link>
                       </p>
                     )}
-                  </section>
+                  </Reveal>
                 );
               })}
             </div>
 
-            <section className="project-journey" aria-labelledby="journey-title">
-              <h2 id="journey-title">{t('journey.title')}</h2>
-              <Link to={paths.contact(lang)}>{t('journey.cta')}<span className="link-arrow" aria-hidden="true">→</span></Link>
-            </section>
+            <Reveal as="section" className="project-journey" aria-labelledby="journey-title">
+              <h2 id="journey-title">
+                <RandomFadeText text={t('journey.title')} order="ltr" duration={1600} />
+              </h2>
+              <Link className="project-journey__cta" to={paths.contact(lang)}>{t('journey.cta')}<span className="link-arrow" aria-hidden="true">→</span></Link>
+              <p className="project-journey__call">
+                <a href={`tel:${site.contact.phoneE164}`} onClick={() => track('call_click', { location: 'projects' })}>
+                  {t('journey.call', { phone: site.contact.phone })}
+                </a>
+              </p>
+            </Reveal>
           </>
         ) : (
           <p className="empty-note">{t('projects.empty')}</p>

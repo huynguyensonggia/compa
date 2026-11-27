@@ -1,26 +1,26 @@
 {
   "id": "prj_edbba8309f",
-  "slug": "du-an-minh-hoa-09",
+  "slug": "homestay-hien-lua",
   "status": "published",
   "sortOrder": 8,
   "isDemo": true,
   "typeId": "typ_homestay",
   "title": {
-    "vi": "Dự án minh họa 09",
-    "en": "Sample project 09"
+    "vi": "Homestay Hiên Lúa",
+    "en": "Rice Field Veranda Homestay"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Trà Quế, Hội An",
+    "en": "Tra Que, Hoi An"
   },
-  "year": null,
+  "year": 2023,
   "categories": [
     "architecture",
     "landscape"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Homestay có hiên rộng và sân cỏ, mở ra cánh đồng rau làng Trà Quế. Mỗi phòng là một góc nghỉ yên tĩnh, đón gió đồng và ánh nắng sớm.",
+    "en": "A homestay with a wide veranda and lawn opening onto the Tra Que vegetable fields. Each room is a quiet retreat that catches the field breeze and morning sun."
   },
   "coverAssetId": "as_07dedf8b73",
   "seo": {

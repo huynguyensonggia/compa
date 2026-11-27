@@ -1,26 +1,26 @@
 {
   "id": "prj_a121fded10",
-  "slug": "du-an-minh-hoa-15",
+  "slug": "villa-than-moc",
   "status": "published",
   "sortOrder": 14,
   "isDemo": true,
   "typeId": "typ_bietthu",
   "title": {
-    "vi": "Dự án minh họa 15",
-    "en": "Sample project 15"
+    "vi": "Villa Than Mộc",
+    "en": "Charcoal & Timber Villa"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cẩm An, Hội An",
+    "en": "Cam An, Hoi An"
   },
-  "year": null,
+  "year": 2025,
   "categories": [
     "architecture",
     "construction"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Sự tương phản giữa tấm ốp tối màu và lam gỗ dọc tạo nên diện mạo trầm, ấm. Lam gỗ vừa che nắng vừa giữ tầm nhìn ra khu vườn.",
+    "en": "Dark cladding set against vertical timber battens gives the house a calm, warm presence. The battens shade the sun while keeping views to the garden."
   },
   "coverAssetId": "as_e2e02fc98c",
   "seo": {

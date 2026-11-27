@@ -17,9 +17,6 @@ export function ProjectDetailView({ project, assets, site }: { project: ProjectF
   const location = project.location[lang] || project.location.vi;
   const description = project.description[lang] || project.description.vi;
   const sections = gallerySections(project);
-  const sources = Array.from(
-    new Set(project.images.map((i) => assets[i.assetId]).filter((a) => a?.isDemo && a.sourceUrl?.includes('unsplash')).map(() => 'Unsplash')),
-  );
 
   return (
     <article className="container project">
@@ -55,15 +52,6 @@ export function ProjectDetailView({ project, assets, site }: { project: ProjectF
             <div>
               <dt>{t('project.categories')}</dt>
               <dd>{project.categories.map((c) => t(`cat.${c}`)).join(' · ')}</dd>
-            </div>
-          )}
-          {project.isDemo && (
-            <div>
-              <dt className="visually-hidden">{t('project.demo')}</dt>
-              <dd className="project__demo">
-                {t('project.demo')}
-                {sources.length > 0 && ` · ${t('project.imageSource')}: ${sources.join(', ')}`}
-              </dd>
             </div>
           )}
         </dl>

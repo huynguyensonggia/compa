@@ -4,6 +4,7 @@ import type { GallerySection } from '../content/resolve';
 import { useLang, useT } from '../i18n';
 import { Picture } from './Picture';
 import { Lightbox } from './Lightbox';
+import { Reveal } from './useReveal';
 
 interface Props {
   sections: GallerySection[];
@@ -30,7 +31,7 @@ export function ProjectGallery({ sections, assets }: Props) {
       {sections.map((section, s) => {
         const title = section.group.title[lang] || section.group.title.vi;
         return (
-          <section key={section.group.id} className="gallery__section" aria-labelledby={`g-${section.group.id}`}>
+          <Reveal as="section" key={section.group.id} className="gallery__section" aria-labelledby={`g-${section.group.id}`} threshold={0.05}>
             <h2 id={`g-${section.group.id}`} className="gallery__heading">
               {title}
               <span className="gallery__count">{section.images.length}</span>
@@ -57,7 +58,7 @@ export function ProjectGallery({ sections, assets }: Props) {
                 </li>
               ))}
             </ul>
-          </section>
+          </Reveal>
         );
       })}
       {open && active && (

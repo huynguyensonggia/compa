@@ -1,26 +1,26 @@
 {
   "id": "prj_9e5b05fa40",
-  "slug": "du-an-minh-hoa-11",
+  "slug": "homestay-khoi-trang",
   "status": "published",
   "sortOrder": 10,
   "isDemo": true,
   "typeId": "typ_homestay",
   "title": {
-    "vi": "Dự án minh họa 11",
-    "en": "Sample project 11"
+    "vi": "Homestay Khối Trắng",
+    "en": "White Cube Homestay"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cẩm Thanh, Hội An",
+    "en": "Cam Thanh, Hoi An"
   },
-  "year": null,
+  "year": 2022,
   "categories": [
     "architecture",
     "landscape"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Những khối hộp trắng đơn giản đặt trên nền cỏ xanh, gần rừng dừa Bảy Mẫu. Hình khối tối giản giúp công trình hòa vào cảnh quan và giữ nhiệt độ mát mẻ bên trong.",
+    "en": "Simple white cubes set on green lawn near the Bay Mau coconut forest. The minimal forms blend into the landscape and keep the interiors cool."
   },
   "coverAssetId": "as_2009c3693f",
   "seo": {

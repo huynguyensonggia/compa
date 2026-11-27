@@ -1,25 +1,25 @@
 {
   "id": "prj_cd38075da6",
-  "slug": "du-an-minh-hoa-07",
+  "slug": "chang-vang-coffee",
   "status": "published",
   "sortOrder": 6,
   "isDemo": true,
   "typeId": "typ_coffee",
   "title": {
-    "vi": "Dự án minh họa 07",
-    "en": "Sample project 07"
+    "vi": "Chạng Vạng Coffee",
+    "en": "Dusk Coffee"
   },
   "location": {
-    "vi": "",
-    "en": ""
+    "vi": "Cẩm Hà, Hội An",
+    "en": "Cam Ha, Hoi An"
   },
-  "year": null,
+  "year": 2023,
   "categories": [
     "architecture"
   ],
   "description": {
-    "vi": "",
-    "en": ""
+    "vi": "Quán cà phê mái dốc sáng đèn lúc chiều muộn, gợi hình ảnh ngôi nhà quen thuộc giữa làng. Không gian trong quán dùng gỗ và ánh sáng vàng ấm cho những buổi hẹn chậm rãi.",
+    "en": "A pitched-roof café that glows at dusk, echoing the familiar village house. Timber and warm light inside make room for slow afternoons."
   },
   "coverAssetId": "as_0886cf3a85",
   "seo": {

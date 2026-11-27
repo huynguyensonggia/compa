@@ -113,7 +113,7 @@
         "en": ""
       },
       "coverAssetId": null,
-      "icon": "elev-villa",
+      "icon": "",
       "sortOrder": 0,
       "prices": [
         {
@@ -181,7 +181,7 @@
         "en": ""
       },
       "coverAssetId": null,
-      "icon": "elev-townhouse",
+      "icon": "",
       "sortOrder": 1,
       "prices": [
         {
@@ -249,7 +249,7 @@
         "en": ""
       },
       "coverAssetId": null,
-      "icon": "elev-hotel",
+      "icon": "",
       "sortOrder": 2,
       "prices": [
         {
@@ -317,7 +317,7 @@
         "en": ""
       },
       "coverAssetId": null,
-      "icon": "elev-homestay",
+      "icon": "",
       "sortOrder": 3,
       "prices": [
         {
@@ -385,7 +385,7 @@
         "en": ""
       },
       "coverAssetId": null,
-      "icon": "elev-restaurant",
+      "icon": "",
       "sortOrder": 4,
       "prices": [
         {
@@ -453,7 +453,7 @@
         "en": ""
       },
       "coverAssetId": null,
-      "icon": "elev-coffee",
+      "icon": "",
       "sortOrder": 5,
       "prices": [
         {
@@ -541,8 +541,8 @@
         "en": "Contact"
       },
       "intro": {
-        "vi": "Liên hệ COMPA Architecture Hội An để trao đổi về ngôi nhà của bạn.",
-        "en": "Get in touch with COMPA Architecture Hội An to talk about your home."
+        "vi": "Mỗi công trình khởi đầu từ một cuộc trò chuyện cởi mở về nếp sống, thói quen và mảnh đất của gia đình bạn. Hãy ghé thăm studio COMPA tại Hội An hoặc để lại lời nhắn để chúng tôi cùng bạn phác thảo tổ ấm.",
+        "en": "Every project begins with an open conversation about your family's way of life, habits and land. Visit the COMPA studio in Hoi An or leave us a message so we can sketch your home together."
       }
     },
     "notFound": {
